@@ -1,0 +1,9 @@
+title: LVL References
+description: Reference material for LVL Motion sensors and apps
+theme: jekyll-theme-cayman
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
