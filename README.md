@@ -18,17 +18,7 @@ Individual guides:
 - LED light patterns: https://lvlmotion.github.io/lvl-refs/led-patterns
 - Sensor placement guide: https://lvlmotion.github.io/lvl-refs/sensor-placement
 
-### Enabling Pages (one time)
-
-1. Go to the repository **Settings** tab.
-2. Open **Pages** in the left sidebar.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-4. Set **Branch** to `main` and the folder to `/docs`, then **Save**.
-5. Wait about a minute, then open the URL above. Pushes to `main` rebuild the
-   site automatically.
-
-A custom domain (for example `docs.lvlmotion.com`) can be added later on the same
-Pages settings screen without changing anything in this repo.
+Pushes to `main` rebuild the site automatically, live in about a minute.
 
 ## Repository layout
 
