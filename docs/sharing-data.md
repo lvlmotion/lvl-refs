@@ -1,7 +1,7 @@
 ---
 title: Sharing Recorded Data
 description: how to send session data off the phone, right after recording or later with My Files
-nav_order: 3
+nav_order: 5
 ---
 
 # Sharing Recorded Data
