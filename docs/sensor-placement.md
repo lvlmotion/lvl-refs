@@ -81,11 +81,6 @@ to be measured to the millimetre.
 centre line keeps the sensor near the body's line of rotation, which keeps turning
 and side-to-side signals clean.
 
-**Keep magnetic material away from the sensor.** The sensor includes a compass
-(magnetometer). Avoid placing keys, phones, steel buckles, or other magnetic metal
-right next to it, and use the plastic-buckle belt provided rather than a metal one.
-A fixed nearby metal object is manageable; a moving one is not.
-
 **Same placement for repeat visits.** For tracking a person over time, put the
 sensors in the same spots each visit. Consistency between sessions matters more
 than any single exact location.
