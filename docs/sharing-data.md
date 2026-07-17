@@ -1,6 +1,7 @@
 ---
 title: Sharing Recorded Data
 description: how to send session data off the phone, right after recording or later with My Files
+nav_order: 3
 ---
 
 # Sharing Recorded Data
@@ -13,6 +14,9 @@ Internal storage / Documents / LEVEL_Sensor / 2026_07_17_12_13_50 /
     imu-chest-1847.csv
     imu-right knee-70a8.csv
 ```
+
+(For the recording workflow itself - connecting sensors, profiles, placement
+labels - see [Collecting data](collecting-data).)
 
 There are two ways to get that data off the phone:
 
@@ -28,69 +32,18 @@ There are two ways to get that data off the phone:
 
 ## Option A: Share right after recording
 
-This walks the whole flow from connecting sensors to sharing the files, as it
-happens during a normal session.
-
-### 1. Connect your sensors
-
-Open the LEVEL Sensor app. It scans for nearby sensors automatically. Make sure
-your sensors are turned on and nearby - each one appears in the list with its
-ID and battery level.
-
-<img src="assets/sharing-data/app-01-scan-searching.jpg" alt="The app searching for sensors, with two sensors listed under Available Sensors" width="280">
-
-Tick the sensors you want to use, then tap **CONNECT N SENSORS**.
-
-<img src="assets/sharing-data/app-02-select-sensors.jpg" alt="Both sensors ticked, with the Connect 2 Sensors button at the bottom" width="280">
-
-### 2. Create a profile (first time only)
-
-Once the sensors connect, the app asks you to add them to a profile. A profile
-groups the sensors you use together, so next session you can reconnect the
-whole set in one tap. Tap **CREATE A PROFILE**, give it a name, and tap
-**CREATE PROFILE & CONTINUE**.
-
-<img src="assets/sharing-data/app-03-sensors-connected.jpg" alt="Sensors Connected screen with Create a Profile button" width="280">
-<img src="assets/sharing-data/app-04-create-profile.jpg" alt="Create a Profile screen with a name typed in" width="280">
-
-### 3. Label each sensor's placement
-
-For each sensor, the app highlights the sensor ID and asks where on the body it
-is placed. Pick the label that matches (or **ADD CUSTOM LABEL**), then tap
-**SAVE SENSOR LOCATION**. The label ends up in the CSV filename, so accurate
-labels make the data much easier to work with later.
-
-<img src="assets/sharing-data/app-05-place-sensor-1.jpg" alt="Place Your Sensors screen for the first sensor with Chest selected" width="280">
-<img src="assets/sharing-data/app-06-place-sensor-2.jpg" alt="Place Your Sensors screen for the second sensor with Right Knee selected" width="280">
-
-### 4. Record the session
-
-The profile screen shows every sensor with its placement, ID, battery, and
-connection status. When everything reads CONNECTED, tap **START SESSION**.
-
-<img src="assets/sharing-data/app-07-start-session.jpg" alt="Profile screen listing both sensors as connected, with Start Session button" width="280">
-
-While recording, each sensor shows STREAMING. Run your movement or test, then
-tap **STOP RECORDING**.
-
-<img src="assets/sharing-data/app-08-recording.jpg" alt="Now Recording screen with both sensors streaming" width="280">
-
-### 5. Share the files from the Recording Saved screen
-
-The confirmation screen lists the CSV file saved for each sensor and shows the
-folder they were saved to. Tap the **Documents/LEVEL_Sensor/...** link to open
-that session folder in your Files app, straight from the confirmation screen.
+When you stop a recording, the Recording Saved screen lists the CSV file saved
+for each sensor and shows the folder they were saved to. Tap the
+**Documents/LEVEL_Sensor/...** link and the app zips the whole session folder
+and opens the share screen for you - pick how to send it (email, Drive, or any
+other app on the phone) and it goes out as a single zip attachment.
 
 <img src="assets/sharing-data/app-09-recording-saved.jpg" alt="Recording Saved screen listing one CSV per sensor and the folder path" width="280">
 
-From there, select the files (or go up one level and select the whole session
-folder), tap **Share**, and pick how to send them - email, Drive, or any other
-app on the phone. If you are sharing the whole folder, zip it first: see
-[Compress the session folder](#3-compress-the-session-folder-to-a-zip) below.
+To send just one sensor's data instead, tap that sensor's card in the list -
+the share screen opens with only that CSV file attached.
 
-<!-- TODO: add screenshots of the share sheet from this entry point, and
-     confirm exactly what tapping the folder link opens on stock Samsung
-     (My Files at the session folder?). -->
+<!-- TODO: add a screenshot of the share sheet after tapping the link. -->
 
 ---
 
@@ -149,7 +102,8 @@ and pick how to send it - email, Drive, or any other app on the phone.
   name to pick the right one.
 - **Filenames carry the placement.** Files are named
   `imu-<placement>-<sensor id>.csv` (for example `imu-chest-1847.csv`), so
-  labelling placements correctly during setup (step 3 of Option A) is what
-  makes the data identifiable afterwards.
+  labelling placements correctly during setup (see
+  [Collecting data](collecting-data)) is what makes the data identifiable
+  afterwards.
 - **Sending many sessions:** in My Files you can select several session
   folders at once before tapping Compress, which produces a single zip.
