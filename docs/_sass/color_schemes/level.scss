@@ -1,0 +1,33 @@
+// LVL Motion color scheme — dark base with the app's teal-green accents.
+// Sampled from the LEVEL Sensor app: primary teal #46BCA4, dark bg #1F1F1F,
+// deep teal #16433C.
+
+$color-scheme: dark;
+
+// Brand palette
+$level-teal:        #46bca4; // primary accent (buttons, links, active nav)
+$level-teal-bright: #6fd3bd; // lighter accent for hover / on-dark text
+$level-deep-teal:   #16433c; // muted teal (active nav background)
+$level-bg:          #1a1a1a; // page background
+$level-surface:     #242424; // sidebar / code / table surfaces
+$level-border:      #33383a; // hairlines and borders
+
+// just-the-docs variable overrides
+$body-background-color:      $level-bg;
+$sidebar-color:              $level-surface;
+$search-background-color:    $level-surface;
+$table-background-color:     $level-surface;
+$code-background-color:      $level-surface;
+$feedback-color:             darken($level-teal, 10%);
+
+$body-text-color:            #e6e6e6;
+$body-heading-color:         #ffffff;
+$nav-child-link-color:       #c9c9c9;
+$link-color:                 $level-teal-bright;
+$btn-primary-color:          $level-teal;
+
+$border-color:               $level-border;
+
+// Active / hover nav uses the deep teal so it reads as "Level green"
+$nav-list-link-color:        #e6e6e6;
+$nav-list-item-border-color: $level-border;

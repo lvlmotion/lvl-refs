@@ -1,6 +1,7 @@
 title: LVL References
 description: Reference material for LVL Motion sensors and apps
 remote_theme: just-the-docs/just-the-docs
+color_scheme: level
 plugins:
   - jekyll-remote-theme
 

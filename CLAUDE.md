@@ -26,6 +26,10 @@ lvl-refs/
 
 - Theme is [just-the-docs](https://just-the-docs.github.io/just-the-docs/)
   loaded through `remote_theme` — no vendored theme files, no Gemfile.
+- Colors use a custom "level" scheme (`color_scheme: level` in `_config.yml`,
+  defined in `docs/_sass/color_schemes/level.scss`): a dark base with the app's
+  teal-green accents, sampled from the LEVEL Sensor app. A local `_sass` file
+  overrides the remote theme's, so this works without vendoring the theme.
 - The sidebar nav is generated automatically from every page that has a
   `title` in its front matter, ordered by `nav_order`.
 - The landing page (`index.md`) additionally auto-lists all guides with their
