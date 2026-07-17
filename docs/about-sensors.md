@@ -9,13 +9,14 @@ nav_order: 2
 The basics of handling a sensor: charging it, waking it, resetting it, and
 reading the light on it.
 
-<img src="assets/about-sensors/sensor-top.jpg" alt="A LEVEL sensor - a small black square unit" width="320">
+<figure>
+  <img src="assets/about-sensors/sensor-top.jpg" alt="A Level Inez sensor, a small black square unit with a status LED, a button, a USB-C charging port, and a reset button" width="320">
+  <figcaption>A Level Inez sensor. It has a status LED, a button, a USB-C port for charging, and a small reset button - take a moment to find each of these on your own sensor.</figcaption>
+</figure>
 
 ## Charging
 
-Each sensor charges from any USB-C cable and charger - there is nothing special
-or proprietary to plug in. The same cable and charger you use for a phone or
-laptop works. Check a sensor's battery level in the app.
+Each sensor charges from any USB-C cable and charger. Check a sensor's battery level in the app.
 
 ## Waking and sleeping
 
