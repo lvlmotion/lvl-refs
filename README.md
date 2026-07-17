@@ -17,6 +17,7 @@ Individual guides:
 
 - LED light patterns: https://lvlmotion.github.io/lvl-refs/led-patterns
 - Sensor placement guide: https://lvlmotion.github.io/lvl-refs/sensor-placement
+- Sharing recorded data: https://lvlmotion.github.io/lvl-refs/sharing-data
 
 Pushes to `main` rebuild the site automatically, live in about a minute.
 
@@ -30,6 +31,7 @@ lvl-refs/
     index.md             site landing page
     led-patterns.md      what each LED colour and pattern means
     sensor-placement.md  where to place each sensor and why
+    sharing-data.md      how to send recorded session data off the phone
     assets/              images (add as needed)
 ```
 
