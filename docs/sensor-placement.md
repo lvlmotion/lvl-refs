@@ -1,5 +1,6 @@
 ---
 title: Sensor Placement Guide
+description: where to place each sensor on the body and why
 ---
 
 # Sensor Placement Guide

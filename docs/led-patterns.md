@@ -1,5 +1,6 @@
 ---
 title: LED Light Patterns
+description: what each colour and blink pattern on a sensor means
 ---
 
 # LED Light Patterns

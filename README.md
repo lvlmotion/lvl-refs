@@ -43,11 +43,16 @@ lvl-refs/
    ```
    ---
    title: Your Page Title
+   description: one-line summary shown in the guide list
    ---
    ```
 
 2. Put any images in `docs/assets/` and link them with a relative path.
 3. Commit and push to `main`. The site rebuilds in about a minute.
+
+Every page with a `title` is listed automatically on the landing page (the
+index loops over `site.pages`), so there is no guide list to maintain by hand.
+The `description` line is optional and appears next to the title in that list.
 
 ## Keeping content portable
 
