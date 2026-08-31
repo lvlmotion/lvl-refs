@@ -34,17 +34,43 @@ Skip this only if you record IMU sensors and nothing else.
 
 ## Part 2b - Vicon (optional: only if you trigger Vicon/Nexus)
 
-In **Settings -> Sync Sources**:
+Vicon and the app talk over the network by UDP start/stop trigger packets. Both
+sides must use the **same UDP port**, and Nexus must have remote/UDP triggering
+enabled (Nexus's remote-trigger setup, so it either broadcasts start/stop or
+listens for them). Then pick who leads.
+
+Common to both directions, in **Settings -> Sync Sources**:
 
 1. Turn **Vicon** on.
 2. Set the **Vicon UDP port** to match Nexus.
 3. Set the **Vicon SDK path** to your DataStream SDK's Python folder (default
-   `C:/Program Files/Vicon/DataStream SDK/Win64/Python/vicon_dssdk`).
-4. Choose the direction under **mode**: *Vicon as master* (Nexus starts, the app
-   follows) or *App as master* (the app starts, Nexus follows).
+   `C:/Program Files/Vicon/DataStream SDK/Win64/Python/vicon_dssdk`). This is only
+   needed to pull mocap frames into the aligned output, not to trigger.
 
-On the **Recorder** tab the **Sync** panel then shows Vicon armed. Start a capture
-from whichever side you set as master.
+### Vicon as master - "start on remote trigger" (Nexus leads, app auto-captures)
+
+You start the capture in Nexus; the app hears it and records automatically.
+
+1. Under **mode**, choose **Vicon as master**.
+2. In Nexus, enable its remote trigger to **send** UDP start/stop on that port.
+3. On the **Recorder** tab, in the **Sync** panel, tick **Arm This Session (Listen
+   For Nexus Trigger)** (or leave auto-arm on).
+4. Start/stop the capture in Nexus - the app starts and stops with it, per trial,
+   and matches the trial name.
+
+### App as master - "start/stop over network" (app leads, Nexus follows)
+
+You press Stream in the app; it sends the start/stop to Nexus.
+
+1. Under **mode**, choose **App as master**, and set the **Nexus host** if Nexus
+   is on another PC.
+2. In Nexus, set it to **receive** remote triggers and arm it to capture on that
+   port.
+3. On the **Recorder** tab, press **Stream** to send START (Nexus begins), and
+   **Stop** to send STOP.
+
+Either way, the **Sync** panel shows the wiring and where to press. Do a shared
+hop at the start of each trial to confirm alignment later.
 
 ## Part 2c - Sony cameras (optional: only if you trigger Sony/Theia)
 
