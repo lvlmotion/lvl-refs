@@ -18,6 +18,20 @@ reading the light on it.
 
 Each sensor charges from any USB-C cable and charger. Check a sensor's battery level in the app.
 
+The app shows one of four battery levels. Roughly how long a sensor keeps
+recording on each, while streaming:
+
+| Battery level | Cell voltage | Charge left | Recording time left |
+|---|---|---|---|
+| HIGH | above 3.5 V | 30 to 100% | 24+ hours |
+| MED | 3.3 to 3.5 V | 5 to 30% | about 9 hours |
+| LOW | 3.3 V or below | 0 to 5% | about 30 minutes |
+| NO BATTERY | 0 V (no reading) | 0% | 0 minutes, recharge now |
+
+The last part of the battery drains fast: a sensor drops from MED to empty much
+quicker than it falls from full to MED. If you have more recording to do,
+recharge as soon as you see LOW.
+
 ## Waking and sleeping
 
 A sensor is either awake or asleep. It sleeps to save battery and wakes
