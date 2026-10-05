@@ -3,9 +3,9 @@ title: Home
 nav_order: 1
 ---
 
-# LVL References
+# LEVEL References
 
-Reference material for LVL Motion sensors and apps.
+Reference material for LEVEL Motion sensors and apps.
 
 ## Guides
 

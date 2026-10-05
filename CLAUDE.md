@@ -1,6 +1,6 @@
 # lvl-refs
 
-Public reference site for LVL Motion sensors and apps (user manuals, FAQs,
+Public reference site for LEVEL Motion sensors and apps (user manuals, FAQs,
 hardware guides). Published via GitHub Pages at
 https://lvlmotion.github.io/lvl-refs/ — pushes to `main` rebuild the live site
 in about a minute, so treat every push as a production deploy.
