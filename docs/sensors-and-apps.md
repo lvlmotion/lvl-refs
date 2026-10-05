@@ -20,6 +20,8 @@ A recording setup has three parts:
 A small wearable motion sensor that clips or straps onto the body - feet,
 lower back, wrists, legs or chest. See [Sensor placement](sensor-placement).
 
+| Feature | Specification |
+|---|---|
 | Motion sensing | 6-axis: 3-axis accelerometer (up to ±16 g) and 3-axis gyroscope |
 | Sampling rate | set per recording; 50, 100 and 200 Hz |
 | Wireless | Bluetooth Low Energy |
@@ -37,6 +39,8 @@ A small USB-C receiver that collects data from several sensors at once and
 hands it to the phone or computer over USB. Use it when you need more sensors
 than the phone's Bluetooth handles comfortably, or when recording on a PC.
 
+| Feature | Specification |
+|---|---|
 | Connects to | an Android phone (USB-C) or a Windows PC (USB) |
 | Sensors per Hub | up to 8 sensors at 100 Hz in our bench tests |
 | Without a Hub | a phone's own Bluetooth handles about 3 to 4 sensors at 100 Hz |
