@@ -10,8 +10,8 @@ The basics of handling a sensor: charging it, waking it, resetting it, and
 reading the light on it.
 
 <figure>
-  <img src="assets/about-sensors/sensor-top.jpg" alt="A Level Inez sensor, a small black square unit with a status LED, a button, a USB-C charging port, and a reset button" width="320">
-  <figcaption>A Level Inez sensor. It has a status LED, a button, a USB-C port for charging, and a small reset button - take a moment to find each of these on your own sensor.</figcaption>
+  <img src="assets/about-sensors/sensor-top.jpg" alt="A LEVEL Inez sensor, a small black square unit with a status LED, a button, a USB-C charging port, and a reset button" width="320">
+  <figcaption>A LEVEL Inez sensor. It has a status LED, a button, a USB-C port for charging, and a small reset button - take a moment to find each of these on your own sensor.</figcaption>
 </figure>
 
 ## Charging
