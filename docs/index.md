@@ -5,15 +5,11 @@ nav_order: 1
 
 # LEVEL References
 
-Reference material for LEVEL Motion sensors and apps.
-
-## Quick links
-
-- [Sensors and apps](sensors-and-apps) - specifications for the sensors, the receiver and the apps
-- [Get LEVEL Collector on Google Play](https://play.google.com/store/apps/details?id=com.lvlmotion.appsensor) - the Android research app
-- [lvlmotion.com](https://lvlmotion.com) - sales and partnerships, or email [info@lvlmotion.com](mailto:info@lvlmotion.com)
+Reference material for LEVEL Motion sensors and apps. 
 
 ## Guides
+
+- [Sensors and apps](sensors-and-apps) - specifications for the sensors, the receiver and the apps
 
 ### Hardware: LEVEL Inez sensors and LEVEL Hub
 
@@ -31,9 +27,11 @@ The phone app (labelled LEVEL Sensor on the phone), [on Google Play](https://pla
 
 ### LEVEL Collector for Windows
 
-The desktop recorder: records sensors through LEVEL Hub and coordinates Vicon, Sony and Polar.
+The desktop recorder: records sensors through LEVEL Hub and coordinates Vicon, Sony and Polar. For install, please email [info@lvlmotion.com](mailto:info@lvlmotion.com).
 
 - [Desktop recorder](desktop-recorder) - overview
 - [First install](installing-the-recorder) - first-time setup, with optional sync sections
 - [Running a recording](running-a-recording) - connect sensors and record a session
 - [Syncing with other systems](syncing-with-other-systems) - how Polar, Vicon and Sony/Theia line up, and the fixed offsets to remove
+
+For more information, see [lvlmotion.com](https://lvlmotion.com), or email [info@lvlmotion.com](mailto:info@lvlmotion.com).
