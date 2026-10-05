@@ -17,7 +17,7 @@ lvl-refs/
   CLAUDE.md            this file — contributor conventions
   docs/                published content (Pages serves this folder)
     _config.yml        site config (just-the-docs via remote_theme)
-    index.md           landing page; auto-lists all guides
+    index.md           landing page: quick links + guides grouped by product
     *.md               one guide per file
     assets/            images, grouped per guide
 ```
@@ -32,9 +32,11 @@ lvl-refs/
   overrides the remote theme's, so this works without vendoring the theme.
 - The sidebar nav is generated automatically from every page that has a
   `title` in its front matter, ordered by `nav_order`.
-- The landing page (`index.md`) additionally auto-lists all guides with their
-  `description` via a Liquid loop over `site.pages` — there is no hand-written
-  guide list to maintain anywhere.
+- The landing page (`index.md`) is a hand-written table of contents: quick links,
+  then the guides grouped by product (Hardware: LEVEL Inez and LEVEL Hub;
+  LEVEL Collector for Android; LEVEL Collector for Windows). **When you add a
+  guide, also add a line for it under the right group in `index.md`.**
+  Specifications live on their own page, `sensors-and-apps.md`.
 
 ## Adding or editing a guide
 
