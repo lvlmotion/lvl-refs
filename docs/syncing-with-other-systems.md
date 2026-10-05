@@ -1,11 +1,11 @@
 ---
-title: Syncing with other systems
-parent: Desktop recorder
+title: Syncing with Other Systems
+parent: LEVEL Collector for Windows
 description: how sensor data lines up with Polar, Vicon, and Sony/Theia - what to set up before, and the fixed offsets to remove after
 nav_order: 3
 ---
 
-# Syncing with other systems
+# Syncing with Other Systems
 
 Every stream the recorder writes is stamped with an **absolute timestamp on the
 same computer clock** - IMU sensors, Polar H10, Vicon triggers, and Sony

@@ -1,7 +1,8 @@
 ---
 title: Sharing Recorded Data
+parent: LEVEL Collector for Android
 description: how to send session data off the phone, right after recording or later with My Files
-nav_order: 5
+nav_order: 2
 ---
 
 # Sharing Recorded Data

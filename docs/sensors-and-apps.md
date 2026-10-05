@@ -1,10 +1,11 @@
 ---
-title: Sensors and apps
+title: Sensors and Apps
+parent: Hardware
 description: specifications - LEVEL Inez sensors, LEVEL Hub, LEVEL Collector, LEVEL Mobility (in development), and what they work with
-nav_order: 2
+nav_order: 1
 ---
 
-# Sensors and apps
+# Sensors and Apps
 
 LEVEL Motion makes wearable motion sensors and the software that records them.
 A recording setup has three parts:

@@ -1,7 +1,8 @@
 ---
 title: Collecting Data
+parent: LEVEL Collector for Android
 description: how to connect sensors, set up a profile, and record a session
-nav_order: 4
+nav_order: 1
 ---
 
 # Collecting Data

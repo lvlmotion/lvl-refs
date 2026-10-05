@@ -1,7 +1,8 @@
 ---
 title: Updating Firmware
+parent: Hardware
 description: how to update a sensor or the dongle over Bluetooth with nRF Connect Device Manager
-nav_order: 6
+nav_order: 4
 ---
 
 # Updating Firmware

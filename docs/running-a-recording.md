@@ -1,11 +1,11 @@
 ---
-title: Running a recording
-parent: Desktop recorder
+title: Running a Recording
+parent: LEVEL Collector for Windows
 description: step-by-step - connect sensors and record a session on the desktop app
 nav_order: 2
 ---
 
-# Running a recording
+# Running a Recording
 
 Step by step, from a cold start to files on disk. Assumes the app is installed
 (see [First install](installing-the-recorder.html)) and the sensors are charged.

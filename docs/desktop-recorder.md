@@ -1,11 +1,11 @@
 ---
-title: Desktop recorder
+title: LEVEL Collector for Windows
 description: the desktop app that records IMU sensors and coordinates Vicon, Sony, and Polar
-nav_order: 8
+nav_order: 4
 has_children: true
 ---
 
-# Desktop recorder
+# LEVEL Collector for Windows
 
 The desktop recorder is the computer app (separate from the phone app) that
 records the IMU sensors over the USB dongle and coordinates the optional sync

@@ -1,5 +1,6 @@
 ---
 title: About Sensors
+parent: Hardware
 description: sensor basics - charging, waking, resetting, and what the LED means
 nav_order: 2
 ---

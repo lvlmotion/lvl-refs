@@ -1,11 +1,11 @@
 ---
-title: First install
-parent: Desktop recorder
+title: First Install
+parent: LEVEL Collector for Windows
 description: step-by-step first-time setup of the desktop recorder, with optional sync sections
 nav_order: 1
 ---
 
-# First install: the desktop recorder
+# First Install
 
 A step-by-step first-time setup. Do **Part 1** on every machine. The sync parts
 (2b onward) are **optional** - only do the one you actually use, and each says

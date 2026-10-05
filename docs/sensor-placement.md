@@ -1,5 +1,6 @@
 ---
 title: Sensor Placement Guide
+parent: Hardware
 description: where to place each sensor on the body and why
 nav_order: 3
 ---
