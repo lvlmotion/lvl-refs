@@ -35,6 +35,8 @@ lower back, wrists, legs or chest. See [Sensor placement](sensor-placement).
 | Other features | one multi-colour LED; programmable button to log events |
 | Time sync | LEVEL Hub beacon clock ensures all sensors maintain under 5 ms drift of each other |
 | Firmware | updated over Bluetooth (see [Updating firmware](updating-firmware)) |
+| File format | CSV |
+| Certifications | radio module: CE, FCC, ISED, RCM, TELEC, SAR evaluated; full product-level FCC/ISED in progress, CE pending |
 
 For charging, waking and the light patterns, see [About sensors](about-sensors).
 
