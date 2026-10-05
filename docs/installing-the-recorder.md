@@ -85,16 +85,43 @@ On the **Recorder** tab, in the **Sync** panel, click **Get Browser Key** to
 confirm the rig is reachable before recording. If you want sub-frame LTC sync,
 tick **Play LTC signal** there too.
 
-## Part 2d - Sync relay, no IMU (optional: Sony starts Vicon, e.g. force plates)
+## Part 2d - Sync relay: Sony starts Vicon (e.g. force plates), IMU optional
 
-Use this to make a Sony recording start a Vicon capture with no sensors - e.g. to
-line up force plates (on Vicon's sync) with the cameras.
+Use this to make a Sony recording start a Vicon capture - e.g. to line up force
+plates (on Vicon's sync) with the cameras. Sensors are optional: with the dongle
+connected the app also records IMU on the same start; without it the app is a
+pure trigger bridge.
 
 1. Do Part 2b steps 2-3 and Part 2c step 2 (the app needs the Vicon port + Sony
-   URL), but you do **not** need sensors or the dongle.
-2. In **Settings -> Sync Sources**, at the top, find **Sync relay (no IMU): Sony
-   -> Vicon** and click **Start relay**.
+   URL). Connect the dongle/sensors only if you want IMU recorded too.
+2. In **Settings -> Sync Sources**, find **Sync relay (no IMU): Sony -> Vicon**
+   and click **Start relay**.
 3. Record from the Sony console. The app detects the start and fires Nexus.
+
+## Part 2e - Sync relay: Vicon starts Sony (the reverse), with IMU
+
+The other direction: you start the capture in Nexus, and the app both records IMU
+and fires the Sony cameras.
+
+1. Do Part 2b steps 2-3 (Vicon port, Nexus set to **send**) and Part 2c step 2
+   (Sony URL). Connect the dongle/sensors - the IMU is recorded here.
+2. In **Settings -> Sync Sources**, find **Sync relay: Vicon -> Sony (+ IMU)**
+   and click **Start relay**.
+3. Start the capture in Nexus. The app records IMU and starts the cameras.
+
+## Part 2f - App triggers everything at once (LEVEL as master of both)
+
+To have the app lead both systems from one button:
+
+1. Set **Vicon -> mode -> App as master** *and* **Sony -> mode -> App as master**
+   (Part 2b + 2c), Nexus set to **receive**, sensors connected.
+2. On the **Recorder** tab the button reads **Start Stream + Trigger Vicon +
+   Sony**. Press it once: the app records IMU, fires Nexus, and starts the
+   cameras together; Stop ends all three.
+
+> Only one of Parts 2d/2e/2f is active at a time - they are three different
+> "who leads" wirings of the same three systems. The **Sync** panel diagram on
+> the Recorder tab always shows which one is live.
 
 ## Part 2e - Polar H10 (optional: heart-rate / ECG)
 

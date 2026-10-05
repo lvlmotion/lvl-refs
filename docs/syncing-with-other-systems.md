@@ -108,6 +108,30 @@ applied after the fact.)
 apart, and there is a ~375 ms record-start delay - both are absorbed because
 alignment is by timecode, not by file start.)
 
+### Filmed ground-truth clock ("linkdatetime")
+
+A simple, gear-free anchor that ties the video to the PC wallclock: put the
+recorder's **ground-truth clock page** on a monitor **in the camera's frame** at
+the start (and end) of a session and film it. Every frame that sees the clock
+carries an absolute PC date/time, so the video timecode can be pinned to the same
+clock the IMU, Polar, and Vicon timestamps all share - a "linkdatetime" the whole
+session hangs off. Use it as a coarse cross-check for LTC/timecode alignment, and
+as the primary anchor when neither is available (read the clock on a clear frame,
+match it to that frame's timecode).
+
+The page is bundled with the app. Open it in a browser from the installed copy:
+
+```
+C:\Program Files\LEVEL_Sensor\app\resources\sony\clock_display.html
+```
+
+It shows HH:MM:SS.mmm, the date, and the machine's timezone/UTC offset. Below the
+digits is a **10-block binary strip encoding the milliseconds** and a one-second
+sweep bar - the digits blur or land mid-transition on a single filmed frame, but
+the large high-contrast blocks decode to an exact millisecond, so a still frame is
+readable. Film a few seconds of it head-on, filling as much of the frame as is
+practical.
+
 ## Getting aligned files
 
 The recorder's job is to **capture every stream on one clock**; combining them
