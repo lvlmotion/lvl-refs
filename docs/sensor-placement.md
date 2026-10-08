@@ -16,57 +16,60 @@ users building their own multi-sensor configurations.
 
 **Walking and Timed Up and Go**
 
-- One sensor on the top of each foot (see "Feet" below).
+- One sensor on each foot (see "Feet" below).
 - Optional: one sensor on the lower back for trunk motion.
 
 **Balance and sway**
 
-- One sensor on the lower back, on the midline (see "Lower back" below).
+- One sensor on the lower back (see "Lumbar" below).
 
 **Full lower body**
 
-- One sensor on the top of each foot, each shin, and each thigh.
-- One sensor on the lower back or pelvis.
+- One sensor on each foot, each shank, and each thigh.
+- One sensor on the lower back.
 
 Every trial should begin with a few seconds of quiet standing (or sitting) so the
 sensors can establish which way is down. Keep still until the recording is under
 way.
 
+## Which way the sensor faces
+
+Picture the person standing tall with arms relaxed at their sides. In that pose,
+point the sensor's LED **toward the head**. On the feet, where the sensor lies
+flat, point the LED **toward the body** (back toward the ankle).
+
 ## Where each sensor goes
 
 Sensors attach with the provided straps or belt. The mounting position sets which
-body segment a sensor measures.
+body segment a sensor measures. Each location has one recommended spot; the names
+match the location list in the LEVEL apps.
 
-**Feet.** Place the sensor on the top of the foot (the instep), over the midfoot
-above the toes, secured across the laces or with the foot strap. This dorsal
-midfoot position is the standard location used across clinical and research gait
-systems, so data is comparable with those systems.
+**Feet.** On top of the foot, over the laces at the midfoot. LED toward the body.
 
-**Shins (lower leg).** Place the sensor on the flat, bony front of the shin, on the
-rigid part of the bone rather than the soft calf muscle, so it does not wobble.
+**Shanks.** On the flat inner-front surface of the shin bone. This is
+bone, not the soft calf muscle, so the sensor does not wobble.
 
-**Thighs.** Place the sensor on the front or outer thigh, snug enough that it moves
-with the leg and not with loose tissue.
+**Thighs.** On the outer thigh, one hand-width above the knee.
 
-**Lower back.** Place the sensor on the midline of the lower back, over the base of
-the spine, held by an elastic belt with the buckle at the front. Keeping it on the
-centre line, not off to one side, is important: an off-centre sensor mixes turning
-and side-to-side motion into the signals and reduces accuracy.
+**Lumbar.** On the midline of the lower back, at the base of the spine,
+held by the belt with the buckle at the front. Keep it on the centre line: an
+off-centre sensor mixes turning and side-to-side motion into the signals and
+reduces accuracy.
 
-**Pelvis.** As an alternative to the lower back, a sensor can sit slightly lower
-over the pelvis or sacrum, on the same midline, with the same belt.
+**Side of the hip (fallback).** Only when the lumbar spot cannot be placed
+accurately: on the side of the hip, midway between the bony point at the front of
+the hip and the bony point at the back. This is less accurate than the lumbar spot for turns
+and balance.
 
-**Chest.** Place the sensor on the breastbone, centred on the flat part of the
-upper chest below the collarbones.
+**Sternum.** On the flat of the breastbone, just below where the collarbones meet.
 
-**Upper arms.** Place the sensor on the outer upper arm, midway between shoulder
-and elbow.
+**Upper arms.** On the outer upper arm, just below the shoulder muscle.
 
-**Forearms.** Place the sensor on the back of the forearm, or on the wrist like a
-watch for a wrist setup.
+**Wrists.** On the wrist, worn like a watch.
 
-**Head.** For head-mounted use, secure the sensor centred and level with a
-headband.
+**Hands.** On the back of the hand.
+
+**Forehead.** Centred on the forehead, on a headband.
 
 ## Principles
 
@@ -78,9 +81,9 @@ brief quiet hold at the start of each trial matters: it lets the system learn th
 sensor's angle and cancel out mounting tilt. It is also why placement does not need
 to be measured to the millimetre.
 
-**Keep trunk sensors on the midline.** For the lower back, pelvis, and chest, the
-centre line keeps the sensor near the body's line of rotation, which keeps turning
-and side-to-side signals clean.
+**Keep trunk sensors on the midline.** For the lower back and sternum, the centre
+line keeps the sensor near the body's line of rotation, which keeps turning and
+side-to-side signals clean.
 
 **Same placement for repeat visits.** For tracking a person over time, put the
 sensors in the same spots each visit. Consistency between sessions matters more
@@ -93,7 +96,7 @@ recommended by the International Society of Biomechanics (Wu et al., 2002, for t
 ankle, hip, and spine; Wu et al., 2005, for the shoulder, elbow, wrist, and hand).
 There is no formal standard that dictates where wearable sensors are physically
 placed on the body; the positions above follow established clinical and research
-practice, and match the dorsal-foot and lower-back setups used by common commercial
+practice, and match the top-of-foot and lower-back setups used by common commercial
 motion systems. The relationship between each sensor and its body segment is
 established by the quiet-standing calibration at the start of a trial, not by exact
 placement.
