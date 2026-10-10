@@ -29,9 +29,12 @@ The phone app (labelled LEVEL Sensor on the phone), [on Google Play](https://pla
 
 The desktop recorder: records sensors through LEVEL Hub and coordinates Vicon, Sony and Polar. For install, please email [info@lvlmotion.com](mailto:info@lvlmotion.com).
 
-- [Overview](desktop-recorder) - what the desktop recorder does
-- [First Install](installing-the-recorder) - first-time setup, with optional sync sections
-- [Running a Recording](running-a-recording) - connect sensors and record a session
-- [Syncing with Other Systems](syncing-with-other-systems) - how Polar, Vicon and Sony/Theia line up, and the fixed offsets to remove
+- [Overview](desktop-recorder) - what the recorder does, installing, Python setup and updates
+- [Connecting Sensors](windows-connecting-sensors) - the Recorder page, the status sidebar, and the sensor lights
+- [Running a Recording](running-a-recording) - a take with every system, and how time alignment works
+- [LEVEL Sensors](windows-level-sensors) - settings, time sync and files
+- [Polar H10](windows-polar-h10) - pairing, picking the strap, warm-up, files
+- [Sony Cameras and Theia](windows-sony-theia) - camera control, LTC timecode audio, pulling and aligning clips
+- [Vicon](windows-vicon) - Nexus triggering, frame timing, force plates
 
 For more information, see [lvlmotion.com](https://lvlmotion.com), or email [info@lvlmotion.com](mailto:info@lvlmotion.com).
