@@ -52,8 +52,8 @@ In **Nexus**:
 
 ## Post-processing
 
-- `timestamp-vicon.csv` lists every Vicon frame with the PC time it arrived
-  (plus the live marker positions).
+- `timestamps-vicon.csv` lists every Vicon frame with the PC time it arrived
+  (timestamps only; marker data comes from your Nexus export).
 - **Postproc > Align to PC clock** fits a line through those arrivals and writes
   `aligned\vicon_frames_pc.csv`: every Vicon frame with its PC time. If a Nexus
   C3D is in the session folder, its frame range is covered too. Use it to place
@@ -66,6 +66,6 @@ In **Nexus**:
 | File | What |
 |---|---|
 | `vicon-anchor.json` | trial name and the PC time of the start trigger |
-| `timestamp-vicon.csv` | Vicon frame, PC time, marker positions |
+| `timestamps-vicon.csv` | timestamps only: Vicon frame and PC time |
 | `bridge.log` | log of the live-data reader (send it to us if frames are missing) |
 | `aligned\vicon_frames_pc.csv` | after Align: every Vicon frame with its PC time |

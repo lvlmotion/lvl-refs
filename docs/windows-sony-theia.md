@@ -129,7 +129,7 @@ frames. Put Theia's C3D in the session folder (name containing `theia`, or in a
 | File | When | What |
 |---|---|---|
 | `sony-anchor.json`, `sony-events.csv` | at Stop | when the start and stop were sent and confirmed, on the PC clock |
-| `ptp-pairs.csv` | at Stop | the control box clock next to the PC clock, about once a second, from 5 minutes before the start to about 2 minutes after the stop |
+| `timestamps-sony_ptp.csv` | at Stop | timestamps only: the control box clock next to the PC clock, about twice a second, from 5 minutes before the start to about 2 minutes after the stop |
 | `<camera>_<clip>.MP4` | after Align | the LTC camera's clip |
 | `aligned\sony_frames_pc.csv` | after Align | every video frame with its PC time |
 | `aligned\sony-clock.csv` | after Align | the camera timecode worked out from the control box clock, next to the PC clock |
