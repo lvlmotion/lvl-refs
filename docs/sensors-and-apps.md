@@ -57,7 +57,7 @@ open in any tool.
   phone's Bluetooth or a LEVEL Hub, plus the phone's own GPS, barometer and step
   counter. On the phone the app is labelled **LEVEL Sensor**. See
   [Collecting data](collecting-data) and [Sharing recorded data](sharing-data).
-- **On a Windows PC** (the [desktop recorder](desktop-recorder)): records
+- **On a Windows PC** (the [LEVEL Collector for Windows](desktop-recorder)): records
   sensors over a LEVEL Hub and coordinates lab systems such as Vicon motion
   capture and Sony cameras.
 

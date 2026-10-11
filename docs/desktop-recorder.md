@@ -1,13 +1,13 @@
 ---
 title: LEVEL Collector for Windows
-description: the desktop recorder - what it does, installing it, and keeping it up to date
+description: LEVEL Collector for Windows - what it does, installing it, and keeping it up to date
 nav_order: 4
 has_children: true
 ---
 
 # LEVEL Collector for Windows
 
-The desktop recorder is the Windows app (separate from the phone app) for lab and
+LEVEL Collector for Windows is the Windows app (separate from the phone app) for lab and
 clinic PCs. It records **LEVEL Inez sensors** through the **LEVEL Hub** plugged
 into the PC, and runs up to three other systems alongside them:
 
@@ -19,7 +19,7 @@ into the PC, and runs up to three other systems alongside them:
 
 Every stream is placed on **one clock: the PC's clock**. Each system gets there a
 different way (see [How time alignment works](running-a-recording.html#how-time-alignment-works)),
-and the recorder saves what each needs during the take. Post-processing then
+and the Collector saves what each needs during the take. Post-processing then
 turns those records into files that all share the PC clock, so a moment in one
 stream can be found in every other.
 
@@ -37,16 +37,16 @@ Skip this only if you record LEVEL sensors and nothing else.
 
 1. Open the **Settings** tab and click **Set Up Python Environment**.
 2. Wait for the **Logs** tab to say it finished. The first run needs internet. It
-   builds a private Python for the recorder and installs everything the other
+   builds a private Python for the Collector and installs everything the other
    systems need (including the video tools used to read Sony clips), without
    changing anything else on the computer.
 3. If it says no Python 3.10 or newer was found, install Python from
    [python.org](https://www.python.org/downloads/) and click the button again.
 
-Every time the recorder starts, the **Logs** tab lists what it found: the
+Every time the Collector starts, the **Logs** tab lists what it found: the
 computer, the Bluetooth adapter, the LEVEL Hub port, the networks, and a
 **PASS / NOT FOUND** line for each Python package. If something is missing,
-run **Set Up Python Environment** again and restart the recorder.
+run **Set Up Python Environment** again and restart the Collector.
 
 ## Updating
 
@@ -59,7 +59,7 @@ run **Set Up Python Environment** again and restart the recorder.
 
 ## The pages in this guide
 
-- [Connecting Sensors](windows-connecting-sensors.html) - the Recorder page, the status sidebar, and the sensor lights
+- [Connecting Sensors](windows-connecting-sensors.html) - the Collect tab, the status sidebar, and the sensor lights
 - [Running a Recording](running-a-recording.html) - a take with every system, and how time alignment works
 - [LEVEL Sensors](windows-level-sensors.html) - sensor settings, time sync and files
 - [Polar H10](windows-polar-h10.html) - pairing, picking the strap, warm-up, files

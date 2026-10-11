@@ -27,10 +27,10 @@ The phone app (labelled LEVEL Sensor on the phone), [on Google Play](https://pla
 
 ### [LEVEL Collector for Windows](desktop-recorder)
 
-The desktop recorder: records sensors through LEVEL Hub and coordinates Vicon, Sony and Polar. For install, please email [info@lvlmotion.com](mailto:info@lvlmotion.com).
+LEVEL Collector for Windows: records sensors through LEVEL Hub and coordinates Vicon, Sony and Polar. For install, please email [info@lvlmotion.com](mailto:info@lvlmotion.com).
 
-- [Overview](desktop-recorder) - what the recorder does, installing, Python setup and updates
-- [Connecting Sensors](windows-connecting-sensors) - the Recorder page, the status sidebar, and the sensor lights
+- [Overview](desktop-recorder) - what the Collector does, installing, Python setup and updates
+- [Connecting Sensors](windows-connecting-sensors) - the Collect tab, the status sidebar, and the sensor lights
 - [Running a Recording](running-a-recording) - a take with every system, and how time alignment works
 - [LEVEL Sensors](windows-level-sensors) - settings, time sync and files
 - [Polar H10](windows-polar-h10) - pairing, picking the strap, warm-up, files

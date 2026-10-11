@@ -14,15 +14,15 @@ Bluetooth. One sensor acts as the **time beacon**; the others follow its clock,
 so all sensors share one timeline. Connecting is covered in
 [Connecting Sensors](windows-connecting-sensors.html).
 
-## Settings in the recorder
+## Settings in the Collector
 
 | Where | Setting | Use |
 |---|---|---|
 | Settings | **Time Sync** | On (default). Applied when sensors connect. |
-| Settings | **On launch: Scan / Connect** | find, or find and connect, sensors when the recorder opens |
-| Recorder | **Rate** | 100 Hz standard |
-| Recorder | **Batch** | 12 for more than 4 sensors (the sidebar warns if it is too low) |
-| Recorder | sensor **colour** and **location** | click the LED or Location cell; saved on the sensor and in the session files |
+| Settings | **On launch: Scan / Connect** | find, or find and connect, sensors when the Collector opens |
+| Collect | **Rate** | 100 Hz standard |
+| Collect | **Batch** | 12 for more than 4 sensors (the sidebar warns if it is too low) |
+| Collect | sensor **colour** and **location** | click the LED or Location cell; saved on the sensor and in the session files |
 
 ## Settings on the other system
 
@@ -44,7 +44,7 @@ None. Keep sensors charged and awake (see [About Sensors](about-sensors.html)).
   started.
 - For long takes, the sensor clock can be refitted to the PC clock afterwards
   (a host-clock fit). We can run this for you on request; it is not a button in
-  the recorder yet.
+  the Collector yet.
 
 ## Files
 

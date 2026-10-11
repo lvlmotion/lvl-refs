@@ -13,15 +13,15 @@ The strap connects to the **PC's own Bluetooth** (not the LEVEL Hub). It starts
 when you connect the sensors and stays connected across takes. Each take gets
 its own ECG, accelerometer and heart-rate files.
 
-## Settings in the recorder
+## Settings in the Collector
 
 - **Settings > Sync:** tick **Polar H10**. Needs the Python setup (see
   [Overview](desktop-recorder.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
-- **Recorder > Polar section:** after **Scan All**, the straps in range are
-  listed with their signal strength. Pick yours (**Use**). The recorder
+- **Collect > Polar section:** after **Scan All**, the straps in range are
+  listed with their signal strength. Pick yours (**Use**). The Collector
   remembers the strap it last connected to.
 
-<!-- screenshot: Polar rows on the Recorder page, strap picked -->
+<!-- screenshot: Polar rows on the Collect tab, strap picked -->
 
 ## Settings on the other system
 
@@ -42,18 +42,23 @@ heart rate only - no ECG or accelerometer.
   accelerometer about 200 Hz, and heart rate.
 - Right after the warm-up the ECG rate can read low for a few seconds before it
   settles; that is normal.
-- If the ECG stops while heart rate keeps going, the recorder restarts the ECG
+- If the ECG stops while heart rate keeps going, the Collector restarts the ECG
   stream by itself.
+- If no ECG has arrived after about 75 seconds, the Polar line turns red with
+  **No ECG**: re-wet the electrodes or reseat the strap, then press **Start
+  warm-up** in the Collect tab's Polar section to start the warm-up again.
+- If the strap's Bluetooth link drops, the Polar line says so. Press **Start
+  warm-up** to reconnect.
 
 ## Post-processing
 
-- Every row has the strap's own timestamp and the PC time it arrived, so Polar
-  lines up with the other systems on the PC clock.
+- Every row has the strap's own timestamp and the PC time it arrived.
+- **Postproc > Align to PC clock** writes `aligned\polar_<id>_<ecg|acc|hr>_pc.csv`:
+  the same rows plus a `pc_ms` column. It maps the strap's clock onto the PC
+  clock along the fastest arrivals, which removes most of the Bluetooth delay.
+  Heart rate has no strap timestamp, so its `pc_ms` is the arrival time.
 - Polar times are in **milliseconds**; sensor times are in **microseconds**.
   Multiply Polar times by 1000 before comparing.
-- The arrival time runs slightly behind the true sample time (Bluetooth delay).
-  For tight comparisons, line it up on the start and end hops against a sensor
-  worn near the strap.
 
 ## Files
 
@@ -62,3 +67,4 @@ heart rate only - no ECG or accelerometer.
 | `polar_<id>_ecg_<time>.csv` | ECG at about 130 Hz |
 | `polar_<id>_acc_<time>.csv` | accelerometer at about 200 Hz |
 | `polar_<id>_hr_<time>.csv` | heart rate and beat-to-beat intervals |
+| `aligned\polar_<id>_<kind>_pc.csv` | after Align: the same rows with PC time |

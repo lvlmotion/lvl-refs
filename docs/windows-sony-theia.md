@@ -1,7 +1,7 @@
 ---
 title: Sony Cameras and Theia
 parent: LEVEL Collector for Windows
-description: starting Sony cameras from the recorder, timecode audio (LTC), pulling and aligning clips, Theia
+description: starting Sony cameras from the Collector, timecode audio (LTC), the control box clock, aligning clips to the PC clock, Theia
 nav_order: 5
 ---
 
@@ -11,33 +11,44 @@ nav_order: 5
 
 - The PC joins the cameras' network and talks to the Sony **camera control
   boxes** (one per camera; the first one is the master, usually
-  `http://169.254.200.200`). The recorder starts and stops every camera and reads
+  `http://169.254.200.200`). The Collector starts and stops every camera and reads
   each camera's state.
-- For the tightest timing, the recorder plays a **timecode audio signal (LTC)**
+- For the tightest timing, the Collector plays a **timecode audio signal (LTC)**
   from a PC audio output into **one camera's microphone input**. That camera's
   clip then carries PC time in its audio.
-- Every camera also stamps its video with **timecode**, so the other cameras'
-  clips line up with the LTC camera.
+- Every camera also stamps its video with **timecode**, set by the control box
+  from its own clock when recording starts. The Collector listens to that clock
+  (PTP) the whole time and saves it with each take, so every take can be placed
+  on the PC clock even without LTC, to within a few tens of milliseconds.
 
-## Settings in the recorder
+## Settings in the Collector
 
 - **Settings > Sync:** tick **Sony** and choose who starts the cameras (usually
-  the recorder). Needs the Python setup (see [Overview](desktop-recorder.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
+  the Collector). Needs the Python setup (see [Overview](desktop-recorder.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
 - **Settings > Sony:** the control box address; the **LTC output** (press
-  **Refresh outputs**, then pick the output cabled to the camera); the LTC level.
-- **Recorder > Sony section:**
+  **Refresh outputs**, then pick the output cabled to the camera); the **LTC
+  level** (type it and press **Set**). Start at **0.016** with the output's
+  Windows volume at 50%.
+- **Collect > Sony section:**
   - **Get Browser Key** (takes control of the cameras), **Link Date/Time** (sets
     the cameras' clocks from the PC), **Unmute and set to 50%** (the LTC output's
     volume), **Play LTC signal**. **Scan All** does the first three for you.
   - The camera list, named as in the Sony webapp (e.g. `001  DSC-RX0M2_3177801`),
     with each camera's state. Pick the **LTC** camera: the one with the LTC cable.
+  - The **PTP** line under the cameras reads **grandmaster heard** with the
+    clock offset. If it says **not heard**, allow UDP ports 319 and 320 in
+    Windows Firewall on the camera network; takes then fall back to LTC or
+    timecode only.
   - **Rig details** (folded) shows the full control-box status when something
     is wrong.
 
 <!-- screenshot: Sony section - action buttons and camera rows with the LTC camera picked -->
 
 **Close the Sony webapp's browser tab before recording.** While it is open it
-holds the control box and the recorder's start/stop is ignored.
+holds the control box and the Collector's start/stop is ignored.
+
+If you start a take with Sony on but **Play LTC signal** off, the log warns that
+the take will align without LTC.
 
 ## Settings on the other system
 
@@ -53,54 +64,74 @@ On the **LTC camera** (the camera menu, Movie settings):
 - Plugging the LTC cable into the microphone jack turns off that camera's own
   microphone.
 
-Use a **USB audio adapter** for the LTC output. A PC's built-in headphone jack
-can cut out after a couple of seconds when a camera is plugged in, even though
-it works with headphones.
+On the **PC**, turn off **Audio enhancements** for the LTC output (Windows
+**Settings > System > Sound**, pick the output, **Audio enhancements: Off**).
+Enhancements level the signal automatically and spoil the LTC.
+
+A **USB audio adapter** is the most reliable LTC output. Some built-in
+headphone jacks cut out when a camera is plugged in, even though they work
+with headphones.
 
 ## Calibration
 
 **Check the LTC once per setup:**
 
 1. Tick **Play LTC signal**, pick the LTC camera, record a 30-second take.
-2. **Postproc > Last Session > Pull Sony Clip + Align.**
-3. The clip check should say **LTC decoded**. "Silent" means no LTC reached the
-   camera: check Play LTC was on, the picked camera is the cabled one, Audio
-   Recording is on, and the audio output. "Clipping" means turn the LTC level
-   down.
+2. On **Postproc > Align to PC clock**, the take is already in the table. Tick
+   it and press **Run on ticked**. The run copies the LTC camera's clip first.
+3. The Sony column should read **ltc**. If it reads **ptp** or **tc**, the log
+   says why the LTC did not decode. Try, in this order:
+   1. turn off Windows Audio enhancements on the LTC output;
+   2. Windows volume 50% and LTC level about 0.016;
+   3. lower the camera's Audio Rec Level;
+   4. use a USB audio output instead of a laptop headphone jack;
+   5. check the cable sits in the LTC camera's microphone input.
 
 **Optional visual check:** **Help > Open clock page** shows a large PC clock.
 Film it with a camera for a few seconds at the start and end of a session; the
 clock in the video should match the aligned time.
 
-<!-- screenshot: Postproc after Pull Sony Clip + Align, clip check "LTC decoded" -->
+<!-- screenshot: Postproc Align to PC clock table, Sony column "ltc" -->
 
 ## Post-processing
 
-**Pull Sony Clip + Align** (Postproc tab, after a take):
+**Postproc > Align to PC clock** puts the external systems on the PC clock;
+the sensor files are already on it and are not changed. Each finished take is
+added to the table; you can also add folders or all of today's takes, and run
+many at once. For each ticked take the run:
 
-- Copies the LTC camera's clip for that take into the session folder.
-- Checks its timecode and LTC.
-- Writes an `aligned` folder: each sensor's data on the video's timeline,
-  `sync_map.json` (camera time to PC time), and `theia_timestamps.csv` (for every
-  video frame: its timecode and its PC time).
+- copies the LTC camera's clip into the session folder if it is not there yet;
+- writes `aligned\sony_frames_pc.csv`: every video frame with its PC time, and
+  the method used for the take:
+  - **ltc** - from the LTC in the clip's audio (to a few milliseconds);
+  - **ptp** - from the control box clock saved during the take (to a few tens of
+    milliseconds);
+  - **tc** - from the camera timecode alone (can be about a second off);
+- writes `aligned\pc_alignment.json` with the result and any warnings for every
+  system.
 
-Clips from the other cameras: copy them with the Sony webapp's **Import**. They
-share timecode with the LTC camera, so `sync_map.json` applies to them too.
-Without LTC, alignment uses timecode only (to about one frame).
+Clips from the other cameras: copy them with the Sony webapp's **Import**. All
+cameras share the control box's timecode, so the same frame times apply.
+
+Long takes may be split into several files of about 4 GB on a camera whose
+memory card is formatted FAT32. Format the cards in the camera (exFAT) to keep
+one file per take.
 
 ### Theia
 
-Theia processes the clips into a motion file (C3D) on the cameras' timecode.
-The goal is to bring it onto the PC clock like everything else: pull the Sony
-clips (timecode and LTC) and Theia's processed C3D, and re-time the C3D onto
-the PC clock. **Automatic re-timing of the C3D is coming and not available
-yet.** Until then, use `theia_timestamps.csv` to look up the PC time of any
-Theia frame by its frame number or timecode.
+Theia processes the clips into a motion file (C3D) whose frames are the video's
+frames. Put Theia's C3D in the session folder (name containing `theia`, or in a
+`theia` subfolder) before running **Align to PC clock**: the run writes
+`aligned\theia_frames_pc.csv` with the PC time of every Theia frame.
 
 ## Files
 
 | File | When | What |
 |---|---|---|
 | `sony-anchor.json`, `sony-events.csv` | at Stop | when the start and stop were sent and confirmed, on the PC clock |
-| `<camera>_<clip>.MP4` | after Pull | the LTC camera's clip |
-| `aligned\...` | after Align | aligned sensor files, `sync_map.json`, `theia_timestamps.csv` |
+| `ptp-pairs.csv` | at Stop | the control box clock next to the PC clock, about once a second, from 5 minutes before the start to about 2 minutes after the stop |
+| `<camera>_<clip>.MP4` | after Align | the LTC camera's clip |
+| `aligned\sony_frames_pc.csv` | after Align | every video frame with its PC time |
+| `aligned\sony-clock.csv` | after Align | the camera timecode worked out from the control box clock, next to the PC clock |
+| `aligned\theia_frames_pc.csv` | after Align | every Theia frame with its PC time (when a Theia C3D is present) |
+| `aligned\pc_alignment.json` | after Align | the method and quality for every system |
