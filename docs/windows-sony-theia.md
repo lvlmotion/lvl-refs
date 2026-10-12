@@ -29,6 +29,10 @@ nav_order: 5
   **Refresh outputs**, then pick the output cabled to the camera); the **LTC
   level** (type it and press **Set**). Start at **0.016** with the output's
   Windows volume at 50%.
+  While LTC plays, the Collector takes the LTC output for itself (WASAPI
+  exclusive mode): nothing else can play sound on that output. This keeps the
+  timing the same every time LTC starts. If another program holds the output,
+  the Collector falls back to the shared mode and the log says so.
 - **Collect > Sony section:**
   - **Get Browser Key** (takes control of the cameras), **Link Date/Time** (sets
     the cameras' clocks from the PC), **Unmute and set to 50%** (the LTC output's
@@ -87,11 +91,28 @@ with headphones.
    4. use a USB audio output instead of a laptop headphone jack;
    5. check the cable sits in the LTC camera's microphone input.
 
-**Optional visual check:** **Help > Open clock page** shows a large PC clock.
-Film it with a camera for a few seconds at the start and end of a session; the
-clock in the video should match the aligned time.
-
 <!-- screenshot: Postproc Align to PC clock table, Sony column "ltc" -->
+
+**No timing calibration is needed per session.** With the LTC output in its
+default (exclusive) mode, the LTC camera's video lands within about **±12 ms**
+of PC time, under one video frame at 60 fps, with no calibration at all.
+
+**Calibrate LTC (optional, once per PC and LTC output).** It measures the small
+remaining offset between the LTC in the audio and the video frames (K_av) for
+your exact hardware, for labs that want to check it or report it:
+
+1. In **Settings > Sony**, under **Calibrate LTC**, press **Open clock page** and
+   make the page full screen. It shows the PC clock and three strips of squares.
+2. Point the LTC camera at the screen, straight on, with all three strips in
+   view.
+3. Press **Calibrate**. The Collector plays LTC, records 12 seconds, copies the
+   clip and reads the clock from the video. After about a minute it shows the
+   result, for example "K_av = 9 ms (spread 18 ms)", and saves it for that LTC
+   output.
+
+Repeat it after changing the PC, the LTC output or the audio adapter. The
+measured value includes the monitor's own display delay, so treat it as a check
+to within a frame rather than an absolute figure.
 
 ## Post-processing
 
@@ -103,7 +124,7 @@ many at once. For each ticked take the run:
 - copies the LTC camera's clip into the session folder if it is not there yet;
 - writes `aligned\sony_frames_pc.csv`: every video frame with its PC time, and
   the method used for the take:
-  - **ltc** - from the LTC in the clip's audio (to a few milliseconds);
+  - **ltc** - from the LTC in the clip's audio (within about one video frame);
   - **ptp** - from the control box clock saved during the take (to a few tens of
     milliseconds);
   - **tc** - from the camera timecode alone (can be about a second off);
