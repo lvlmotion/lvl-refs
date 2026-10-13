@@ -1,7 +1,7 @@
 ---
 title: Sensors and Apps
 parent: Hardware
-description: specifications - LEVEL Inez sensors, LEVEL Hub, LEVEL Collector, LEVEL Mobility (in development), and what they work with
+description: specifications - LEVEL Inez sensors, LEVEL Hub, LEVEL Collector, LEVEL Sensor SDK, LEVEL Mobility (in development), and what they work with
 nav_order: 1
 ---
 
@@ -60,6 +60,13 @@ open in any tool.
 - **On a Windows PC** (the [LEVEL Collector for Windows](desktop-recorder)): records
   sensors over a LEVEL Hub and coordinates lab systems such as Vicon motion
   capture and Sony cameras.
+
+## LEVEL Sensor SDK - for your own Android app
+
+A library for developers who want LEVEL Inez data inside their own Android app
+over the phone's Bluetooth: scan, connect and receive calibrated accelerometer
+and gyroscope samples at 100 Hz per sensor. In beta. See the
+[LEVEL Sensor SDK for Android](sdk) page.
 
 ## LEVEL Mobility - the gait app (in development)
 

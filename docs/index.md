@@ -39,4 +39,8 @@ The Windows app for recording LEVEL sensors through the LEVEL Hub alongside Pola
 - [Sony Cameras and Theia](windows-sony-theia) - camera control, LTC timecode audio, pulling and aligning clips
 - [Vicon](windows-vicon) - Nexus triggering, frame timing, force plates
 
+### [LEVEL Sensor SDK for Android](sdk)
+
+A library for streaming LEVEL Inez sensors into your own Android app over the phone's Bluetooth, with a starter app, on [GitHub](https://github.com/lvlmotion/sdk).
+
 For more information, see [lvlmotion.com](https://lvlmotion.com), or email [info@lvlmotion.com](mailto:info@lvlmotion.com).
