@@ -1,10 +1,10 @@
 ---
 title: Hardware
-description: LEVEL Inez sensors and LEVEL Hub - specifications, handling, placement and firmware
+description: LEVEL Inez sensors and the LEVEL Hub - specifications, handling, placement and firmware
 nav_order: 2
 has_children: true
 ---
 
 # Hardware
 
-LEVEL Inez sensors and the LEVEL Hub USB receiver.
+The LEVEL Inez sensors and the LEVEL Hub USB receiver: specifications, handling, where to place the sensors on the body, and firmware updates.
