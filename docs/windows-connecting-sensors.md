@@ -36,9 +36,9 @@ on).
 
 | Column | What it shows |
 |---|---|
-| LED | the sensor's colour (click to change) |
+| LED | the sensor's colour (click to change; only while connected) |
 | MAC | the 4-character ID printed on the sensor |
-| Location | where it is worn (click to set) |
+| Location | where it is worn (click to set; only while connected) |
 | Battery | charge level; recharge at LOW |
 | Status | Found / Connecting / Connected / Streaming |
 | Sync | **B** = the time beacon, **S** = following it, then its offset from the beacon in ms. A red **✗** means the sensor is not time-synced: disconnect and reconnect it. A red **⚠** with a number means it drifted off the beacon during the take. |

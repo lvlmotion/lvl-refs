@@ -21,7 +21,7 @@ so all sensors share one timeline. Connecting is covered in
 | Settings | **Time Sync** | On every time the Collector starts; keep it on. Turn it off only to save sensor battery (for that session). |
 | Settings | **On launch: Scan / Connect** | find, or find and connect, sensors when the Collector opens |
 | Collect | **Rate** and **Batch** | see [Rate and batch](#rate-and-batch) below (the sidebar warns if the batch is too low) |
-| Collect | sensor **colour** and **location** | click the LED or Location cell; saved on the sensor and in the session files |
+| Collect | sensor **colour** and **location** | click the LED or Location cell while the sensor is connected; saved on the sensor and in the session files |
 
 ## Rate and batch
 
