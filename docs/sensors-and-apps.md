@@ -76,8 +76,8 @@ standard tests, such as timed walks and the Timed Up and Go. LEVEL Mobility is
 | **Vicon** motion capture | start/stop trigger and frame count to line the recordings up | - | yes |
 | **Sony RX0 II cameras** with **Theia** markerless tracking | timecode so video and sensor data line up | - | yes |
 
-How each one lines up with the sensor data is in
-[How everything lines up](desktop-recorder#how-everything-lines-up).
+How each one lines up with the sensor data is on its own page in the
+[LEVEL Collector for Windows](desktop-recorder) guide.
 
 ## Contact
 

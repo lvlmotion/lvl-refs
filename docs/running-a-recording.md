@@ -2,7 +2,7 @@
 title: Running a Recording
 parent: LEVEL Collector for Windows
 description: a take with every system you turned on, and where the files go
-nav_order: 2
+nav_order: 3
 ---
 
 # Running a Recording

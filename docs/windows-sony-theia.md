@@ -2,7 +2,7 @@
 title: Sony Cameras and Theia
 parent: LEVEL Collector for Windows
 description: starting Sony cameras from the Collector, timecode audio (LTC), the control box clock, aligning clips to the PC clock, Theia
-nav_order: 5
+nav_order: 6
 ---
 
 # Sony Cameras and Theia
@@ -24,7 +24,7 @@ nav_order: 5
 ## Settings in the Collector
 
 - **Settings > Sync:** tick **Sony**, with the Collector as master: **Start
-  Stream** starts the cameras. Needs the Python setup (see [Overview](desktop-recorder.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
+  Stream** starts the cameras. Needs the Python setup (see [Overview](windows-installing.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
 - **Settings > Sony:** the control box address; the **LTC output** (press
   **Refresh outputs**, then pick the output cabled to the camera); the **LTC
   level** (type it and press **Set**). Start at **0.016** with the output's

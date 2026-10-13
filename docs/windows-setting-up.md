@@ -2,7 +2,7 @@
 title: Setting Up for a Recording
 parent: LEVEL Collector for Windows
 description: turning on the systems you use, getting them ready on the Collect tab, and reading the status sidebar
-nav_order: 1
+nav_order: 2
 ---
 
 # Setting Up for a Recording

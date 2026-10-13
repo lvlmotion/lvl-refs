@@ -2,7 +2,7 @@
 title: Vicon
 parent: LEVEL Collector for Windows
 description: starting Nexus from the Collector (or the reverse), Vicon frame timing, force plates
-nav_order: 6
+nav_order: 7
 ---
 
 # Vicon
@@ -26,7 +26,7 @@ nav_order: 6
 - **Settings > Vicon:** the UDP port (match Nexus), the Nexus PC's address if
   Nexus runs on another computer, and the Vicon DataStream SDK folder (default
   `C:\Program Files\Vicon\DataStream SDK\Win64\Python\vicon_dssdk`). Needs the
-  Python setup (see [Overview](desktop-recorder.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
+  Python setup (see [Overview](windows-installing.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
 
 ## Settings on the other system
 
