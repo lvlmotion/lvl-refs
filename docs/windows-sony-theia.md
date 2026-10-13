@@ -23,8 +23,8 @@ nav_order: 5
 
 ## Settings in the Collector
 
-- **Settings > Sync:** tick **Sony** and choose who starts the cameras (usually
-  the Collector). Needs the Python setup (see [Overview](desktop-recorder.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
+- **Settings > Sync:** tick **Sony**, with the Collector as master: **Start
+  Stream** starts the cameras. Needs the Python setup (see [Overview](desktop-recorder.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
 - **Settings > Sony:** the control box address; the **LTC output** (press
   **Refresh outputs**, then pick the output cabled to the camera); the **LTC
   level** (type it and press **Set**). Start at **0.016** with the output's

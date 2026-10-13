@@ -10,8 +10,8 @@ nav_order: 2
 ## Turn on the systems you are using
 
 **Settings > Sync** lists every system. Tick the ones you use (Polar H10, Sony,
-Vicon) and pick which one **starts** a take (the master). Usually the Collector
-is the master: **Start Stream** on the Collector starts everything. Each system's
+Vicon) and keep the **Collector** as the one that starts a take (the master):
+**Start Stream** on the Collector starts everything. Each system's
 own setup is on its page: [LEVEL Sensors](windows-level-sensors.html),
 [Polar H10](windows-polar-h10.html), [Sony Cameras and Theia](windows-sony-theia.html),
 [Vicon](windows-vicon.html).
@@ -34,10 +34,6 @@ own setup is on its page: [LEVEL Sensors](windows-level-sensors.html),
 
 <!-- screenshot: footer with Trial Name, Notes and Start Stream; sidebar all green while recording -->
 
-**Other ways to start a take:** if Nexus or the Sony webapp is set as the master
-in Settings > Sync, start the capture there instead; the Collector follows and
-starts the other systems. The sidebar diagram always shows which system starts
-the take.
 
 If a system fails mid-take, its sidebar card turns red and the others keep
 going. Stop when you are ready. If the cameras are still recording when no take

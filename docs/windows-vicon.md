@@ -10,8 +10,7 @@ nav_order: 6
 ## How it connects
 
 - **Start and stop** travel over the network as Nexus's remote-trigger messages
-  (UDP port 30 by default). Either the Collector starts Nexus, or Nexus starts
-  the Collector.
+  (UDP port 30 by default): the Collector starts and stops Nexus.
 - **Frame timing:** while Nexus captures, the Collector reads Vicon's live data
   stream and saves every Vicon frame number with the PC time it arrived. That
   places anything Nexus records on its own frames (markers, force plates) on the
@@ -21,11 +20,9 @@ nav_order: 6
 
 ## Settings in the Collector
 
-- **Settings > Sync:** tick **Vicon** and choose who starts a take:
-  - **Collector as master:** **Start Stream** starts Nexus and **Stop** stops it.
-    Nexus uses the Collector's trial name.
-  - **Vicon as master:** you start the capture in Nexus; the Collector follows.
-    Tick **Arm This Session** in the Collect tab's Vicon section.
+- **Settings > Sync:** tick **Vicon**, with the Collector as master. **Start
+  Stream** starts Nexus and **Stop Stream** stops it. Nexus uses the Collector's
+  trial name.
 - **Settings > Vicon:** the UDP port (match Nexus), the Nexus PC's address if
   Nexus runs on another computer, and the Vicon DataStream SDK folder (default
   `C:\Program Files\Vicon\DataStream SDK\Win64\Python\vicon_dssdk`). Needs the
@@ -35,8 +32,7 @@ nav_order: 6
 
 In **Nexus**:
 
-- Remote trigger on, on the same UDP port: **receive** triggers (Collector as
-  master) or **send** them (Vicon as master).
+- Remote trigger on, on the same UDP port, set to **receive** triggers.
 - Nexus in **Live** mode with the cameras running. The frame timing only flows
   while Nexus streams live data.
 - Force plates enabled and zeroed before each take.
