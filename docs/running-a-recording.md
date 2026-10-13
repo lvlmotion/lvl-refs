@@ -29,10 +29,8 @@ own setup is on its page: [LEVEL Sensors](windows-level-sensors.html),
 4. Type a **Trial Name** (it names the session folder) and any **Notes**.
 5. Press **Start Stream**. The Collector starts the sensors, Polar, the Sony
    cameras and Nexus together.
-6. Do **3 hops** at the start and end of the take. They show up in every system
-   and make a quick visual check of the alignment easy.
-7. Press **Stop**. Everything stops; the sensors stay connected for the next
-   take.
+6. Press **Stop Stream**. Everything stops; the sensors stay connected for the
+   next take.
 
 <!-- screenshot: footer with Trial Name, Notes and Start Stream; sidebar all green while recording -->
 

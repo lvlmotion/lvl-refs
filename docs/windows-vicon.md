@@ -47,8 +47,6 @@ In **Nexus**:
 - Do a short test take: the Vicon card in the sidebar should turn **green** with
   frames arriving (about the Vicon frame rate). Grey between takes is normal;
   Nexus gives no "ready" signal.
-- Hops at the start and end of each take show in the markers, the force plates
-  and the sensors: a quick check that everything lines up.
 
 ## Post-processing
 
