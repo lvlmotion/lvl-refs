@@ -51,31 +51,3 @@ Each take is a folder under `LEVEL_Sensor\data\` in your user folder, named
 | After post-processing | the pulled camera clip and an `aligned` folder |
 
 What each system writes is listed on its page.
-
-## How time alignment works
-
-Every system keeps its own clock. The Collector puts them all on **the PC's
-clock**, then post-processing uses those records to line everything up:
-
-- **LEVEL sensors** share one clock, driven by a time beacon through the LEVEL
-  Hub, so they agree with each other to a few milliseconds. The arrival time of
-  every packet at the PC is saved too, which ties the sensors' clock to the PC's.
-- **Polar H10** samples carry the strap's own timestamps, and the PC's arrival
-  time is saved next to each one.
-- **Vicon**: while Nexus is capturing, the Collector reads Vicon's live data and
-  saves each Vicon frame number with the PC time it arrived. Anything Nexus
-  records on its own frames (markers, force plates) can then be placed on the
-  PC clock.
-- **Sony cameras** stamp every video frame with timecode from the control
-  box's clock, and the Collector saves that clock next to the PC's during every
-  take. For the tightest timing, the Collector also plays a timecode audio
-  signal (LTC) into one camera's audio input, generated from the PC clock, so
-  the clip itself carries PC time.
-
-Because each system's timing is saved in its own form, a short
-**post-processing** step converts everything to the PC clock:
-**Postproc > Align to PC clock**. Every finished take is added to its table;
-tick the takes and press **Run on ticked**. Each external system gets a file
-with a PC-time column in the take's `aligned` folder, and
-`pc_alignment.json` says which method each one used and how well it fitted. The
-sensor files are already on the PC clock and are not changed.

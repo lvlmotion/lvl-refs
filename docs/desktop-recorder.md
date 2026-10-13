@@ -18,7 +18,9 @@ into the PC, and runs up to three other systems alongside them:
 ## How everything lines up
 
 Every stream is placed on **one clock: the PC's clock**. Each system gets there a
-different way (see [How time alignment works](running-a-recording.html#how-time-alignment-works)),
+different way, described under "How it connects" on its page
+([LEVEL Sensors](windows-level-sensors.html), [Polar H10](windows-polar-h10.html),
+[Sony Cameras and Theia](windows-sony-theia.html), [Vicon](windows-vicon.html)),
 and the Collector saves what each needs during the take. Post-processing then
 turns those records into files that all share the PC clock, so a moment in one
 stream can be found in every other.

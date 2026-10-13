@@ -11,7 +11,9 @@ nav_order: 3
 
 LEVEL Inez sensors talk to the **LEVEL Hub** (USB, plugged into the PC) over
 Bluetooth. One sensor acts as the **time beacon**; the others follow its clock,
-so all sensors share one timeline. Connecting is covered in
+so all sensors share one timeline, to a few milliseconds. The PC's arrival time
+of every packet is saved too, which ties the sensors' clock to the PC clock, the
+timeline every other system is aligned to. Connecting is covered in
 [Connecting Sensors](windows-connecting-sensors.html).
 
 ## Settings in the Collector
