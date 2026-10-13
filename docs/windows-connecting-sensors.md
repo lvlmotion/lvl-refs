@@ -66,14 +66,14 @@ the window takes the colour of the worst system.
 
 | Card | Shows after the dash | Status line |
 |---|---|---|
-| SRD (the Collector itself) | - | whether the LEVEL Hub (dongle) is plugged in |
+| Collector | - | whether the LEVEL Hub is plugged in |
 | LEVEL | the sensors you picked | connected / time-synced / streaming with elapsed time and loss |
 | Polar | the strap you picked | searching, warming up, then live ECG / ACC / heart rate |
 | Sony | the camera carrying the LTC timecode audio | cameras ready / recording / problems |
 | Vicon | Nexus | frames arriving during a take; grey between takes |
 
 Nothing here stops you recording except a missing LEVEL Hub (the button then
-reads **Awaiting Dongle** - the Collector calls the LEVEL Hub the dongle). If a line is red, it is your call whether to record
+reads **Awaiting LEVEL Hub**). If a line is red, it is your call whether to record
 anyway.
 
 ## Sensor lights
@@ -85,7 +85,7 @@ What each light pattern means, plus waking and resetting a sensor:
 
 - **No sensors found:** wake them (pick them up), then Scan again. Sensors held by
   a phone or another computer do not show; disconnect them there first.
-- **SRD says "no dongle detected":** re-plug the LEVEL Hub, then press **Re-scan for Dongle**.
+- **Collector says "no LEVEL Hub detected":** re-plug the LEVEL Hub, then press **Re-scan for Hub**.
 - **A sensor shows a red ✗ in Sync:** press Disconnect, then Connect again.
 - **During a take the sensors drop out:** the LEVEL card turns red and says so.
   Polar, Sony and Vicon keep recording; press **Stop** when you decide to end the
