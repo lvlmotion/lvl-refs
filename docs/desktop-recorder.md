@@ -59,7 +59,7 @@ run **Set Up Python Environment** again and restart the Collector.
 
 ## The pages in this guide
 
-- [Connecting Sensors](windows-connecting-sensors.html) - the Collect tab, the status sidebar, and the sensor lights
+- [Connecting Sensors](windows-connecting-sensors.html) - the Collect tab and the status sidebar
 - [Running a Recording](running-a-recording.html) - a take with every system, and how time alignment works
 - [LEVEL Sensors](windows-level-sensors.html) - sensor settings, time sync and files
 - [Polar H10](windows-polar-h10.html) - pairing, picking the strap, warm-up, files

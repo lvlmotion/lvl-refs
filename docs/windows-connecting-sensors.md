@@ -1,7 +1,7 @@
 ---
 title: Connecting Sensors
 parent: LEVEL Collector for Windows
-description: the Collect tab, the status sidebar colours, and what the sensor lights mean
+description: the Collect tab and the status sidebar colours
 nav_order: 1
 ---
 
@@ -78,15 +78,8 @@ anyway.
 
 ## Sensor lights
 
-| What the sensor is doing | Colour | Pattern |
-|---|---|---|
-| Waiting to connect | sensor colour | breathing (fades up and down) |
-| Connected, not recording | sensor colour | solid |
-| Recording | sensor colour | blinking |
-| Error | red | solid |
-| Asleep / battery empty | none | - |
-
-More detail on the lights, waking and resetting: [About Sensors](about-sensors.html).
+What each light pattern means, plus waking and resetting a sensor:
+[About Sensors](about-sensors.html#led-light-patterns).
 
 ## If something goes wrong
 
