@@ -1,22 +1,13 @@
 ---
 title: Running a Recording
 parent: LEVEL Collector for Windows
-description: a take with sensors, Polar, Sony and Vicon together, and how the streams are lined up on one clock
+description: a take with every system you turned on, and where the files go
 nav_order: 2
 ---
 
 # Running a Recording
 
-## Turn on the systems you are using
-
-**Settings > Sync** lists every system. Tick the ones you use (Polar H10, Sony,
-Vicon) and keep the **Collector** as the one that starts a take (the master):
-**Start Stream** on the Collector starts everything. Each system's
-own setup is on its page: [LEVEL Sensors](windows-level-sensors.html),
-[Polar H10](windows-polar-h10.html), [Sony Cameras and Theia](windows-sony-theia.html),
-[Vicon](windows-vicon.html).
-
-<!-- screenshot: Settings > Sync table with Polar, Sony and Vicon on, Collector as master -->
+Set up first: [Setting Up for a Recording](windows-connecting-sensors.html).
 
 ## A take, step by step
 
