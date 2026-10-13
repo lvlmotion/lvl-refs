@@ -20,15 +20,15 @@ own setup is on its page: [LEVEL Sensors](windows-level-sensors.html),
 
 ## A take, step by step
 
-1. **Scan All** (top of the window). It finds the sensors and the Polar strap and
-   readies the Sony cameras. Pick what you want in each section.
-2. **Connect All.** The sensors connect and the Polar strap starts its warm-up
-   (about 30-40 seconds), so connect a minute before you start.
-3. Check the **status sidebar**: green or yellow for everything you need. Polar
-   turns green once its ECG is live.
+1. **Scan All** (top of the window). It finds or readies every system you turned
+   on. Pick what you want in each section.
+2. **Connect All.** Some systems take a moment to get ready after connecting;
+   each system's page says what to expect.
+3. Check the **status sidebar**: start when everything you need is green or
+   yellow.
 4. Type a **Trial Name** (it names the session folder) and any **Notes**.
-5. Press **Start Stream**. The Collector starts the sensors, Polar, the Sony
-   cameras and Nexus together.
+5. Press **Start Stream**. The Collector starts every system you turned on
+   together.
 6. Press **Stop Stream**. Everything stops; the sensors stay connected for the
    next take.
 
