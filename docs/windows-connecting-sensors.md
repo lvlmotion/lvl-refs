@@ -21,8 +21,8 @@ nav_order: 1
    readies the Polar strap and Sony cameras). Found sensors are listed. The
    sensors from your last recording are ticked for you.
 2. Tick or untick sensors as needed.
-3. Set **Rate** (100 Hz is standard) and **Batch**. Use **Batch 12** whenever you
-   record more than 4 sensors - smaller batches lose data at higher counts.
+3. Set **Rate** and **Batch**: look up your number of sensors and rate in
+   [Rate and batch](windows-level-sensors.html#rate-and-batch).
 4. Press **Connect** (or **Connect All**). Each sensor's light goes solid and its
    row shows **Connected**.
 

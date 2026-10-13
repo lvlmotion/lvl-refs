@@ -20,9 +20,27 @@ so all sensors share one timeline. Connecting is covered in
 |---|---|---|
 | Settings | **Time Sync** | On every time the Collector starts; keep it on. Turn it off only to save sensor battery (for that session). |
 | Settings | **On launch: Scan / Connect** | find, or find and connect, sensors when the Collector opens |
-| Collect | **Rate** | 100 Hz standard |
-| Collect | **Batch** | 12 for more than 4 sensors (the sidebar warns if it is too low) |
+| Collect | **Rate** and **Batch** | see [Rate and batch](#rate-and-batch) below (the sidebar warns if the batch is too low) |
 | Collect | sensor **colour** and **location** | click the LED or Location cell; saved on the sensor and in the session files |
+
+## Rate and batch
+
+**Rate** is how many samples per second each sensor records. **Batch** is how
+many samples each sensor sends per radio packet: larger batches let the LEVEL
+Hub carry more sensors.
+
+Recommended batch for a given number of sensors and rate, from our no-data-loss
+tests (LEVEL Hub on Windows, Time Sync on, indoors):
+
+| Sensors | Rate | Batch | Tested |
+|---|---|---|---|
+| up to 8 | 100 Hz | 12 | 6 and 8 sensors: no data lost (0.00-0.03%) in 15 and 30 minute takes |
+| 6 | 100 Hz | 5 | may lose data (4-45% lost in tests): use 12 |
+| 4 | 200 Hz | 12 | may lose data (about 0.5% on average, up to 2% on one sensor, 30 minutes) |
+| 6 | 200 Hz | 12 | may lose data (about 44% lost) |
+
+A combination not in the table has not been tested yet; use Batch 12. Outdoors,
+in open air, any combination can lose a few percent.
 
 ## Settings on the other system
 
