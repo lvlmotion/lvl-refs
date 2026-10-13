@@ -7,7 +7,7 @@ nav_order: 2
 
 # Running a Recording
 
-Set up first: [Setting Up for a Recording](windows-connecting-sensors.html).
+Set up first: [Setting Up for a Recording](windows-setting-up.html).
 
 ## A take, step by step
 
