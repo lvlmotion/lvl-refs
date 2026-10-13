@@ -14,8 +14,6 @@ nav_order: 1
 - Charge the sensors (see [About Sensors](about-sensors.html)). Pick one up to
   wake it: an asleep sensor has no light and will not be found.
 - Plug the **LEVEL Hub** into the PC. A direct USB port is better than a hub.
-- In **Settings**, check **Time Sync** is on (it is applied when sensors
-  connect).
 
 ## Connect
 

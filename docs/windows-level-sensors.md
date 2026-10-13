@@ -18,7 +18,7 @@ so all sensors share one timeline. Connecting is covered in
 
 | Where | Setting | Use |
 |---|---|---|
-| Settings | **Time Sync** | On (default). Applied when sensors connect. |
+| Settings | **Time Sync** | On every time the Collector starts; keep it on. Turn it off only to save sensor battery (for that session). |
 | Settings | **On launch: Scan / Connect** | find, or find and connect, sensors when the Collector opens |
 | Collect | **Rate** | 100 Hz standard |
 | Collect | **Batch** | 12 for more than 4 sensors (the sidebar warns if it is too low) |
