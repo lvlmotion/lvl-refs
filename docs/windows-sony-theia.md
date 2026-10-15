@@ -102,8 +102,8 @@ remaining offset between the LTC in the audio and the video frames (K_av) for
 your exact hardware, for labs that want to check it or report it:
 
 1. In **Settings > Sony**, under **Calibrate LTC**, press **Open clock page** and
-   make the page full screen. It shows the PC clock and three strips of squares.
-2. Point the LTC camera at the screen, straight on, with all three strips in
+   make the page full screen. It shows the PC clock with two strips of squares above it and two below.
+2. Point the LTC camera at the screen, straight on, with all four strips in
    view.
 3. Press **Calibrate**. The Collector plays LTC, records 12 seconds, copies the
    clip and reads the clock from the video. After about a minute it shows the
