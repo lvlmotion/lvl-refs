@@ -2,7 +2,7 @@
 title: Setting Up for a Recording
 parent: LEVEL Collector for Windows
 description: turning on the systems you use, getting them ready on the Collect tab, and reading the status sidebar
-nav_order: 2
+nav_order: 3
 ---
 
 # Setting Up for a Recording
@@ -13,9 +13,8 @@ nav_order: 2
 
 **Settings > Sync** lists every system. Tick the ones you use (Polar H10, Sony,
 Vicon) and keep the **Collector** as the one that starts a take (the master):
-**Start Stream** on the Collector starts everything.
-
-<!-- screenshot: Settings > Sync table with Polar, Sony and Vicon on, Collector as master -->
+**Start Stream** on the Collector starts everything. The table is explained on
+the [Settings](windows-settings) page.
 
 ## Get everything ready
 

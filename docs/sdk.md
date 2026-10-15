@@ -11,10 +11,10 @@ sensors over the phone's Bluetooth, without the LEVEL Collector app. It is a
 single `.aar` library: scan for sensors, connect, and receive accelerometer and
 gyroscope samples at 100 Hz per sensor. The SDK is in beta.
 
-The library, a starter app and this guide's source are on GitHub at
-[github.com/lvlmotion/sdk](https://github.com/lvlmotion/sdk). If you cannot
-open that link, email [info@lvlmotion.com](mailto:info@lvlmotion.com) for
-access. The SDK only works with genuine LEVEL sensors, uses the phone's own
+The SDK is distributed as a zip (`level-sdk-<version>.zip`) with the library,
+a starter app, the licenses and a changelog. To get it, email
+[info@lvlmotion.com](mailto:info@lvlmotion.com) with what you plan to build; we
+send a download link. The SDK only works with genuine LEVEL sensors, uses the phone's own
 Bluetooth (not the LEVEL Hub), and does no time synchronisation between
 sensors or any processing: for recordings with everything on one clock, use the
 LEVEL Collector app.
@@ -24,7 +24,7 @@ Tested with 2 sensors at once. Each sensor streams 100 Hz accelerometer + gyrosc
 
 ## Setup
 
-1. Copy `libs/level-sdk.aar` from the [GitHub repository](https://github.com/lvlmotion/sdk) into your app module's `libs/` folder.
+1. Unzip the download and copy `libs/level-sdk.aar` into your app module's `libs/` folder.
 2. In the app module's `build.gradle.kts`:
 
    ```kotlin
@@ -99,7 +99,7 @@ at its own first sample); for tighter alignment use a shared event such as a tap
 
 ## Demo app
 
-`demo/` in the repository is a one-screen starter app built against `libs/level-sdk.aar`: scan, tap
+`demo/` in the zip is a one-screen starter app built against `libs/level-sdk.aar`: scan, tap
 a sensor to connect, start/stop streaming, and show per-sensor sample and loss
 counts. Build it with `./gradlew :demo:assembleDebug`.
 
@@ -129,4 +129,4 @@ and Android version, and what you saw.
 The SDK library is licensed under the LEVEL Motion Terms of Service, which
 allow you to include it unmodified in your own applications for use with LEVEL
 sensors. The demo app and documentation are open source under Apache 2.0.
-Both licenses are in the repository.
+Both licenses are in the zip (`LICENSE` and `libs/TERMS_OF_SERVICE.md`).

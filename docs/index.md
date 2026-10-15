@@ -31,7 +31,8 @@ The phone app (labelled LEVEL Sensor on the phone) for recording LEVEL sensors a
 
 The Windows app for recording LEVEL sensors through the LEVEL Hub alongside Polar H10, Sony cameras and Vicon, all on one clock, available by email from [info@lvlmotion.com](mailto:info@lvlmotion.com).
 
-- [Installing and Updating](windows-installing) - installing, the Python setup, updates and getting help
+- [Installing and Updating](windows-installing) - installing, updates and getting help
+- [Settings](windows-settings) - root folder, the Python setup, the sync table, per-system settings
 - [Setting Up for a Recording](windows-setting-up) - turning systems on, getting them ready, and the status sidebar
 - [Running a Recording](running-a-recording) - a take with every system, and where the files go
 - [LEVEL Sensors](windows-level-sensors) - connecting, rate and batch, the sensor table, time sync and files
@@ -41,6 +42,6 @@ The Windows app for recording LEVEL sensors through the LEVEL Hub alongside Pola
 
 ### [LEVEL Sensor SDK for Android](sdk)
 
-A library for streaming LEVEL Inez sensors into your own Android app over the phone's Bluetooth, with a starter app, on [GitHub](https://github.com/lvlmotion/sdk).
+A library for streaming LEVEL Inez sensors into your own Android app over the phone's Bluetooth, with a starter app. Available on request.
 
 For more information, see [lvlmotion.com](https://lvlmotion.com), or email [info@lvlmotion.com](mailto:info@lvlmotion.com).

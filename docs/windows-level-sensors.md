@@ -2,7 +2,7 @@
 title: LEVEL Sensors
 parent: LEVEL Collector for Windows
 description: connecting and recording LEVEL Inez sensors through the LEVEL Hub - rate and batch, the sensor table, time sync, files
-nav_order: 4
+nav_order: 5
 ---
 
 # LEVEL Sensors

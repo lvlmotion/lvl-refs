@@ -2,7 +2,7 @@
 title: Running a Recording
 parent: LEVEL Collector for Windows
 description: a take with every system you turned on, and where the files go
-nav_order: 3
+nav_order: 4
 ---
 
 # Running a Recording
@@ -32,7 +32,7 @@ is running, the main button still reads **Stop Stream** and stops them.
 
 ## Where the files go
 
-Each take is a folder under `LEVEL_Sensor\data\` in your user folder, named
+Each take is a folder under `LEVEL_Collector\data\` in your user folder, named
 `<date>_<time>-<trial name>`:
 
 | Written | Files |

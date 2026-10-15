@@ -2,7 +2,7 @@
 title: Polar H10
 parent: LEVEL Collector for Windows
 description: recording ECG, accelerometer and heart rate from a Polar H10 chest strap alongside the sensors
-nav_order: 5
+nav_order: 6
 ---
 
 # Polar H10
@@ -16,7 +16,7 @@ its own ECG, accelerometer and heart-rate files.
 ## Settings in the Collector
 
 - **Settings > Sync:** tick **Polar H10**. Needs the Python setup (see
-  [Overview](windows-installing.html#python-setup-needed-for-polar-sony-vicon-and-plotting)).
+  [Settings](windows-settings.html#python-interpreter)).
 - **Collect > Polar section:** after **Scan All**, the straps in range are
   listed with their signal strength. Pick yours (**Use**). The Collector
   remembers the strap it last connected to.
