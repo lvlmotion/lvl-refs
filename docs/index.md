@@ -35,7 +35,8 @@ The Windows app for recording LEVEL sensors through the LEVEL Hub alongside Pola
 - [Settings](windows-settings) - root folder, the Python setup, the sync table, per-system settings
 - [Setting Up for a Recording](windows-setting-up) - turning systems on, getting them ready, and the status sidebar
 - [Running a Recording](running-a-recording) - a take with every system, and where the files go
-- [LEVEL Sensors](windows-level-sensors) - connecting, rate and batch, the sensor table, time sync and files
+- [Post-processing a Recording](windows-postprocessing) - opening and plotting the last take, and Align to PC clock
+- [LEVEL Sensors](windows-level-sensors) - connecting, rate, the sensor table, time sync and files
 - [Polar H10](windows-polar-h10) - pairing, picking the strap, warm-up, files
 - [Sony Cameras and Theia](windows-sony-theia) - camera control, LTC timecode audio, pulling and aligning clips
 - [Vicon](windows-vicon) - Nexus triggering, frame timing, force plates

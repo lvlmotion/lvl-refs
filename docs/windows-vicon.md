@@ -2,7 +2,7 @@
 title: Vicon
 parent: LEVEL Collector for Windows
 description: starting Nexus from the Collector (or the reverse), Vicon frame timing, force plates
-nav_order: 8
+nav_order: 9
 ---
 
 # Vicon

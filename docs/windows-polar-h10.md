@@ -1,8 +1,8 @@
 ---
 title: Polar H10
 parent: LEVEL Collector for Windows
-description: recording ECG, accelerometer and heart rate from a Polar H10 chest strap alongside the sensors
-nav_order: 6
+description: recording ECG, accelerometer and heart rate from a Polar H10 chest strap alongside the IMU sensors
+nav_order: 7
 ---
 
 # Polar H10
@@ -10,9 +10,9 @@ nav_order: 6
 ## How it connects
 
 The strap connects to the **PC's own Bluetooth** (not the LEVEL Hub). It
-connects when you connect the sensors and stays connected across takes. Each
+connects when you connect the IMU sensors and stays connected across takes. Each
 take gets its own ECG, accelerometer and heart-rate files, and **Align to PC
-clock** puts them on the same clock as the sensors.
+clock** puts them on the same clock as the IMU sensors.
 
 ## Before you start
 
@@ -30,12 +30,13 @@ Polar's own [pairing instructions](https://support.polar.com/e_manuals/h10-heart
 cover phones and watches; pairing with a PC is the one step Polar does not
 document, so it is here.
 
-**Pair the strap with Windows once per PC.** Without pairing, the strap sends
-heart rate only - no ECG or accelerometer.
+**Pair the strap with Windows once per PC.** The strap only sends ECG and
+accelerometer data over a paired link. If it is not paired when you connect,
+Windows asks to pair; allow it, or the strap does not start.
 
 1. Put the strap on with the electrodes wet. It only appears while worn.
 2. Windows **Settings > Bluetooth & devices > Add device > Bluetooth**, pick
-   **Polar H10 \<ID\>** (the ID is printed on the pod). Never remove it afterwards.
+   **Polar H10 \<ID\>** (the ID is printed on the pod).
 3. If pairing fails: remove the strap in Windows, take the pod's battery out for
    10 seconds, and pair again.
 
@@ -43,12 +44,11 @@ heart rate only - no ECG or accelerometer.
 
 1. **Settings > Sync:** tick **Polar H10**.
 2. On the **Collect** tab, press **Scan All** (or **Scan** in the Polar panel).
-   The straps in range are listed with their signal strength; there is no
-   automatic scan, a strap only shows while worn. Pick yours (**Use**). The
-   Collector remembers the strap it last connected to.
-3. Press **Connect All**. The strap connects with the sensors and warms up.
+   The straps in range are listed with their signal strength. Pick yours
+   (**Use**). The Collector remembers the strap it last connected to.
+3. Press **Connect All**. The strap connects with the IMU sensors and warms up.
    **Connect and warm up** in the Polar panel does the same for the strap alone,
-   without touching the sensors.
+   without touching the IMU sensors.
 
 ![Polar H10 panel on the Collect tab with the strap picked, connected, battery 100%, status ECG live](assets/windows-polar-h10/polar-panel.png)
 
@@ -85,7 +85,7 @@ session folder is never changed.
   the same rows plus a `pc_ms` column. It maps the strap's clock onto the PC
   clock along the fastest arrivals, which removes most of the Bluetooth delay.
   Heart rate has no strap timestamp, so its `pc_ms` is the arrival time.
-- Polar times are in **milliseconds**; sensor times are in **microseconds**.
+- Polar times are in **milliseconds**; IMU sensor times are in **microseconds**.
   Multiply Polar times by 1000 before comparing.
 
 ## FAQs

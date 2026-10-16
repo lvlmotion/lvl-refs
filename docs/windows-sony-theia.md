@@ -2,7 +2,7 @@
 title: Sony Cameras and Theia
 parent: LEVEL Collector for Windows
 description: starting Sony cameras from the Collector, timecode audio (LTC), the control box clock, aligning clips to the PC clock, Theia
-nav_order: 7
+nav_order: 8
 ---
 
 # Sony Cameras and Theia
