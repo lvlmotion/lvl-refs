@@ -156,7 +156,7 @@ to within a frame rather than an absolute figure.
 **Start Stream** starts every camera through the control box and **Stop
 Stream** stops them; the LTC plays into the LTC camera throughout if it is on.
 The Sony card in the sidebar shows cameras ready, recording, or a problem, and
-**Rig details** (folded, on the Collect tab) shows the full control-box status
+**Rig details** (under the Sony panel on the Collect tab) shows the full control-box status
 when something is wrong. If you start a take with Sony on but **Play LTC
 signal** off, the log warns that the take will align without LTC.
 
