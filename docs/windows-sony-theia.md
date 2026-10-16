@@ -15,11 +15,22 @@ nav_order: 8
   each camera's state.
 - For the tightest timing, the Collector plays a **timecode audio signal (LTC)**
   from a PC audio output into **one camera's microphone input**. That camera's
-  clip then carries PC time in its audio.
+  clip then carries PC time in its audio. The camera's clock runs about
+  **90 ppm** fast against the PC (about 5 ms per minute), but the LTC is read
+  all the way through the clip, so the error stays within about **12 ms** at the
+  start and under **10 ms** over a 20-minute take.
 - Every camera also stamps its video with **timecode**, set by the control box
   from its own clock when recording starts. The Collector listens to that clock
   (PTP) the whole time and saves it with each take, so every take can be placed
-  on the PC clock even without LTC, to within a few tens of milliseconds.
+  on the PC clock even without LTC. Two caveats:
+  - it is good to about **60 ms**, not a frame. Between re-jams the camera's
+    timecode gains about **6.6 ms per minute** on the control box clock, and
+    the box pulls it back by about 60 ms every 10 minutes, so a take's offset
+    depends on where in that cycle it started (plus about 15 ms either way);
+  - the **first take after a camera is attached or powered on** can carry a
+    timecode that is seconds stale. Wait 10 minutes after attaching or powering
+    a camera before a take you will place by PTP alone, or use LTC, which is
+    unaffected.
 
 ## Before you start
 
@@ -62,7 +73,9 @@ What this page adds to that setup, once per rig:
   microphone.
 - On the **PC**, turn off **Audio enhancements** for the LTC output (Windows
   **Settings > System > Sound**, pick the output, **Audio enhancements: Off**).
-  Enhancements level the signal automatically and spoil the LTC.
+  Enhancements level the signal automatically and spoil the LTC. On the same
+  output's **Advanced** page, leave **Allow applications to take exclusive
+  control** on: the Collector needs it to play LTC.
 - Allow **UDP ports 319 and 320** through Windows Firewall on the camera
   network, so the Collector can hear the control box clock (PTP).
 
@@ -73,43 +86,30 @@ What this page adds to that setup, once per rig:
    **Refresh outputs**, then pick the output cabled to the camera); the **LTC
    gain** (type it and press **Set**). Start at **0.016** with the output's
    Windows volume at 50%.
-3. **Close the Sony webapp's browser tab.** While it is open it holds the
-   control box and the Collector's start/stop is ignored.
-4. On the **Collect** tab, press **Scan All**: it gets the browser key (takes
+3. On the **Collect** tab, press **Scan All**: it gets the browser key (takes
    control of the cameras), sets the cameras' clocks from the PC and unmutes
    the LTC output at 50%. The Sony panel then lists the cameras as the webapp
    names them (e.g. `001  DSC-RX0M2_3177801`) with each camera's state.
-5. Pick the **LTC** camera: the one with the audio cable. Tick **Play LTC
+4. Pick the **LTC** camera: the one with the audio cable. Tick **Play LTC
    signal** if you want LTC on this take.
-6. The **PTP** line under the cameras should read **grandmaster heard** with
+5. The **PTP** line under the cameras should read **grandmaster heard** with
    the clock offset.
 
 ![Sony panel on the Collect tab: Get Browser Key, Link Date/Time, Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
 
 While LTC plays, the Collector takes the LTC output for itself (WASAPI
-exclusive mode): nothing else can play sound on that output. This keeps the
-timing the same every time LTC starts. If another program holds the output,
-the Collector falls back to WASAPI shared mode and the log says so. It never
-uses the older MME path; if the output cannot be opened on WASAPI at all, LTC
-does not start and the log says why (usually the output is not an active
-playback device, or exclusive control is turned off for it in Windows Sound >
-Advanced).
+exclusive mode), so no other sound can land on the signal and the timing is
+the same every time LTC starts. It never shares the output: if it cannot take
+it, LTC does not start and the log says why. Usually the output is not an
+active playback device, exclusive control is turned off for it in Windows
+Sound > Advanced, or another program is holding it; fix that and tick **Play
+LTC signal** again.
 
 ## Calibration
 
 Camera calibration (intrinsic, extrinsic) is Theia's, as in Theia's
 [calibration pages](https://docs.theiamarkerless.com/theia3d-documentation/data-collection/recording-extrinsic-chessboard-calibrations).
-The Collector adds one check and one optional measurement.
-
-**Check the LTC once per setup:**
-
-1. Tick **Play LTC signal**, pick the LTC camera, record a 30-second take.
-2. On **Postproc > Align to PC clock**, the take is already in the table. Tick
-   it and press **Run on ticked**. The run copies the LTC camera's clip first.
-3. The Sony column should read **ltc**. If it reads **ptp** or **tc**, see the
-   FAQ below.
-
-<p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT: Postproc > Align to PC clock table after Run on ticked, Sony column reading "ltc"</strong></p>
+The Collector adds one optional measurement.
 
 **No timing calibration is needed per session.** With the LTC output in its
 default (exclusive) mode, the LTC camera's video lands within about **±12 ms**
@@ -189,8 +189,8 @@ For each ticked take the run:
 - writes `aligned\sony_frames_pc.csv`: every video frame with its PC time, and
   the method used for the take:
   - **ltc** - from the LTC in the clip's audio (within about one video frame);
-  - **ptp** - from the control box clock saved during the take (to a few tens of
-    milliseconds);
+  - **ptp** - from the control box clock saved during the take (to about 60 ms;
+    see the caveats at the top of this page);
   - **tc** - from the camera timecode alone (can be about a second off);
 - writes `aligned\pc_alignment.json` with the result and any warnings for every
   system.
@@ -216,9 +216,8 @@ log says why. Try, in this order:
 4. use a USB audio output instead of a laptop headphone jack;
 5. check the cable sits in the LTC camera's microphone input.
 
-**Start Stream does nothing on the cameras.** The Sony webapp is open in a
-browser and holds the control box. Close the tab and press **Get Browser Key**
-on the Collect tab.
+**Start Stream does nothing on the cameras.** The Collector has lost its hold
+on the control box. Press **Get Browser Key** on the Collect tab.
 
 **The PTP line says "not heard".** Allow UDP ports 319 and 320 in Windows
 Firewall on the camera network. Until then, takes align from LTC or timecode
