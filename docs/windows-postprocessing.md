@@ -38,13 +38,14 @@ worked and red with the reason when it did not. Systems with nothing are left
 out of the cell.
 
 1. Each take is added to the table by itself when it finishes. To fill the
-   table from disk instead, press **Enumerate IMU folder**: it lists every take
-   under `data\`.
-2. If you use Sony cameras, get the clips into the Sony video folder: **Pull
-   all clips** on the Collect tab does it and refreshes this table by itself.
-   For clips copied in by hand, press **Enumerate Sony folder**. Either way
-   each clip is matched to the take recorded at the same time, and a Theia
-   trial folder to its clips.
+   table from disk instead, press **Enumerate**. It lists every take under
+   `data\`, then earlier camera-only runs under `aligned\`, then (with Sony
+   on) matches the clips in the Sony video folder to those takes by start
+   time, a Theia trial folder to its clips. The order is fixed, so the table
+   comes out the same every time.
+2. If you use Sony cameras, get the clips into the Sony video folder first:
+   **Pull all clips** on the Collect tab does it and refreshes this table by
+   itself; clips copied in by hand are picked up by **Enumerate**.
 3. Tick the takes to process, then press **Run on ticked**. The takes run in
    order; a running take says so in its row. You cannot run while a take is
    recording.
@@ -68,9 +69,12 @@ the result and any warnings for each system.
 
 - **Run on ticked is off:** nothing is ticked, a run is already going, or a
   take is recording.
-- **A take is missing from the table:** press **Enumerate IMU folder**. Takes
-  recorded by another PC, or moved, are found the same way as long as they are
-  under `data\`.
+- **A take is missing from the table:** press **Enumerate**. Takes recorded by
+  another PC, or moved, are found the same way as long as they are under
+  `data\`. For anything else, **Add a folder by hand** under the table: the
+  **IMU**, **Sony** and **Polar** Browse buttons add one modality's folder on
+  its own (a session folder or a folder of them; a folder of clips; a folder of
+  Polar files). Nothing else is needed to align it.
 - **An Aligned cell is red:** the reason is under it, and the system's page has
   the fixes. The other systems in the same take are still aligned.
 - **The Sony column shows a different method than you expected:** the

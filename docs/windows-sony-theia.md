@@ -194,13 +194,13 @@ column (what each session holds, per system: folder and files) and an
 **Aligned** column (what the last run wrote). Each finished take is added to the
 table by itself; the buttons do the rest:
 
-- **Enumerate IMU folder** lists every session under `data\`.
-- **Enumerate Sony folder** reads the start timecode of every clip in the Sony
-  video folder, and in each dated **Pull all clips** folder under it, and
-  attaches the first camera's `C0001`, `C0002`, … to the session that started
-  at the same time (within 5 minutes). A Theia trial folder is matched by its
-  first clip and fills the Theia column with its C3D. A clip with no session
-  becomes a row of its own, aligned by LTC alone.
+- **Enumerate** lists every session under `data\`, then reads the start
+  timecode of every clip in the Sony video folder, and in each dated **Pull all
+  clips** folder under it, and attaches each take's clips to the session that
+  started at the same time (within 5 minutes), using the LTC camera's clip for
+  timing when the take recorded which camera that was. A Theia trial folder is
+  matched by its first clip and fills the Theia row with its C3D. A clip with
+  no session becomes a row of its own, aligned by LTC alone.
 - **Run on ticked** runs the ticked rows in order.
 
 For each ticked take the run:
@@ -222,8 +222,8 @@ the clips you import from the other cameras.
 **Theia.** Theia processes the clips into a motion file
 ([C3D](https://docs.theiamarkerless.com/theia3d-documentation/data-formats/c3d-files))
 whose frames are the video's frames. Keep Theia's trial folders (clips plus
-C3D) in the Sony video folder and press **Enumerate Sony folder** again: the
-C3D shows in the Theia column, and the next run writes `theia_frames_pc.csv`
+C3D) in the Sony video folder and press **Enumerate** again: the C3D shows in
+the Theia row, and the next run writes `theia_frames_pc.csv`
 with the PC time of every Theia frame.
 
 ## FAQs
