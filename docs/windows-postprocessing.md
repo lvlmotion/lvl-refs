@@ -30,9 +30,12 @@ and the Polar strap are not. **Align to PC clock** maps each of them onto the
 PC clock and writes the result beside the raw data, under
 `LEVEL_Collector\aligned\<take>\`. The raw session folder is never changed.
 
-The table has one row per take. The **Raw** columns say what each take holds
-for each system; the **Aligned** columns show the result of the last run. Only
-systems that are on in **Settings > Sync** get a column.
+The table has one row per take. The **Raw** column lists what is on disk for
+the take, one line per system that has something: the folder, then the file
+names (for Sony, every camera's clip of the take, with the LTC camera's marked).
+The **Aligned** column lists what the last run wrote the same way, green when it
+worked and red with the reason when it did not. Systems with nothing are left
+out of the cell.
 
 1. Each take is added to the table by itself when it finishes. To fill the
    table from disk instead, press **Enumerate IMU folder**: it lists every take
@@ -45,9 +48,8 @@ systems that are on in **Settings > Sync** get a column.
 3. Tick the takes to process, then press **Run on ticked**. The takes run in
    order; a running take says so in its row. You cannot run while a take is
    recording.
-4. Read the **Aligned** columns. Green is done, with the method used and how
-   many frames or files were written. Red is a failure, with the reason under
-   it; hover a cell for the detail.
+4. Read the **Aligned** column. Green is done, with the files written and the
+   method used. Red is a failure, with the reason under it.
 
 What the run does for each system, and the files it writes, is on that
 system's page:

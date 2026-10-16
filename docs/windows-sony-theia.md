@@ -190,8 +190,8 @@ files are never changed.
 
 **Postproc > Align to PC clock** puts the external systems on the PC clock;
 the sensor files are already on it and are not changed. The table has a **Raw**
-group (what each session holds) and an **Aligned** group (the last run), with a
-column per system that is on in Settings. Each finished take is added to the
+column (what each session holds, per system: folder and files) and an
+**Aligned** column (what the last run wrote). Each finished take is added to the
 table by itself; the buttons do the rest:
 
 - **Enumerate IMU folder** lists every session under `data\`.

@@ -79,7 +79,7 @@ What each light pattern on the sensor means, plus waking and resetting a sensor:
 |---|---|
 | `imu-<location>-<id>.csv` | one per sensor: time, accelerometer, gyroscope, magnetometer, sensor time, PC arrival time |
 | `meta-summary.json`, `meta-debug.json`, `meta-telemetry.csv` | session details, time-sync record, data-quality log |
-| `sync.json` | which systems were on and which one started the take |
+| `sync.json` | which systems were in the take, which one started it, and for Sony the LTC output and the LTC camera |
 
 ## Post-processing
 
