@@ -71,10 +71,14 @@ the result and any warnings for each system.
   take is recording.
 - **A take is missing from the table:** press **Enumerate**. Takes recorded by
   another PC, or moved, are found the same way as long as they are under
-  `data\`. For anything else, **Add a folder by hand** under the table: the
-  **IMU**, **Sony** and **Polar** Browse buttons add one modality's folder on
-  its own (a session folder or a folder of them; a folder of clips; a folder of
-  Polar files). Nothing else is needed to align it.
+  `data\`.
+- **The batch did not line something up:** use **Align one folder** under the
+  table. It is separate from the table: pick one system's folder with
+  **Browse** (a take's folder for IMU, Vicon or Polar; a folder of clips for
+  Sony), then press **Align to PC clock** on that row. It runs the same
+  alignment on just that folder, writes to the same `aligned\<folder>` place,
+  and shows only that system's result. A folder of Sony clips is aligned clip
+  by clip from the LTC in each one.
 - **An Aligned cell is red:** the reason is under it, and the system's page has
   the fixes. The other systems in the same take are still aligned.
 - **The Sony column shows a different method than you expected:** the
