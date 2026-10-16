@@ -84,9 +84,9 @@ describe each one:
 - **Polar H10**: nothing to set here; the strap is picked on the Collect tab,
   see [Polar H10](windows-polar-h10).
 - **Sony**: the control box address, the Sony video folder (where the clips
-  and Theia trial folders live) and the auto-start options on the left; the LTC
-  output device, gain and calibration on the right, see
-  [Sony Cameras and Theia](windows-sony-theia).
+  and Theia trial folders live; blank means `LEVEL_Collector\sony`) and the
+  auto-start options on the left; the LTC output device, gain and calibration
+  on the right, see [Sony Cameras and Theia](windows-sony-theia).
 
   ![Sony panel in Settings: control box address, Sony video folder and auto options on the left; LTC output, gain and Calibrate LTC on the right](assets/windows-settings/sony-panel.png)
 - **Vicon**: auto-arm and the DataStream SDK path on the left; the UDP port

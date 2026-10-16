@@ -44,10 +44,12 @@ You need:
   they work with headphones;
 - the Collector with the **full** Python environment (see
   [Settings](windows-settings.html#python-interpreter));
-- a **Sony video folder** on the PC (set in **Settings > Sony**) where you download
-  the clips from the webapp the way Theia asks: **Add the Camera Label (prefix)**
-  and **Do not add the Shooting Date/Time**, so they are named `<label>_C0001.MP4`
-  (Theia's example: `8_C0001.MP4`; see Theia's
+- a **Sony video folder** on the PC. By default it is `LEVEL_Collector\sony`
+  under your user folder; **Settings > Sony** can point it elsewhere. **Pull all
+  clips** on the Collect tab fills it (see below), or download the clips from
+  the webapp the way Theia asks: **Add the Camera Label (prefix)** and **Do not
+  add the Shooting Date/Time**, so they are named `<label>_C0001.MP4` (Theia's
+  example: `8_C0001.MP4`; see Theia's
   [Format Sony Multicam](https://docs.theiamarkerless.com/theia3d-documentation/theia3d-dropdown-menus/tools-menu/format-sony-multicam)
   and [Organize Videos](https://docs.theiamarkerless.com/theia3d-documentation/theia3d-dropdown-menus/tools-menu/organize-videos)).
   Theia's organized trial folders (the clips plus the C3D) can live in the same
@@ -94,6 +96,15 @@ What this page adds to that setup, once per rig:
    signal** if you want LTC on this take.
 5. The **PTP** line under the cameras should read **grandmaster heard** with
    the clock offset.
+6. At the start of a session, press **Init rig…**. It gets the browser key,
+   runs one-push autofocus on every camera, links the cameras' clocks to the
+   PC, and then **formats every camera's memory card**. A dialog lists the
+   cameras first: **Format and init**, **Init without formatting**, or
+   **Cancel**. Pull the clips first if anything on the cards is still needed.
+7. Press **Check LTC** to prove the timecode audio before recording. The
+   Collector records a 12-second take, pulls the LTC camera's clip and reads
+   the LTC in it: **OK** with the frame count and audio level, or what went
+   wrong and what to change.
 
 ![Sony panel on the Collect tab: Get Browser Key, Link Date/Time, Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
 
@@ -160,11 +171,17 @@ signal** off, the log warns that the take will align without LTC.
 | `aligned\theia_frames_pc.csv` | after Align | every Theia frame with its PC time (when a Theia C3D is present) |
 | `aligned\pc_alignment.json` | after Align | the method and quality for every system |
 
-The clips themselves stay on the cameras' cards until you copy them: import
-them into the Sony video folder with the webapp (the LTC camera's clip can also
-be pulled by Align while the rig is still connected). Everything Align writes
-goes to `aligned\<session>\` beside `data\` in the root folder; the session's
-raw files are never changed.
+The clips themselves stay on the cameras' cards until you copy them. At the
+end of a session press **Pull all clips** on the Collect tab: every clip on
+every camera is copied into a new dated folder under the Sony video folder
+(`sony6_10_16_15_02_11\`, say), named the way Theia asks, and the
+Postproc table is refreshed. The dated folder matters: after a format the
+cameras number clips from `C0001` again, so each pull keeps its own folder.
+**Cancel pull** stops between clips; a pull can take a long while (about
+12 MB/s per camera). The LTC camera's clip can also be pulled by Align on its
+own while the rig is still connected. Everything Align writes goes to
+`aligned\<session>\` beside `data\` in the root folder; the session's raw
+files are never changed.
 
 ## Post-processing
 
@@ -176,16 +193,17 @@ table by itself; the buttons do the rest:
 
 - **Enumerate IMU folder** lists every session under `data\`.
 - **Enumerate Sony folder** reads the start timecode of every clip in the Sony
-  video folder and attaches the first camera's `C0001`, `C0002`, … to the
-  session that started at the same time (within 5 minutes). A Theia trial
-  folder is matched by its first clip and fills the Theia column with its C3D.
-  A clip with no session becomes a row of its own, aligned by LTC alone.
+  video folder, and in each dated **Pull all clips** folder under it, and
+  attaches the first camera's `C0001`, `C0002`, … to the session that started
+  at the same time (within 5 minutes). A Theia trial folder is matched by its
+  first clip and fills the Theia column with its C3D. A clip with no session
+  becomes a row of its own, aligned by LTC alone.
 - **Run on ticked** runs the ticked rows in order.
 
 For each ticked take the run:
 
 - pulls the LTC camera's clip off the camera if no clip is known for the take
-  yet (into the Sony video folder, or the session folder if none is set);
+  yet (into the Sony video folder);
 - writes `aligned\sony_frames_pc.csv`: every video frame with its PC time, and
   the method used for the take:
   - **ltc** - from the LTC in the clip's audio (within about one video frame);

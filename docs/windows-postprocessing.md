@@ -37,9 +37,11 @@ systems that are on in **Settings > Sync** get a column.
 1. Each take is added to the table by itself when it finishes. To fill the
    table from disk instead, press **Enumerate IMU folder**: it lists every take
    under `data\`.
-2. If you use Sony cameras, press **Enumerate Sony folder** after the clips are
-   in the Sony video folder. It matches each clip to the take recorded at the
-   same time, and a Theia trial folder to its clips.
+2. If you use Sony cameras, get the clips into the Sony video folder: **Pull
+   all clips** on the Collect tab does it and refreshes this table by itself.
+   For clips copied in by hand, press **Enumerate Sony folder**. Either way
+   each clip is matched to the take recorded at the same time, and a Theia
+   trial folder to its clips.
 3. Tick the takes to process, then press **Run on ticked**. The takes run in
    order; a running take says so in its row. You cannot run while a take is
    recording.
