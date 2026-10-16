@@ -12,9 +12,8 @@ nav_order: 3
 ## Turn on the systems you are using
 
 **Settings > Sync** lists every system. Tick the ones you use (Polar H10, Sony,
-Vicon) and keep the **Collector** as the one that starts a take (the master):
-**Start Stream** on the Collector starts everything. The table is explained on
-the [Settings](windows-settings) page.
+Vicon). **Start Stream** on the Collector starts everything. The table is
+explained on the [Settings](windows-settings) page.
 
 ## Get everything ready
 
@@ -28,9 +27,6 @@ the [Settings](windows-settings) page.
 3. Press **Connect All**. Some systems take a moment to get ready after
    connecting; each system's page says what to expect. **Scan + connect last**
    does both steps in one for the sensors and strap of your last recording.
-
-**Settings > On launch** can do the scanning and connecting for you when the
-Collector opens.
 
 ## The status sidebar
 

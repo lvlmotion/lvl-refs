@@ -30,8 +30,7 @@ Settings that matter, on the Settings tab:
 
 | Setting | Use |
 |---|---|
-| **LEVEL Sensors > Time Sync** | On every time the Collector starts; keep it on. Turn it off only to save sensor battery (for that session). |
-| **Collector Settings > On launch** | Scan All, or Scan All and Connect All, when the Collector opens |
+| **Collector Settings > On launch** | **Scan** and **Connect** switches: do that for you when the Collector opens |
 
 ## How to connect
 
@@ -71,8 +70,9 @@ batch is too low.
 
 ## Calibration
 
-None. After connecting, every sensor's **Sync** cell should read **B** (the
-beacon) or **S** (following). A red **✗** means it did not join the time sync:
+None. Time sync is always on: every sensor on the Hub shares one clock. After
+connecting, every sensor's **Sync** cell should read **B** (the beacon) or **S**
+(following). A red **✗** means it did not join the time sync:
 disconnect and connect again.
 
 ## How to stream

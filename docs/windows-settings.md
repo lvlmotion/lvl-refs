@@ -8,10 +8,10 @@ nav_order: 2
 # Settings
 
 The **Settings** tab is a stack of panels, each with a title you can click to
-fold it away: **Collector Settings**, **LEVEL Sensors**, **Sync**, then one
+fold it away: **Collector Settings**, **Sync**, then one
 panel for each other system that is on.
 
-![Settings tab: Collector Settings with the root folder, On launch switches and the Python interpreter, then the LEVEL Sensors panel with Time Sync](assets/windows-settings/collector-settings.png)
+![Settings tab: Collector Settings with the root folder, On launch switches and the Python interpreter](assets/windows-settings/collector-settings.png)
 
 ## Collector Settings
 
@@ -24,10 +24,10 @@ they are.
 
 ### On launch
 
-**Scan All**, or **Scan All** and **Connect All**, as soon as the Collector
-opens: the same as pressing those buttons at the top of the window. Connect
-All connects the sensors and strap of your last recording, so it needs the
-LEVEL Hub plugged in and the sensors awake at launch.
+Two switches, **Scan** and **Connect**: the Collector presses Scan All, and
+then Connect All, for you as soon as it opens. Connect uses the sensors and
+strap of your last recording, so it needs the LEVEL Hub plugged in and the
+sensors awake at launch.
 
 ### Python interpreter
 
@@ -36,11 +36,9 @@ the Polar, Sony and Vicon sidecars. Recording LEVEL sensors needs no Python. If
 you do not have Python, install [Miniconda](https://www.anaconda.com/download/success)
 (or any Python from [python.org](https://www.python.org/downloads/)) first.
 
-The Collector shows which Python it found: the path saved here if you set one,
-otherwise the Python that the `py -3` and `python` commands run (the one on
-your PATH, which Miniconda and the python.org installer set up). **Browse**
-picks a different one. It then checks that Python's default environment for the
-packages it needs, listing each one as present or missing. If your Python
+The pre-filled path is the Python on your PATH; **Browse** to pick a different
+one. The Collector then checks that Python for the packages it needs, listing
+each one as present or missing. If your Python
 already has them, nothing more is needed. Otherwise click one of:
 
 - **Set up minimum environment**: what plotting needs.
@@ -49,19 +47,10 @@ already has them, nothing more is needed. Otherwise click one of:
 
 Either one builds a private Python environment under your user folder
 (`~/.lvlmotion`), installs the packages there, and switches the Collector to it.
-Your own Python is never modified. It needs internet. The full environment downloads a few
-hundred megabytes and can take several minutes; the line at the bottom of every
-tab shows the latest step, and the **Logs** tab shows all of them. Wait for it
-to say it finished.
+Your own Python is never modified. The full environment download can take several minutes.
 
 If a package later shows as missing, run the same button again and restart the
 Collector.
-
-## LEVEL Sensors
-
-**Time Sync** keeps every sensor on the Hub on one shared clock. On every time
-the Collector starts; keep it on. Turning it off saves sensor battery for that
-session only, and applies at the next connection.
 
 ## Sync
 
