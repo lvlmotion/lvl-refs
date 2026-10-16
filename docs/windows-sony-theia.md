@@ -92,16 +92,18 @@ What this page adds to that setup, once per rig:
    control of the cameras), sets the cameras' clocks from the PC and unmutes
    the LTC output at 50%. The Sony panel then lists the cameras as the webapp
    names them (e.g. `001  DSC-RX0M2_3177801`) with each camera's state.
-4. Pick the **LTC** camera: the one with the audio cable. Tick **Play LTC
-   signal** if you want LTC on this take.
+4. Pick the **LTC** camera: the one with the audio cable. **Play LTC signal**
+   is off at every launch; Init rig turns it on, or tick it here. It stays on
+   until you untick it.
 5. The **PTP** line under the cameras should read **grandmaster heard** with
    the clock offset.
 6. At the start of a session, press **Init rig…**. A checklist comes up with
-   every step ticked: unmute the LTC output and set it to 50%, get the browser
-   key, one-push autofocus on every camera, link the cameras' clocks to the
-   PC, and **format every camera's memory card**. Untick what you do not want
-   and press **Run**. The cameras it will touch are listed. Pull the clips
-   first if anything on the cards is still needed.
+   every step ticked, in two groups. Cameras, through the control box: get the
+   browser key, one-push autofocus on every camera, link the cameras' clocks
+   to the PC, and **format every camera's memory card**. This PC: unmute the
+   LTC output and set it to 50%, and start playing the LTC signal. Untick what
+   you do not want and press **Run**. The cameras it will touch are listed.
+   Pull the clips first if anything on the cards is still needed.
 7. Press **Check LTC** to prove the timecode audio before recording. The
    Collector records a 12-second take, pulls the LTC camera's clip and reads
    the LTC in it: **OK** with the frame count and audio level, or what went
