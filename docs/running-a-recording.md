@@ -23,7 +23,7 @@ Set up first: [Setting Up for a Recording](windows-setting-up.html).
 6. Press **Stop Stream**. Everything stops; the sensors stay connected for the
    next take.
 
-<!-- screenshot: footer with Trial Name, Notes and Start Stream; sidebar all green while recording -->
+![A take in progress: the footer with Trial Name, Notes, the elapsed time and Stop Stream; the sidebar all green](assets/running-a-recording/recording.png)
 
 
 If a system fails mid-take, its sidebar card turns red and the others keep
@@ -39,6 +39,6 @@ Each take is a folder under `LEVEL_Collector\data\` in your user folder, named
 |---|---|
 | During the take | one sensor file per sensor; Polar ECG, accelerometer and heart-rate files |
 | At Stop | session details and quality summary; the Sony and Vicon timing records |
-| After post-processing | the pulled camera clip and an `aligned` folder |
+| After post-processing | `aligned\<take>\` beside `data\`, with every system's `*_pc.csv` |
 
 What each system writes is listed on its page.

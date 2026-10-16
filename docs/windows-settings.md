@@ -11,7 +11,7 @@ The **Settings** tab is a stack of panels, each with a title you can click to
 fold it away: **Collector Settings**, **LEVEL Sensors**, **Sync**, then one
 panel for each other system that is on.
 
-<!-- screenshot: Settings tab, Collector Settings and LEVEL Sensors panels -->
+![Settings tab: Collector Settings with the root folder, On launch switches and the Python interpreter, then the LEVEL Sensors panel with Time Sync](assets/windows-settings/collector-settings.png)
 
 ## Collector Settings
 
@@ -21,6 +21,13 @@ Where recordings and logs go: `data` and `logs` under this folder. The default
 is `LEVEL_Collector` in your user folder. Type a path and press Enter, or
 **Browse**. A new root applies to future recordings; existing ones stay where
 they are.
+
+### On launch
+
+**Scan All**, or **Scan All** and **Connect All**, as soon as the Collector
+opens: the same as pressing those buttons at the top of the window. Connect
+All connects the sensors and strap of your last recording, so it needs the
+LEVEL Hub plugged in and the sensors awake at launch.
 
 ### Python interpreter
 
@@ -52,15 +59,13 @@ Collector.
 
 ## LEVEL Sensors
 
-- **On launch**: **Scan**, or **Scan** and **Connect**, as soon as the Collector
-  opens. Needs the LEVEL Hub plugged in at launch.
-- **Time Sync**: keeps every sensor on the Hub on one shared clock. On every
-  time the Collector starts; keep it on. Turning it off saves sensor battery
-  for that session only, and applies at the next connection.
+**Time Sync** keeps every sensor on the Hub on one shared clock. On every time
+the Collector starts; keep it on. Turning it off saves sensor battery for that
+session only, and applies at the next connection.
 
 ## Sync
 
-<!-- screenshot: Settings > Sync table with Polar, Sony and Vicon on, Collector as master -->
+![Sync table with Polar H10, Sony and Vicon on and the Collector as master](assets/windows-settings/sync-table.png)
 
 One take, several systems, one clock: the sync table says which systems are in
 the capture and which one starts a take (the **master**). The Collector relays
@@ -71,6 +76,7 @@ the start to the others.
 | **On** | the system is part of the capture. The Collector is always on. |
 | **Master** | the one system whose start begins the take. Only one can be master. |
 | **Role** | what that setting means for the row, in words. |
+| **Last connected** | what that system connected to last: the sensors of the last recording, the Polar strap, the LTC camera. **Scan + connect last** reconnects to these. |
 
 | System | Can be master | As master | Otherwise |
 |---|---|---|---|
@@ -88,8 +94,11 @@ describe each one:
 
 - **Polar H10**: nothing to set here; the strap is picked on the Collect tab,
   see [Polar H10](windows-polar-h10).
-- **Sony**: the control box address and the auto-start options on the left;
-  the LTC output device, gain and calibration on the right, see
+- **Sony**: the control box address, the Sony video folder (where the clips
+  and Theia trial folders live) and the auto-start options on the left; the LTC
+  output device, gain and calibration on the right, see
   [Sony Cameras and Theia](windows-sony-theia).
+
+  ![Sony panel in Settings: control box address, Sony video folder and auto options on the left; LTC output, gain and Calibrate LTC on the right](assets/windows-settings/sony-panel.png)
 - **Vicon**: auto-arm and the DataStream SDK path on the left; the UDP port
   and the Nexus host on the right, see [Vicon](windows-vicon).

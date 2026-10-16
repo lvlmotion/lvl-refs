@@ -9,21 +9,26 @@ nav_order: 6
 
 ## How it connects
 
-The strap connects to the **PC's own Bluetooth** (not the LEVEL Hub). It starts
-when you connect the sensors and stays connected across takes. Each take gets
-its own ECG, accelerometer and heart-rate files.
+The strap connects to the **PC's own Bluetooth** (not the LEVEL Hub). It
+connects when you connect the sensors and stays connected across takes. Each
+take gets its own ECG, accelerometer and heart-rate files, and **Align to PC
+clock** puts them on the same clock as the sensors.
 
-## Settings in the Collector
+## Before you start
 
-- **Settings > Sync:** tick **Polar H10**. Needs the Python setup (see
-  [Settings](windows-settings.html#python-interpreter)).
-- **Collect > Polar section:** after **Scan All**, the straps in range are
-  listed with their signal strength. Pick yours (**Use**). The Collector
-  remembers the strap it last connected to.
+You need:
 
-<!-- screenshot: Polar rows on the Collect tab, strap picked -->
+- a Polar H10 strap with a working battery;
+- a PC with Bluetooth, running the Collector with the **full** Python
+  environment (see [Settings](windows-settings.html#python-interpreter)).
 
-## Settings on the other system
+We assume you already use the strap on its own: fitting it, wetting the
+electrodes and battery changes are in Polar's
+[H10 user manual](https://support.polar.com/e_manuals/h10-heart-rate-sensor/polar-h10-user-manual-english/getting-started.htm)
+and [support pages](https://support.polar.com/en/support/h10_heart_rate_sensor).
+Polar's own [pairing instructions](https://support.polar.com/e_manuals/h10-heart-rate-sensor/polar-h10-user-manual-english/pairing.htm)
+cover phones and watches; pairing with a PC is the one step Polar does not
+document, so it is here.
 
 **Pair the strap with Windows once per PC.** Without pairing, the strap sends
 heart rate only - no ECG or accelerometer.
@@ -34,23 +39,46 @@ heart rate only - no ECG or accelerometer.
 3. If pairing fails: remove the strap in Windows, take the pod's battery out for
    10 seconds, and pair again.
 
+## How to connect
+
+1. **Settings > Sync:** tick **Polar H10**.
+2. On the **Collect** tab, press **Scan All** (or **Scan** in the Polar panel).
+   The straps in range are listed with their signal strength; there is no
+   automatic scan, a strap only shows while worn. Pick yours (**Use**). The
+   Collector remembers the strap it last connected to.
+3. Press **Connect All**. The strap connects with the sensors and warms up.
+   **Connect and warm up** in the Polar panel does the same for the strap alone,
+   without touching the sensors.
+
+![Polar H10 panel on the Collect tab with the strap picked, connected, battery 100%, status ECG live](assets/windows-polar-h10/polar-panel.png)
+
 ## Calibration
 
-- The strap needs a **warm-up of about 30-40 seconds** after connecting before
-  ECG flows. The sidebar shows it in yellow: searching, connecting, warming up.
-- Start the take once the Polar card is **green** with ECG about 130 Hz,
-  accelerometer about 200 Hz, and heart rate.
-- Right after the warm-up the ECG rate can read low for a few seconds before it
-  settles; that is normal.
-- If the ECG stops while heart rate keeps going, the Collector restarts the ECG
-  stream by itself.
-- If no ECG has arrived after about 75 seconds, the Polar line turns red with
-  **No ECG**: re-wet the electrodes or reseat the strap, then press **Start
-  warm-up** in the Collect tab's Polar section to start the warm-up again.
-- If the strap's Bluetooth link drops, the Polar line says so. Press **Start
-  warm-up** to reconnect.
+None. The strap needs a **warm-up of about 30-40 seconds** after connecting
+before ECG flows; the sidebar shows it in yellow (searching, connecting,
+warming up) and turns green when ECG is about 130 Hz, accelerometer about 200 Hz
+and heart rate is arriving. Start the take once it is green.
+
+## How to stream
+
+Press **Start Stream**. The strap is already connected, so its streams are
+simply cut at the take's start and stop. Right after the warm-up the ECG rate
+can read low for a few seconds before it settles; that is normal. Between
+takes the strap stays connected and warm.
+
+## Files generated
+
+| File | What |
+|---|---|
+| `polar_<id>_ecg_<time>.csv` | ECG at about 130 Hz |
+| `polar_<id>_acc_<time>.csv` | accelerometer at about 200 Hz |
+| `polar_<id>_hr_<time>.csv` | heart rate and beat-to-beat intervals |
+| `aligned\polar_<id>_<kind>_pc.csv` | after Align: the same rows with PC time |
 
 ## Post-processing
+
+Align writes to `aligned\<session>\` beside `data\` in the root folder; the raw
+session folder is never changed.
 
 - Every row has the strap's own timestamp and the PC time it arrived.
 - **Postproc > Align to PC clock** writes `aligned\polar_<id>_<ecg|acc|hr>_pc.csv`:
@@ -60,11 +88,20 @@ heart rate only - no ECG or accelerometer.
 - Polar times are in **milliseconds**; sensor times are in **microseconds**.
   Multiply Polar times by 1000 before comparing.
 
-## Files
+## FAQs
 
-| File | What |
-|---|---|
-| `polar_<id>_ecg_<time>.csv` | ECG at about 130 Hz |
-| `polar_<id>_acc_<time>.csv` | accelerometer at about 200 Hz |
-| `polar_<id>_hr_<time>.csv` | heart rate and beat-to-beat intervals |
-| `aligned\polar_<id>_<kind>_pc.csv` | after Align: the same rows with PC time |
+**The ECG stopped but heart rate keeps going.** The Collector restarts the ECG
+stream by itself; nothing to do.
+
+**The Polar line is red with "No ECG".** No ECG arrived for about 75 seconds.
+Re-wet the electrodes or reseat the strap, then press **Connect and warm up** in
+the Collect tab's Polar panel.
+
+**The Polar line says the link dropped.** Press **Connect and warm up** to reconnect.
+
+**Only heart rate arrives, never ECG or accelerometer.** The strap is not
+paired with Windows. Pair it as above.
+
+**The strap is not listed after Scan.** It only advertises while worn with
+wet electrodes, and only to one PC at a time if another device already holds
+it. Check the battery if it still does not appear.

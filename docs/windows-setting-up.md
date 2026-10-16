@@ -7,7 +7,7 @@ nav_order: 3
 
 # Setting Up for a Recording
 
-<!-- screenshot: Collect tab, sensors connected, all four systems in the sidebar -->
+![Collect tab with the sensors connected, the Polar H10 strap ready, the Sony panel waiting for an LTC camera, and all four systems in the status sidebar](assets/windows-setting-up/collect-tab-all-systems.png)
 
 ## Turn on the systems you are using
 
@@ -22,10 +22,12 @@ the [Settings](windows-settings) page.
    [LEVEL Sensors](windows-level-sensors.html), [Polar H10](windows-polar-h10.html),
    [Sony Cameras and Theia](windows-sony-theia.html), [Vicon](windows-vicon.html).
 2. On the **Collect** tab, press **Scan All** (top of the window). It finds or
-   readies every system you turned on. Each system has its own section on the
-   tab; pick what you want in each.
+   readies every system you turned on. Each system has its own panel on the
+   tab; pick what you want in each. Only what a scan has seen is listed; the
+   sensors and strap from your last recording are ticked for you once seen.
 3. Press **Connect All**. Some systems take a moment to get ready after
-   connecting; each system's page says what to expect.
+   connecting; each system's page says what to expect. **Scan + connect last**
+   does both steps in one for the sensors and strap of your last recording.
 
 **Settings > On launch** can do the scanning and connecting for you when the
 Collector opens.
@@ -36,7 +38,7 @@ The right-hand panel shows every system you have turned on, and how each is
 doing. Each card reads **name - what you picked**, then a coloured status line,
 then any warnings.
 
-<!-- screenshot: status sidebar with a red, yellow, green and grey line -->
+![Status sidebar: LEVEL green, Polar yellow, Sony red with a warning, Vicon grey](assets/windows-setting-up/status-sidebar.png)
 
 | Colour | Meaning |
 |---|---|
@@ -64,7 +66,7 @@ anyway.
 ## If something goes wrong
 
 - **Collector says "no LEVEL Hub detected":** re-plug the LEVEL Hub, then press
-  **Re-scan for Hub**.
+  **Re-scan for Hub** (top of the window).
 - **A system's card is red:** its page has the fixes for that system.
 - **A system drops out during a take:** its card turns red and says so. The other
   systems keep recording; press **Stop Stream** when you decide to end the take.
