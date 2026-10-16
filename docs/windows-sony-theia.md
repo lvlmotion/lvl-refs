@@ -96,17 +96,18 @@ What this page adds to that setup, once per rig:
    signal** if you want LTC on this take.
 5. The **PTP** line under the cameras should read **grandmaster heard** with
    the clock offset.
-6. At the start of a session, press **Init rig…**. It gets the browser key,
-   runs one-push autofocus on every camera, links the cameras' clocks to the
-   PC, and then **formats every camera's memory card**. A dialog lists the
-   cameras first: **Format and init**, **Init without formatting**, or
-   **Cancel**. Pull the clips first if anything on the cards is still needed.
+6. At the start of a session, press **Init rig…**. A checklist comes up with
+   every step ticked: unmute the LTC output and set it to 50%, get the browser
+   key, one-push autofocus on every camera, link the cameras' clocks to the
+   PC, and **format every camera's memory card**. Untick what you do not want
+   and press **Run**. The cameras it will touch are listed. Pull the clips
+   first if anything on the cards is still needed.
 7. Press **Check LTC** to prove the timecode audio before recording. The
    Collector records a 12-second take, pulls the LTC camera's clip and reads
    the LTC in it: **OK** with the frame count and audio level, or what went
    wrong and what to change.
 
-![Sony panel on the Collect tab: Get Browser Key, Link Date/Time, Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
+![Sony panel on the Collect tab: Init rig, Check LTC, Pull all clips, Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
 
 While LTC plays, the Collector takes the LTC output for itself (WASAPI
 exclusive mode), so no other sound can land on the signal and the timing is
@@ -235,7 +236,8 @@ log says why. Try, in this order:
 5. check the cable sits in the LTC camera's microphone input.
 
 **Start Stream does nothing on the cameras.** The Collector has lost its hold
-on the control box. Press **Get Browser Key** on the Collect tab.
+on the control box. Press **Init rig…**, untick everything but **Get the
+browser key**, and press **Run**.
 
 **The PTP line says "not heard".** Allow UDP ports 319 and 320 in Windows
 Firewall on the camera network. Until then, takes align from LTC or timecode
