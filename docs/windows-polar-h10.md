@@ -48,7 +48,8 @@ Windows asks to pair; allow it, or the strap does not start.
    (**Use**). The Collector remembers the strap it last connected to.
 3. Press **Connect All**. The strap connects with the IMU sensors and warms up.
    **Connect and warm up** in the Polar panel does the same for the strap alone,
-   without touching the IMU sensors.
+   without touching the IMU sensors (it is available once the Collector has
+   found the LEVEL Hub).
 
 ![Polar H10 panel on the Collect tab with the strap picked, connected, battery 100%, status ECG live](assets/windows-polar-h10/polar-panel.png)
 
@@ -70,18 +71,22 @@ takes the strap stays connected and warm.
 
 | File | What |
 |---|---|
-| `polar_<id>_ecg_<time>.csv` | ECG at about 130 Hz |
-| `polar_<id>_acc_<time>.csv` | accelerometer at about 200 Hz |
-| `polar_<id>_hr_<time>.csv` | heart rate and beat-to-beat intervals |
-| `aligned\polar_<id>_<kind>_pc.csv` | after Align: the same rows with PC time |
+| `polar_<mac>_ecg_<time>.csv` | ECG at about 130 Hz: PC arrival time, strap time, ECG |
+| `polar_<mac>_acc_<time>.csv` | accelerometer at about 200 Hz: PC arrival time, strap time, X, Y, Z |
+| `polar_<mac>_hr_<time>.csv` | heart rate and beat-to-beat (R-R) intervals, with PC arrival time |
+| `aligned\polar_<mac>_<kind>_pc.csv` | after Align: the same rows with PC time |
+
+`<mac>` is the strap's Bluetooth address (with `_` in place of `:`), not the ID
+printed on the pod.
 
 ## Post-processing
 
-Align writes to `aligned\<session>\` beside `data\` in the root folder; the raw
+Align writes to `aligned\<session>\` beside `data\` in the root folder's
+`collector` folder (by default `C:\lvlmotion\collector\aligned\`); the raw
 session folder is never changed.
 
 - Every row has the strap's own timestamp and the PC time it arrived.
-- **Postproc > Align to PC clock** writes `aligned\polar_<id>_<ecg|acc|hr>_pc.csv`:
+- **Postproc > Align to PC clock** writes `aligned\polar_<mac>_<ecg|acc|hr>_pc.csv`:
   the same rows plus a `pc_ms` column. It maps the strap's clock onto the PC
   clock along the fastest arrivals, which removes most of the Bluetooth delay.
   Heart rate has no strap timestamp, so its `pc_ms` is the arrival time.
@@ -91,13 +96,17 @@ session folder is never changed.
 ## FAQs
 
 **The ECG stopped but heart rate keeps going.** The Collector restarts the ECG
-stream by itself; nothing to do.
+stream by itself ("ECG stalled — restarting the stream"); nothing to do.
 
 **The Polar line is red with "No ECG".** No ECG arrived for about 75 seconds.
 Re-wet the electrodes or reseat the strap, then press **Connect and warm up** in
 the Collect tab's Polar panel.
 
-**The Polar line says the link dropped.** Press **Connect and warm up** to reconnect.
+**The Polar line says "strap disconnected (Bluetooth link lost)".** Press
+**Connect and warm up** to reconnect.
+
+**The status says "Waiting for pairing".** Windows is asking to pair the strap:
+click **Allow** on the Windows prompt.
 
 **Only heart rate arrives, never ECG or accelerometer.** The strap is not
 paired with Windows. Pair it as above.

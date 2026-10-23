@@ -8,12 +8,14 @@ nav_order: 3
 # Setting Up for a Recording
 
 ![Collect tab with the sensors connected, the Polar H10 strap ready, the Sony panel waiting for an LTC camera, and all four systems in the status sidebar](assets/windows-setting-up/collect-tab-all-systems.png)
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: Vicon card now reads not connected (press Connect to Nexus); Sony panel has Init rig / Pull all clips instead of Get Browser Key, Link Date/Time, Unmute</strong></p>
 
 ## Turn on the systems you are using
 
 **Settings > Sync** lists every system. Tick the ones you use (Polar H10, Sony,
-Vicon). **Start Stream** on the Collector starts everything. The table is
-explained on the [Settings](windows-settings) page.
+Vicon). With the Collector as the master, **Start Stream** on the Collector
+starts everything. The table is explained on the [Settings](windows-settings)
+page.
 
 ## Get everything ready
 
@@ -27,21 +29,26 @@ explained on the [Settings](windows-settings) page.
 3. Press **Connect All**. Some systems take a moment to get ready after
    connecting; each system's page says what to expect. **Scan + connect last**
    does both steps in one for the sensors and strap of your last recording.
+   Vicon is not part of Connect All: press **Connect to Nexus** on its panel
+   once Nexus is live (see [Vicon](windows-vicon.html)).
 
 ## The status sidebar
 
 The right-hand panel shows every system you have turned on, and how each is
-doing. Each card reads **name - what you picked**, then a coloured status line,
-then any warnings.
+doing. The master is at the top; when it is not the Collector, an arrow leads
+from it to the Collector, and the systems the Collector starts are listed
+below. Each card reads **name - what you picked** (or what you still need to
+pick), then a coloured status line, then any warnings.
 
 ![Status sidebar: LEVEL green, Polar yellow, Sony red with a warning, Vicon grey](assets/windows-setting-up/status-sidebar.png)
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: Vicon card now reads not connected - press Connect to Nexus once Nexus is Live</strong></p>
 
 | Colour | Meaning |
 |---|---|
 | Green | ready, or recording and healthy |
 | Yellow | warming up, in progress, or recording with a warning |
 | Red | not ready or failed |
-| Grey | nothing to report (e.g. Vicon between takes) |
+| Grey | nothing to report (e.g. Vicon before it is connected to Nexus) |
 
 While a take is recording, the dot beside each system that is recording
 blinks, at the same pace as a LEVEL sensor's light. The bar along the bottom of
@@ -50,10 +57,10 @@ the window takes the colour of the worst system.
 | Card | Shows after the dash | Status line |
 |---|---|---|
 | Collector | - | whether the LEVEL Hub is plugged in |
-| LEVEL | the sensors you picked | connected / time-synced / streaming with elapsed time and loss |
+| LEVEL | the sensors you picked | connected / time-synced / streaming with elapsed time and loss; after a take, its length and loss |
 | Polar | the strap you picked | searching, warming up, then live ECG / ACC / heart rate |
-| Sony | the camera carrying the LTC timecode audio | cameras ready / recording / problems |
-| Vicon | Nexus | frames arriving during a take; grey between takes |
+| Sony | the camera carrying the LTC timecode audio | cameras ready / recording / problems, and whether LTC is playing |
+| Vicon | Nexus | ready (Vicon's data rate) between takes once connected to Nexus; frames arriving during a take |
 
 Nothing here stops you recording except a missing LEVEL Hub (the button then
 reads **Awaiting LEVEL Hub**). If a line is red, it is your call whether to record

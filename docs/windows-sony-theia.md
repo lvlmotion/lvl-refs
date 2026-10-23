@@ -15,7 +15,9 @@ nav_order: 8
   each camera's state.
 - For the tightest timing, the Collector plays a **timecode audio signal (LTC)**
   from a PC audio output into **one camera's microphone input**. That camera's
-  clip then carries PC time in its audio. The camera's clock runs about
+  clip then carries PC time in its audio: each timecode word is stamped with
+  the PC time it leaves the audio output, so if the PC's audio stalls the clip
+  has a short gap, never a wrong time. The camera's clock runs about
   **90 ppm** fast against the PC (about 5 ms per minute), but the LTC is read
   all the way through the clip, so the error stays within about **12 ms** at the
   start and under **10 ms** over a 20-minute take.
@@ -44,8 +46,9 @@ You need:
   they work with headphones;
 - the Collector with the **full** Python environment (see
   [Settings](windows-settings.html#python-interpreter));
-- a **Sony video folder** on the PC. By default it is `LEVEL_Collector\sony`
-  under your user folder; **Settings > Sony** can point it elsewhere. **Pull all
+- a **Sony video folder** on the PC. By default it is `collector\sony` in the
+  root folder (`C:\lvlmotion\collector\sony`); **Settings > Sony** can point it
+  elsewhere. **Pull all
   clips** on the Collect tab fills it (see below), or download the clips from
   the webapp the way Theia asks: **Add the Camera Label (prefix)** and **Do not
   add the Shooting Date/Time**, so they are named `<label>_C0001.MP4` (Theia's
@@ -95,21 +98,35 @@ What this page adds to that setup, once per rig:
 4. Pick the **LTC** camera: the one with the audio cable. **Play LTC signal**
    is off at every launch; Init rig turns it on, or tick it here. It stays on
    until you untick it.
-5. The **PTP** line under the cameras should read **grandmaster heard** with
-   the clock offset.
-6. At the start of a session, press **Init rig…**. A checklist comes up with
-   every step ticked, in two groups. Cameras, through the control box: get the
-   browser key, one-push autofocus on every camera, link the cameras' clocks
-   to the PC, and **format every camera's memory card**. This PC: unmute the
-   LTC output and set it to 50%, and start playing the LTC signal. Untick what
-   you do not want and press **Run**. The cameras it will touch are listed.
-   Pull the clips first if anything on the cards is still needed.
-7. Press **Check LTC** to prove the timecode audio before recording. The
-   Collector records a 12-second take, pulls the LTC camera's clip and reads
-   the LTC in it: **OK** with the frame count and audio level, or what went
-   wrong and what to change.
+5. The **ptp** line in **Rig details**, under the cameras, should read
+   **grandmaster heard** with the clock offset.
+6. At the start of a session, press **Init rig…**. A checklist comes up, in
+   the order the steps run, grouped by where each step happens:
+   - This PC: **open the camera page in the browser** (the Sony webapp, for
+     live previews);
+   - Cameras, through the control box: **keep the boxes' timing (PTP) running
+     from this app** (off by default; see the FAQs), get the browser key,
+     power on any camera that is off, one-push autofocus on every camera, and
+     link the cameras' clocks to the PC;
+   - This PC: unmute the LTC output and set it to 50%, start playing the LTC
+     signal, and **Check LTC** (off by default, see the next step);
+   - Cameras: **format every camera's memory card**, last, so the session
+     starts on empty cards.
 
-![Sony panel on the Collect tab: Init rig, Check LTC, Pull all clips, Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
+   Untick what you do not want and press **Run** (it reads **Run (formats
+   cards)** while the format is ticked). The cameras it will touch are listed.
+   Pull the clips first if anything on the cards is still needed. While it
+   runs, the panel shows one line per step under the buttons: running, done or
+   failed, with what the step reported.
+7. Tick **Check LTC** in the Init rig checklist to prove the timecode audio
+   before recording. The Collector records 12 seconds on the LTC camera, pulls
+   the clip and reads the LTC in it: **OK** with the frame count and audio
+   level, or what went wrong and what to change. If the LTC camera happens to
+   be pointed at the clock page (see [Calibration](#calibration)), the same
+   clip also measures K_av and saves it.
+
+![Sony panel on the Collect tab: Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: current Sony panel with Init rig and Pull all clips, PTP line inside Rig details, stamped player (no FREE-RUNNING)</strong></p>
 
 While LTC plays, the Collector takes the LTC output for itself (WASAPI
 exclusive mode), so no other sound can land on the signal and the timing is
@@ -123,17 +140,16 @@ LTC signal** again.
 
 Camera calibration (intrinsic, extrinsic) is Theia's, as in Theia's
 [calibration pages](https://docs.theiamarkerless.com/theia3d-documentation/data-collection/recording-extrinsic-chessboard-calibrations).
-The Collector adds one optional measurement.
+The Collector adds one timing measurement.
 
-**No timing calibration is needed per session.** With the LTC output in its
-default (exclusive) mode, the LTC camera's video lands within about **±12 ms**
-of PC time, under one video frame at 60 fps, with no calibration at all.
-
-**Calibrate LTC (optional, once per PC and LTC output).** It measures the small
-remaining offset between the LTC in the audio and the video frames (K_av) for
-your exact hardware, for labs that want to check it or report it. The value
-starts at 0 ms for every output; you can also type a measured value into
-**K_av (ms)** and press **Set**. To measure it:
+**Calibrate LTC (once per PC and LTC output).** It measures the small offset
+between the LTC in the audio and the video frames (K_av) for your exact
+hardware. Until you calibrate, the Collector uses 0 ms and Settings says
+"default 0 ms, not yet set for this output" in red. With a USB audio adapter
+the measured value has stayed within about 10 ms of 0 and steady from one start
+of the LTC to the next; a built-in headphone jack can start at a different
+offset each time LTC starts, so calibrate it every session. You can also type a measured value into **K_av (ms)** and press
+**Set**. To measure it:
 
 1. In **Settings > Sony**, under **Calibrate LTC**, press **Open clock page** and
    make the page full screen. It shows the PC clock with two strips of squares
@@ -142,14 +158,47 @@ starts at 0 ms for every output; you can also type a measured value into
    view.
 
    ![The clock page full screen: the PC time with two strips of squares above it and two below](assets/windows-sony-theia/clock-page.png)
+   <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: check against the current clock page</strong></p>
 3. Press **Calibrate**. The Collector plays LTC, records 12 seconds, copies the
    clip and reads the clock from the video. After about a minute it shows the
-   result, for example "K_av = 9 ms (spread 18 ms)", and saves it for that LTC
-   output.
+   result, for example "K_av = 9 ms (spread 18 ms)", and saves it
+   for that LTC output. If the camera missed the recording, the run fails
+   rather than reading an older clip.
+
+The value is kept per LTC output and per version of the Collector's LTC
+player, so a Collector update that changes the player asks for a new
+calibration. Each take saves the K_av in effect when it was recorded, and
+Align uses that value (see [Post-processing](#post-processing)).
+
+To check whether the value holds, run a **batch** (the row under Calibrate):
+**Run length (s)** (60 by default), **Runs per player** (4) and **Sets** (100).
+Each set restarts the LTC signal, a fresh start of the output, then records
+that many runs on it. The line beside **Run batch** shows how many runs that is
+and about how long; the defaults take most of a night, so lower **Sets** for a
+quick check. **Stop** ends the batch after the current run. The median of the
+runs that read the clock page is saved.
+
+Every Calibrate, every batch run, every value you **Set** by hand and every
+Check LTC that decoded is added to a log, `calibration\kav_log.csv` in the collector
+folder (**Open log** opens its folder). The **History** line under the buttons
+sums it up for the picked output: how many calibrations, their median, spread,
+range and the last value. A steady history means you can calibrate less often;
+a wandering one means calibrate each session. If the values fall into separate
+groups, a red note says which kind:
+
+- **whole screen refreshes apart** (about 17 ms): the clock page's display
+  delay changed between runs, not the LTC; the median of all runs is kept;
+- **not whole refreshes apart**: this output does not start at the same offset
+  every time. Calibrate every session, or use a USB audio adapter for the LTC.
 
 Repeat it after changing the PC, the LTC output or the audio adapter. The
 measured value includes the monitor's own display delay, so treat it as a check
 to within a frame rather than an absolute figure.
+
+Across takes, expect the video on the PC clock to within one or two video
+frames. Where a study needs better, record a sync event that every system sees,
+such as a tap on a LEVEL sensor or a step onto a force plate, and line the
+systems up on it.
 
 ## How to stream
 
@@ -161,6 +210,7 @@ when something is wrong. If you start a take with Sony on but **Play LTC
 signal** off, the log warns that the take will align without LTC.
 
 ![Sony panel during a take: both cameras Recording, LTC on, and the Sony card in the sidebar reading REC](assets/windows-sony-theia/sony-recording.png)
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: current Sony panel during a take (no Get Browser Key / Link Date/Time / Unmute buttons)</strong></p>
 
 ## Files generated
 
@@ -168,23 +218,29 @@ signal** off, the log warns that the take will align without LTC.
 |---|---|---|
 | `sony-anchor.json`, `sony-events.csv` | at Stop | when the start and stop were sent and confirmed, on the PC clock |
 | `timestamps-sony_ptp.csv` | at Stop | timestamps only: the control box clock next to the PC clock, about twice a second, from 5 minutes before the start to about 2 minutes after the stop |
-| `<camera>_<clip>.MP4` | after Align | the LTC camera's clip |
-| `aligned\sony_frames_pc.csv` | after Align | every video frame with its PC time |
+| `<camera>_<clip>.MP4` | after Align | the LTC camera's clip, in the Sony video folder |
+| `aligned\sony_frames_pc.csv` | after Align | every video frame of the LTC camera's clip with its PC time |
+| `aligned\sony_frames_pc-<serial>.csv` | after Align | the same for each other camera's clip of the take (`<serial>` is the camera's serial number) |
 | `aligned\sony-clock.csv` | after Align | the camera timecode worked out from the control box clock, next to the PC clock |
 | `aligned\theia_frames_pc.csv` | after Align | every Theia frame with its PC time (when a Theia C3D is present) |
 | `aligned\pc_alignment.json` | after Align | the method and quality for every system |
 
 The clips themselves stay on the cameras' cards until you copy them. At the
-end of a session press **Pull all clips** on the Collect tab: every clip on
-every camera is copied into a new dated folder under the Sony video folder
-(`sony6_10_16_15_02_11\`, say), named the way Theia asks, and the
-Postproc table is refreshed. The dated folder matters: after a format the
-cameras number clips from `C0001` again, so each pull keeps its own folder.
-**Cancel pull** stops between clips; a pull can take a long while (about
-12 MB/s per camera). The LTC camera's clip can also be pulled by Align on its
-own while the rig is still connected. Everything Align writes goes to
-`aligned\<session>\` beside `data\` in the root folder; the session's raw
-files are never changed.
+end of a session press **Pull all clips…** on the Collect tab. A short
+checklist comes up: **pull all files off every camera into a new dated
+folder** (ticked), and **power off the cameras** afterwards (not ticked; it is
+skipped if any clip fails to pull, so nothing is left only on a card). Under
+**Pull from** every camera on the rig is listed and ticked; untick any you do
+not want. Press **Run**. Every clip on the ticked cameras is copied into a new
+dated folder under the Sony video folder (`2026_10_16_15_02_11\`, say), named the way Theia asks
+(`DSC-RX0M2_3177801_C0001.MP4`), and the Postproc table is refreshed. The
+Sony panel lists each camera and its clips as they come in. The dated folder
+matters: after a format the cameras number clips from `C0001` again, so each
+pull keeps its own folder. **Cancel pull** stops between clips; a pull can
+take a long while (about 12 MB/s per camera). The LTC camera's clip can also
+be pulled by Align on its own while the rig is still connected. Everything
+Align writes goes to `aligned\<session>\` beside `data\` in the collector
+folder; the session's raw files are never changed.
 
 ## Post-processing
 
@@ -194,13 +250,20 @@ column (what each session holds, per system: folder and files) and an
 **Aligned** column (what the last run wrote). Each finished take is added to the
 table by itself; the buttons do the rest:
 
-- **Enumerate** lists every session under `data\`, then reads the start
-  timecode of every clip in the Sony video folder, and in each dated **Pull all
-  clips** folder under it, and attaches each take's clips to the session that
-  started at the same time (within 5 minutes), using the LTC camera's clip for
-  timing when the take recorded which camera that was. A Theia trial folder is
-  matched by its first clip and fills the Theia row with its C3D. A clip with
-  no session becomes a row of its own, aligned by LTC alone.
+- **Enumerate** lists every session under `data\`, then goes through the clips
+  in the Sony video folder and in each dated **Pull all clips** folder under
+  it. The clips with the same number (`C0001`, say) from every camera in one
+  folder are one take. The take is timed by the LTC in its clips (the camera
+  the sessions name as the LTC camera is tried first) or, for a **Pull all
+  clips** folder, by the time the cameras wrote the clips, and attached to the
+  session that started at the same time (within 5 minutes). The camera
+  timecode is never used for this: one camera can carry a timecode that is far
+  off with nothing to show it. A take with neither LTC nor a pull time is
+  skipped, and the log says so. A Theia trial folder is timed only by the LTC in
+  its first clip (by name) and fills the Theia line with its C3D; if that clip
+  has no LTC, the folder is skipped. A take with no
+  session becomes a row of its own, named from when it started (for example
+  `2026_10_16_15_58_18-C0001`), aligned by LTC alone.
 - **Run on ticked** runs the ticked rows in order.
 
 For each ticked take the run:
@@ -212,24 +275,35 @@ For each ticked take the run:
   - **ltc** - from the LTC in the clip's audio (within about one video frame);
   - **ptp** - from the control box clock saved during the take (to about 60 ms;
     see the caveats at the top of this page);
-  - **tc** - from the camera timecode alone (can be about a second off);
+  - **trigger** - from when the Collector sent the start to the cameras, plus
+    the cameras' usual start delay (to about 35 ms);
+
+  with none of the three, no frame times are written and a red line under the
+  take says why;
+- writes `aligned\sony_frames_pc-<serial>.csv` the same way for each other
+  camera's clip of the take, from that clip's own LTC if it has any, else PTP,
+  else the trigger;
 - writes `aligned\pc_alignment.json` with the result and any warnings for every
   system.
 
-All cameras share the control box's timecode, so the same frame times apply to
-the clips you import from the other cameras.
+For the **ltc** method, Align uses the K_av the take saved when it was
+recorded; a take that saved none uses the current calibration. Tick **Sony: use
+the current K_av calibration instead of the one each take recorded** above the
+table to re-align old takes with today's value. If the LTC signal lost time
+during a take (the PC's audio stalled), the log says how much ("LTC player
+gapped ... ms"); the LTC timing of the take is still good.
 
 **Theia.** Theia processes the clips into a motion file
 ([C3D](https://docs.theiamarkerless.com/theia3d-documentation/data-formats/c3d-files))
 whose frames are the video's frames. Keep Theia's trial folders (clips plus
 C3D) in the Sony video folder and press **Enumerate** again: the C3D shows in
-the Theia row, and the next run writes `theia_frames_pc.csv`
+the Theia line, and the next run writes `theia_frames_pc.csv`
 with the PC time of every Theia frame.
 
 ## FAQs
 
-**The Sony column reads ptp or tc instead of ltc.** The LTC did not decode; the
-log says why. Try, in this order:
+**The Sony line in the Aligned column reads PTP or TRIGGER instead of LTC.**
+The LTC did not decode; the log says why. Try, in this order:
 
 1. turn off Windows Audio enhancements on the LTC output;
 2. Windows volume 50% and LTC gain about 0.016;
@@ -242,8 +316,11 @@ on the control box. Press **Init rig…**, untick everything but **Get the
 browser key**, and press **Run**.
 
 **The PTP line says "not heard".** Allow UDP ports 319 and 320 in Windows
-Firewall on the camera network. Until then, takes align from LTC or timecode
-only.
+Firewall on the camera network. If it still says "not heard", keep the camera
+page open in the browser (the first step of **Init rig…**), or run Init rig
+with **Keep the boxes' timing (PTP) running from this app** ticked: without
+either, the control boxes can stop sending their clock. Until then, takes
+align from LTC or the start trigger only.
 
 **A long take came back as several files.** The camera's memory card is
 formatted FAT32, which splits clips at about 4 GB. Format the cards in the

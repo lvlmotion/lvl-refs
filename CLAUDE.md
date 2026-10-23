@@ -32,8 +32,9 @@ lvl-refs/
   overrides the remote theme's, so this works without vendoring the theme.
 - The sidebar nav is generated automatically from every page that has a
   `title` in its front matter, ordered by `nav_order`.
-- The landing page (`index.md`) is a hand-written table of contents: quick links,
-  then the guides grouped by product (Hardware: LEVEL Inez and LEVEL Hub;
+- The landing page (`index.md`) is a hand-written table of contents: a "Latest
+  versions" table (app, version, where to get it; **update it on every app
+  release**), then the guides grouped by product (Hardware: LEVEL Inez and LEVEL Hub;
   LEVEL Collector for Android; LEVEL Collector for Windows). **When you add a
   guide, also add a line for it under the right group in `index.md`.**
   Specifications live on their own page, `sensors-and-apps.md`.

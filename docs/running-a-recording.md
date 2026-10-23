@@ -14,12 +14,16 @@ Set up first: [Setting Up for a Recording](windows-setting-up.html).
 1. **Scan All** (top of the window). It finds or readies every system you turned
    on. Pick what you want in each section.
 2. **Connect All.** Some systems take a moment to get ready after connecting;
-   each system's page says what to expect.
+   each system's page says what to expect. For Vicon, also press **Connect to
+   Nexus** on its panel.
 3. Check the **status sidebar**: start when everything you need is green or
    yellow.
 4. Type a **Trial Name** (it names the session folder) and any **Notes**.
+   When Vicon is the master, Nexus names the take and the field reads
+   **Trial Name (Set By Nexus)**.
 5. Press **Start Stream**. The Collector starts every system you turned on
-   together.
+   together. When Vicon or Sony is the master, start the take there instead;
+   the button then reads **Listening For Vicon** or **Listening For Sony**.
 6. Press **Stop Stream**. Everything stops; the sensors stay connected for the
    next take.
 
@@ -32,7 +36,8 @@ is running, the main button still reads **Stop Stream** and stops them.
 
 ## Where the files go
 
-Each take is a folder under `LEVEL_Collector\data\` in your user folder, named
+Each take is a folder in the root folder's `collector\data` folder (by default
+`C:\lvlmotion\collector\data\`; see [Settings](windows-settings)), named
 `<date>_<time>-<trial name>`:
 
 | Written | Files |
