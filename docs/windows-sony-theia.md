@@ -15,24 +15,64 @@ nav_order: 8
   each camera's state.
 - For the tightest timing, the Collector plays a **timecode audio signal (LTC)**
   from a PC audio output into **one camera's microphone input**. That camera's
-  clip then carries PC time in its audio: each timecode word is stamped with
-  the PC time it leaves the audio output, so if the PC's audio stalls the clip
-  has a short gap, never a wrong time. The camera's clock runs about
-  **90 ppm** fast against the PC (about 5 ms per minute), but the LTC is read
-  all the way through the clip, so the error stays within about **12 ms** at the
-  start and under **10 ms** over a 20-minute take.
+  clip then carries PC time in its audio.
 - Every camera also stamps its video with **timecode**, set by the control box
   from its own clock when recording starts. The Collector listens to that clock
   (PTP) the whole time and saves it with each take, so every take can be placed
-  on the PC clock even without LTC. Two caveats:
-  - it is good to about **60 ms**, not a frame. Between re-jams the camera's
-    timecode gains about **6.6 ms per minute** on the control box clock, and
-    the box pulls it back by about 60 ms every 10 minutes, so a take's offset
-    depends on where in that cycle it started (plus about 15 ms either way);
-  - the **first take after a camera is attached or powered on** can carry a
-    timecode that is seconds stale. Wait 10 minutes after attaching or powering
-    a camera before a take you will place by PTP alone, or use LTC, which is
-    unaffected.
+  on the PC clock even without LTC, though less precisely.
+
+How precise each one is, and why, is in [Timing: LTC and PTP](#timing-ltc-and-ptp).
+
+## Timing: LTC and PTP
+
+With LTC, expect the video on the PC clock to within **one or two video
+frames**, across takes. PTP is a fallback and a cross-check: good to about
+**60 ms**. Where a study needs better than a frame or two, record a sync event
+that every system sees, such as a tap on a LEVEL sensor or a step onto a force
+plate, and line the systems up on it.
+
+### LTC
+
+- **Within a take, LTC holds.** The camera's clock runs about 90 ppm fast
+  against the PC (about 5 ms per minute), but the LTC is read all the way
+  through the clip, so that never builds up: under 10 ms over a 20-minute take.
+- **Every LTC word is stamped with the PC time it is played.** Older versions
+  of the Collector counted frames from the moment LTC started; if the PC got
+  busy, the audio could fall behind and every later frame was off by tens of
+  milliseconds with nothing to show it. Now a stall leaves a short gap in the
+  LTC, which the log reports, never a wrong time.
+- **The remaining offset is K_av**, the delay from the PC clock through the
+  audio output and the camera's microphone input to the video frame. It
+  depends on the output, its driver and the camera, so the Collector measures
+  it (see [Calibration](#calibration)). On the outputs tried so far, USB audio
+  adapters and built-in headphone jacks alike, it can change from one start of
+  the LTC to the next, so calibrate every session.
+- **The calibration itself is limited by the monitor.** It films the clock
+  page on the PC's screen. The screen shows the time a little late, and now
+  and then one whole screen refresh later (about 17 ms) for minutes at a time,
+  so calibration results can fall into groups about 17 ms apart; that is the
+  monitor, not the LTC. The page also refreshes at 60 Hz while the camera
+  records at 59.94 frames per second, so within one clip the reading slides
+  back and forth by one refresh every few seconds; a calibration clip
+  averages over that. Treat K_av as good to about a frame.
+
+### PTP
+
+- The control box sets each camera's timecode from its own clock (PTP). The
+  timecode lands about **180 ms** after the box clock's time at the record
+  start; the Collector knows this and corrects for it.
+- What it cannot correct: between re-syncs the camera's timecode gains about
+  **6.6 ms per minute** on the box clock, and the box pulls it back by about
+  60 ms every 10 minutes, so a take's offset depends on where in that cycle it
+  started (plus about 15 ms either way). That is the **about 60 ms**.
+- The **first take after a camera is attached or powered on** can carry a
+  timecode that is seconds stale. Wait 10 minutes after attaching or powering a
+  camera before a take you will place by PTP alone. Do not restart a control
+  box mid-session: its clock jumps and the cameras take minutes to follow.
+- The Collector saves PTP with every take, LTC or not. When a take has both,
+  Align warns if they disagree by more than 50 ms.
+- The Collector needs to hear the box clock: allow UDP ports 319 and 320 (see
+  below) and keep the boxes sending it (see the FAQs).
 
 ## Before you start
 
@@ -41,9 +81,9 @@ You need:
 - Sony **RX0 II** cameras, each on a **CCB-WD1 camera control box**, wired
   through a network switch, with the Collector PC on that network;
 - one **audio cable** from a PC audio output to the microphone input of one
-  camera (the LTC camera). A **USB audio adapter** is the most reliable output;
-  some built-in headphone jacks cut out when a camera is plugged in, even though
-  they work with headphones;
+  camera (the LTC camera). A built-in headphone jack or a **USB audio
+  adapter** both work; some built-in jacks cut out when a camera is plugged
+  in, even though they work with headphones, and then a USB adapter is the fix;
 - the Collector with the **full** Python environment (see
   [Settings](windows-settings.html#python-interpreter));
 - a **Sony video folder** on the PC. By default it is `collector\sony` in the
@@ -145,11 +185,9 @@ The Collector adds one timing measurement.
 **Calibrate LTC (once per PC and LTC output).** It measures the small offset
 between the LTC in the audio and the video frames (K_av) for your exact
 hardware. Until you calibrate, the Collector uses 0 ms and Settings says
-"default 0 ms, not yet set for this output" in red. With a USB audio adapter
-the measured value has stayed within about 10 ms of 0 and steady from one start
-of the LTC to the next; a built-in headphone jack can start at a different
-offset each time LTC starts, so calibrate it every session. You can also type a measured value into **K_av (ms)** and press
-**Set**. To measure it:
+"default 0 ms, not yet set for this output" in red. Calibrate at the start of
+every session (see [LTC](#ltc) for why). You can also type a measured value
+into **K_av (ms)** and press **Set**. To measure it:
 
 1. In **Settings > Sony**, under **Calibrate LTC**, press **Open clock page** and
    make the page full screen. It shows the PC clock with two strips of squares
@@ -189,16 +227,9 @@ groups, a red note says which kind:
 - **whole screen refreshes apart** (about 17 ms): the clock page's display
   delay changed between runs, not the LTC; the median of all runs is kept;
 - **not whole refreshes apart**: this output does not start at the same offset
-  every time. Calibrate every session, or use a USB audio adapter for the LTC.
+  every time. Calibrate every session.
 
-Repeat it after changing the PC, the LTC output or the audio adapter. The
-measured value includes the monitor's own display delay, so treat it as a check
-to within a frame rather than an absolute figure.
-
-Across takes, expect the video on the PC clock to within one or two video
-frames. Where a study needs better, record a sync event that every system sees,
-such as a tap on a LEVEL sensor or a step onto a force plate, and line the
-systems up on it.
+Calibrate again after changing the PC, the LTC output or the audio adapter.
 
 ## How to stream
 
@@ -244,6 +275,10 @@ folder; the session's raw files are never changed.
 
 ## Post-processing
 
+A typical session: record one take, pull its clips and align it to check that
+everything lines up, then record the rest and pull and align them all together
+at the end. Align runs only when you press **Run on ticked**.
+
 **Postproc > Align to PC clock** puts the external systems on the PC clock;
 the sensor files are already on it and are not changed. The table has a **Raw**
 column (what each session holds, per system: folder and files) and an
@@ -274,7 +309,7 @@ For each ticked take the run:
   the method used for the take:
   - **ltc** - from the LTC in the clip's audio (within about one video frame);
   - **ptp** - from the control box clock saved during the take (to about 60 ms;
-    see the caveats at the top of this page);
+    see [PTP](#ptp));
   - **trigger** - from when the Collector sent the start to the cameras, plus
     the cameras' usual start delay (to about 35 ms);
 

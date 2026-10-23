@@ -48,8 +48,9 @@ connections. Recording LEVEL sensors needs no Python.
 
 **Path to Python** is the Python the Collector uses. At launch the Collector
 fills it in with the Python it finds on the computer; type a path and press
-Enter, or **Browse**, to pick a different one. Your own Python works if
-it is version 3.10 to 3.13 (Vicon does not work with 3.14 or newer). The line
+Enter, or **Browse**, to pick a different one. At launch the Collector looks
+for Python 3.10 to 3.13; a Python you pick yourself can be 3.10 or newer, but
+Vicon does not work with 3.14 or newer. The line
 under the path says which Python was found, and **Packages in this
 environment** lists each package the Collector needs as present or missing. If
 your Python already has them, nothing more is needed. Otherwise click one of:

@@ -31,6 +31,11 @@ PC clock and writes the result beside the raw data, under
 `aligned\<take>\` in the root folder's `collector` folder (by default
 `C:\lvlmotion\collector\aligned\`). The raw session folder is never changed.
 
+Align runs only when you press **Run on ticked**, never by itself after a take.
+A typical session: record one take, align it to check that everything lines
+up, then record the rest and align them all together at the end (with Sony,
+after pulling the clips off the cameras).
+
 The table has one row per take, and inside it one line per system that is on
 in **Settings > Sync** (LEVEL sensors always; Theia comes with Sony). Each line
 has a **Raw** and an **Aligned** cell side by side. **Raw** is what is on disk
