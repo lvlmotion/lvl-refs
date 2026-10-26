@@ -7,18 +7,36 @@ nav_order: 8
 
 # Sony Cameras and Theia
 
+## Key terms
+
+- **LTC (linear timecode):** a timecode signal carried as audio. The Collector
+  plays it from a PC audio output into one camera's microphone input, so that
+  camera's clip carries PC time in its audio.
+- **LTC camera:** the one camera with the audio cable from the PC.
+- **K_av:** the offset between the LTC in a clip's audio and its video frames,
+  from the audio output through the camera. Measured from the clock page.
+- **Clock page:** a page the Collector opens in the browser showing the PC clock
+  with strips of squares; the LTC camera films it to measure K_av.
+- **Timecode:** the time each camera stamps on its video, set by its control box.
+- **Control box (CCB):** Sony's CCB-WD1 camera control box, one per camera. The
+  first is the master, which the Collector talks to.
+- **PTP (Precision Time Protocol):** how the control boxes share their clock over
+  the camera network. The box clock the others follow is the **grandmaster**.
+- **Browser key:** the control boxes' lock; whoever holds it controls the
+  cameras. Init rig gets it for the Collector.
+
 ## How it connects
 
 - The PC joins the cameras' network and talks to the Sony **camera control
   boxes** (one per camera; the first one is the master, usually
   `http://169.254.200.200`). The Collector starts and stops every camera and reads
   each camera's state.
-- For the tightest timing, the Collector plays an **audio linear timecode (LTC) signal**
+- For the tightest timing, the Collector plays an **LTC** signal
   from a PC audio output into **one camera's microphone input**. That camera's
   clip then carries PC time in its audio.
 - Every camera also stamps its video with **timecode**, set by the control box
   from its own clock when recording starts. The box shares that clock over
-  the camera network with the Precision Time Protocol (PTP); the Collector
+  the camera network by PTP; the Collector
   listens to it the whole time and saves it with each take, so every take can be placed
   on the PC clock even without LTC, though less precisely.
 

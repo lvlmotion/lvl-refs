@@ -7,6 +7,13 @@ nav_order: 7
 
 # Polar H10
 
+## Key terms
+
+- **ECG:** the heart's electrical signal; the H10 sends it at about 130 Hz.
+- **R-R interval:** the time between two heartbeats.
+- **Pairing:** Windows' Bluetooth pairing with the strap, needed once per PC.
+- **Warm-up:** the 30-40 seconds after connecting before ECG flows.
+
 ## How it connects
 
 The strap connects to the **PC's own Bluetooth** (not the LEVEL Hub). It

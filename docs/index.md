@@ -36,8 +36,7 @@ The Windows app for recording LEVEL sensors through the LEVEL Hub alongside Pola
 
 - [Installing and Updating](windows-installing) - installing, updates and getting help
 - [Settings](windows-settings) - root folder, the Python setup, the sync table, per-system settings
-- [Setting Up for a Recording](windows-setting-up) - turning systems on, getting them ready, and the status sidebar
-- [Running a Recording](running-a-recording) - a take with every system, and where the files go
+- [Quick Start](windows-setting-up) - the order to get every system ready, what to check and calibrate, recording, and the status sidebar
 - [Post-processing a Recording](windows-postprocessing) - opening and plotting the last take, and Align to PC clock
 - [LEVEL Sensors](windows-level-sensors) - connecting, rate, the sensor table, time sync and files
 - [Polar H10](windows-polar-h10) - pairing, picking the strap, warm-up, files

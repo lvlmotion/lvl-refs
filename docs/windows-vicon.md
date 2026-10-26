@@ -7,6 +7,21 @@ nav_order: 9
 
 # Vicon
 
+## Key terms
+
+- **Nexus:** Vicon's capture software.
+- **Live mode:** Nexus streaming its cameras' data as it happens, both standing
+  by and while capturing. The Collector only gets frame timing in Live mode.
+- **Vicon DataStream SDK:** Vicon's free software for reading Nexus's live data.
+  The Collector uses its Python part.
+- **Arm / Lock:** buttons in Nexus's Capture Tools. **Arm** makes Nexus wait for
+  a start over the network; **Lock** keeps it armed after each capture.
+- **Start/Stop over network:** the start and stop messages the Collector sends
+  to Nexus (UDP port 30 by default).
+- **Trial file (.xcp):** the file Nexus saves for each trial, with its capture
+  start and end times.
+- **C3D:** the usual motion-capture export file (markers, force plates).
+
 ## How it connects
 
 - **Start and stop** travel over the network as Nexus's remote-trigger messages

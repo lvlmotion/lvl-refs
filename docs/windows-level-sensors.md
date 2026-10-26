@@ -7,6 +7,16 @@ nav_order: 6
 
 # LEVEL Sensors
 
+## Key terms
+
+- **LEVEL Hub:** the USB dongle that connects the PC to the sensors over
+  Bluetooth.
+- **Time beacon:** the sensor whose clock the others follow: **B** in the Sync
+  column; the followers show **S**.
+- **Batch:** how many samples each sensor packs into one Bluetooth packet. The
+  Collector picks it from the number of sensors and the rate.
+- **Packet loss:** data that did not reach the PC.
+
 ## How it connects
 
 LEVEL Inez sensors talk to the **LEVEL Hub** (USB, plugged into the PC) over
