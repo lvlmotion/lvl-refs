@@ -12,19 +12,27 @@ fold it away: **Collector Settings**, **Sync**, then one
 panel for each other system that is on.
 
 ![Settings tab: Collector Settings with the root folder, On launch switches and the Python interpreter](assets/windows-settings/collector-settings.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: root folder `C:\lvlmotion` with the Recordings go to / settings stay in line; no LEVEL Sensors / Time Sync panel; no personal user paths</strong></p>
 
 ## Collector Settings
 
 ### Root folder
 
-Where new recordings go. The Collector keeps its data in the root folder's
-`collector` folder: each take in `collector\data`, and beside it `logs`,
-`aligned` (post-processed takes), `calibration`, `sony` (pulled clips),
-`support` and `images`. The default root folder is `C:\lvlmotion`, so takes
-land in `C:\lvlmotion\collector\data\`. Type a path and press Enter, or
-**Browse**. A folder not named `lvlmotion` gets one inside it: picking `D:\`
-gives `D:\lvlmotion`. The line under the box shows where recordings now go.
+Where new recordings go. The default root folder is `C:\lvlmotion`. To use
+another one, type its path and press Enter (a folder that does not exist yet
+is created), or **Browse** to it. The folder you pick is the root folder, as
+is: pick `D:\lvlmotion`, not `D:\`, if you want a `lvlmotion` folder.
+
+The list under the box shows where everything is:
+
+- **Root**: the root folder (`C:\lvlmotion` by default).
+- **Settings**: always `C:\lvlmotion\settings`, whatever the root folder.
+- **Data**: the takes, in the root folder's `collector\data`
+  (`C:\lvlmotion\collector\data` by default).
+- **Logs**: the app logs, in `collector\logs`.
+
+Beside `data` and `logs`, the `collector` folder also holds `aligned`
+(post-processed takes), `calibration`, `sony` (pulled clips), `support` and
+`images`.
 
 A new root folder applies at once, to new takes only: existing recordings stay
 where they are and are not moved. It cannot be changed while a take is
@@ -71,7 +79,7 @@ Collector.
 ## Sync
 
 ![Sync table with Polar H10, Sony and Vicon on and the Collector as master](assets/windows-settings/sync-table.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: crop out the removed LEVEL Sensors / Time Sync panel above the table</strong></p>
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #3: crop out the removed LEVEL Sensors / Time Sync panel above the table</strong></p>
 
 One take, several systems, one clock: the sync table says which systems are in
 the capture and which one starts a take (the **master**). The Collector relays
@@ -108,7 +116,7 @@ describe each one:
   [Sony Cameras and Theia](windows-sony-theia).
 
   ![Sony panel in Settings: control box address, Sony video folder and the auto-get-key option on the left; LTC output, gain and Calibrate LTC on the right](assets/windows-settings/sony-panel.png)
-  <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: Sony panel with the LTC gain at the new 0.015 default (0.1.41+)</strong></p>
+  <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #4: Sony panel with the LTC gain at the new 0.015 default (0.1.41+)</strong></p>
 - **Vicon**: on the left, **Auto-arm by default** (only when Vicon is master),
   the DataStream SDK path and the Nexus session folder (normally left blank);
   on the right, the UDP port and, when the Collector is master, the Nexus host

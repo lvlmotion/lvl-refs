@@ -11,7 +11,7 @@ The **Postproc** tab works on takes you have already recorded. It has two
 parts: a shortcut to the last take, and **Align to PC clock**, which puts the
 other systems' data on the same clock as the LEVEL sensors.
 
-<p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT: Postproc tab with the Last session row and the Align to PC clock table holding a few takes</strong></p>
+<p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT #8: Postproc tab with the Last session row and the Align to PC clock table holding a few takes</strong></p>
 
 ## Last session
 

@@ -71,7 +71,7 @@ None for the link itself. Calibrate Vicon and take a static trial as your lab
 normally does. Then do a short test take: the Vicon card in the sidebar should
 stay **green**, reading "receiving — frame ..." at about the Vicon frame rate.
 
-<p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT: Vicon panel in the Collect tab, connected (green), before Start Stream</strong></p>
+<p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT #9: Vicon panel in the Collect tab, connected (green), before Start Stream</strong></p>
 
 ## How to stream
 

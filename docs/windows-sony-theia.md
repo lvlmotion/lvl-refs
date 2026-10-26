@@ -165,7 +165,7 @@ What this page adds to that setup, once per rig:
    clip also measures K_av and saves it.
 
 ![Sony panel on the Collect tab: Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: current Sony panel with Init rig and Pull all clips, PTP line inside Rig details, stamped player (no FREE-RUNNING)</strong></p>
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #5: current Sony panel with Init rig and Pull all clips, PTP line inside Rig details, stamped player (no FREE-RUNNING)</strong></p>
 
 While LTC plays, the Collector takes the LTC output for itself (WASAPI
 exclusive mode), so no other sound can land on the signal and the timing is
@@ -195,7 +195,7 @@ into **K_av (ms)** and press **Set**. To measure it:
    view.
 
    ![The clock page full screen: the PC time with two strips of squares above it and two below](assets/windows-sony-theia/clock-page.png)
-   <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: check against the current clock page</strong></p>
+   <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #6: check against the current clock page</strong></p>
 3. Press **Calibrate**. The Collector plays LTC, records 12 seconds, copies the
    clip and reads the clock from the video. After about a minute it shows the
    result, for example "K_av = 9 ms (spread 18 ms)", and saves it
@@ -241,7 +241,7 @@ something is wrong. If you start a take with Sony on but **Play LTC
 signal** off, the log warns that the take will align without LTC.
 
 ![Sony panel during a take: both cameras Recording, LTC on, and the Sony card in the sidebar reading REC](assets/windows-sony-theia/sony-recording.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: current Sony panel during a take (no Get Browser Key / Link Date/Time / Unmute buttons)</strong></p>
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #7: current Sony panel during a take (no Get Browser Key / Link Date/Time / Unmute buttons)</strong></p>
 
 ## Files generated
 
