@@ -8,7 +8,7 @@ nav_order: 3
 # Setting Up for a Recording
 
 ![Collect tab with the sensors connected, the Polar H10 strap ready, the Sony panel waiting for an LTC camera, and all four systems in the status sidebar](assets/windows-setting-up/collect-tab-all-systems.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: Vicon card now reads not connected (press Connect to Nexus); Sony panel has Init rig / Pull all clips instead of Get Browser Key, Link Date/Time, Unmute</strong></p>
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT (on 0.1.40+): Vicon card reads "not connected — press Connect to Nexus" before Connect to Nexus is pressed (0.1.39 shows "idle — Nexus gives no ready signal"); Sony panel has Init rig / Pull all clips instead of Get Browser Key, Link Date/Time, Unmute</strong></p>
 
 ## Turn on the systems you are using
 
@@ -41,7 +41,7 @@ below. Each card reads **name - what you picked** (or what you still need to
 pick), then a coloured status line, then any warnings.
 
 ![Status sidebar: LEVEL green, Polar yellow, Sony red with a warning, Vicon grey](assets/windows-setting-up/status-sidebar.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: Vicon card now reads not connected - press Connect to Nexus once Nexus is Live</strong></p>
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT (on 0.1.40+): Vicon card reads "not connected — press Connect to Nexus" (grey)</strong></p>
 
 | Colour | Meaning |
 |---|---|
@@ -51,8 +51,9 @@ pick), then a coloured status line, then any warnings.
 | Grey | nothing to report (e.g. Vicon before it is connected to Nexus) |
 
 While a take is recording, the dot beside each system that is recording
-blinks, at the same pace as a LEVEL sensor's light. The bar along the bottom of
-the window takes the colour of the worst system.
+blinks, at the same pace as a LEVEL sensor's light, and the Start/Stop bar at
+the bottom of the Collect tab takes the colour of the worst system. The bar is
+red after an unexpected disconnect, and grey otherwise.
 
 | Card | Shows after the dash | Status line |
 |---|---|---|
@@ -60,7 +61,7 @@ the window takes the colour of the worst system.
 | LEVEL | the sensors you picked | connected / time-synced / streaming with elapsed time and loss; after a take, its length and loss |
 | Polar | the strap you picked | searching, warming up, then live ECG / ACC / heart rate |
 | Sony | the camera carrying the LTC timecode audio | cameras ready / recording / problems, and whether LTC is playing |
-| Vicon | Nexus | ready (Vicon's data rate) between takes once connected to Nexus; frames arriving during a take |
+| Vicon | Nexus | not connected until you press **Connect to Nexus**; then ready (Vicon's data rate) between takes; frames arriving during a take |
 
 Nothing here stops you recording except a missing LEVEL Hub (the button then
 reads **Awaiting LEVEL Hub**). If a line is red, it is your call whether to record

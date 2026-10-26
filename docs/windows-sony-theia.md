@@ -33,9 +33,8 @@ plate, and line the systems up on it.
 
 ### LTC
 
-- **Within a take, LTC holds.** The camera's clock runs about 90 ppm fast
-  against the PC (about 5 ms per minute), but the LTC is read all the way
-  through the clip, so that never builds up: under 10 ms over a 20-minute take.
+- **Within a take, LTC holds.** The LTC is read all the way through the clip,
+  so camera clock drift never builds up: under 10 ms over a 20-minute take.
 - **Every LTC word is stamped with the PC time it is played.** Older versions
   of the Collector counted frames from the moment LTC started; if the PC got
   busy, the audio could fall behind and every later frame was off by tens of
@@ -127,13 +126,13 @@ What this page adds to that setup, once per rig:
 ## How to connect
 
 1. **Settings > Sync:** tick **Sony**, with the Collector as master.
-2. **Settings > Sony:** the control box address; the **LTC output** (press
+2. **Settings > Sony:** the control box address (**CCB base URL**); the **LTC output** (press
    **Refresh outputs**, then pick the output cabled to the camera); the **LTC
-   gain** (type it and press **Set**). Start at **0.016** with the output's
-   Windows volume at 50%.
-3. On the **Collect** tab, press **Scan All**: it gets the browser key (takes
-   control of the cameras), sets the cameras' clocks from the PC and unmutes
-   the LTC output at 50%. The Sony panel then lists the cameras as the webapp
+   gain** (type it and press **Set**). Start at **0.015** (the default from
+   0.1.40; on 0.1.39 type it in) with the output's Windows volume at 50%.
+3. Press **Scan All** (top of the window): it gets the browser key (takes
+   control of the cameras), sets the cameras' clocks from the PC and, once an
+   LTC output is picked, unmutes it at 50%. The Sony panel then lists the cameras as the webapp
    names them (e.g. `001  DSC-RX0M2_3177801`) with each camera's state.
 4. Pick the **LTC** camera: the one with the audio cable. **Play LTC signal**
    is off at every launch; Init rig turns it on, or tick it here. It stays on
@@ -182,7 +181,7 @@ Camera calibration (intrinsic, extrinsic) is Theia's, as in Theia's
 [calibration pages](https://docs.theiamarkerless.com/theia3d-documentation/data-collection/recording-extrinsic-chessboard-calibrations).
 The Collector adds one timing measurement.
 
-**Calibrate LTC (once per PC and LTC output).** It measures the small offset
+**Calibrate LTC (per PC and LTC output, each session).** It measures the small offset
 between the LTC in the audio and the video frames (K_av) for your exact
 hardware. Until you calibrate, the Collector uses 0 ms and Settings says
 "default 0 ms, not yet set for this output" in red. Calibrate at the start of
@@ -236,8 +235,9 @@ Calibrate again after changing the PC, the LTC output or the audio adapter.
 **Start Stream** starts every camera through the control box and **Stop
 Stream** stops them; the LTC plays into the LTC camera throughout if it is on.
 The Sony card in the sidebar shows cameras ready, recording, or a problem, and
-**Rig details** (under the Sony panel on the Collect tab) shows the full control-box status
-when something is wrong. If you start a take with Sony on but **Play LTC
+**Rig details** (under the Sony panel on the Collect tab) always shows the full
+control-box status; its heading turns red with the number of problems when
+something is wrong. If you start a take with Sony on but **Play LTC
 signal** off, the log warns that the take will align without LTC.
 
 ![Sony panel during a take: both cameras Recording, LTC on, and the Sony card in the sidebar reading REC](assets/windows-sony-theia/sony-recording.png)
@@ -248,7 +248,7 @@ signal** off, the log warns that the take will align without LTC.
 | File | When | What |
 |---|---|---|
 | `sony-anchor.json`, `sony-events.csv` | at Stop | when the start and stop were sent and confirmed, on the PC clock |
-| `timestamps-sony_ptp.csv` | at Stop | timestamps only: the control box clock next to the PC clock, about twice a second, from 5 minutes before the start to about 2 minutes after the stop |
+| `timestamps-sony_ptp.csv` | at Stop | timestamps only: the control box clock next to the PC clock, about once a second, from 5 minutes before the start to about 2.5 minutes after the stop |
 | `<camera>_<clip>.MP4` | after Align | the LTC camera's clip, in the Sony video folder |
 | `aligned\sony_frames_pc.csv` | after Align | every video frame of the LTC camera's clip with its PC time |
 | `aligned\sony_frames_pc-<serial>.csv` | after Align | the same for each other camera's clip of the take (`<serial>` is the camera's serial number) |
@@ -341,7 +341,7 @@ with the PC time of every Theia frame.
 The LTC did not decode; the log says why. Try, in this order:
 
 1. turn off Windows Audio enhancements on the LTC output;
-2. Windows volume 50% and LTC gain about 0.016;
+2. Windows volume 50% and LTC gain about 0.015;
 3. lower the camera's Audio Rec Level;
 4. use a USB audio output instead of a laptop headphone jack;
 5. check the cable sits in the LTC camera's microphone input.

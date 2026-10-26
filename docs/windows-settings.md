@@ -46,12 +46,11 @@ sensors awake at launch.
 The Collector uses Python for plotting and for the Polar, Sony and Vicon
 connections. Recording LEVEL sensors needs no Python.
 
-**Path to Python** is the Python the Collector uses. At launch the Collector
-fills it in with the Python it finds on the computer; type a path and press
-Enter, or **Browse**, to pick a different one. At launch the Collector looks
-for Python 3.10 to 3.13; a Python you pick yourself can be 3.10 or newer, but
-Vicon does not work with 3.14 or newer. The line
-under the path says which Python was found, and **Packages in this
+**Path to Python** is the Python the Collector uses. Left blank, the Collector
+uses the Python it finds on the computer (`py -3`, else `python`) and shows
+its path greyed in the box. Type a path and press Enter, or **Browse**, to pick
+a different one. Any Python 3.9 or newer works, but Vicon does not work with
+3.14 or newer. The line under the path says which Python was found, and **Packages in this
 environment** lists each package the Collector needs as present or missing. If
 your Python already has them, nothing more is needed. Otherwise click one of:
 
@@ -101,13 +100,16 @@ describe each one:
 
 - **Polar H10**: nothing to set here; the strap is picked on the Collect tab,
   see [Polar H10](windows-polar-h10).
-- **Sony**: the control box address, the Sony video folder (where the clips
-  and Theia trial folders live; blank means `sony` in the root folder) and the
+- **Sony**: the control box address (**CCB base URL**), the Sony video folder
+  (where the clips and Theia trial folders live; blank means the root folder's
+  `collector\sony`, e.g. `C:\lvlmotion\collector\sony`) and the
   auto-get-key option on the left; the LTC output device, gain and calibration
   (with the history of past calibrations) on the right, see
   [Sony Cameras and Theia](windows-sony-theia).
 
   ![Sony panel in Settings: control box address, Sony video folder and the auto-get-key option on the left; LTC output, gain and Calibrate LTC on the right](assets/windows-settings/sony-panel.png)
-- **Vicon**: auto-arm, the DataStream SDK path and the Nexus session folder
-  (normally left blank) on the left; the UDP port and the Nexus host on the
-  right, see [Vicon](windows-vicon).
+  <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: Sony panel with the LTC gain at the new 0.015 default (0.1.40+)</strong></p>
+- **Vicon**: on the left, **Auto-arm by default** (only when Vicon is master),
+  the DataStream SDK path and the Nexus session folder (normally left blank);
+  on the right, the UDP port and, when the Collector is master, the Nexus host
+  IP with **Scan For IP**. See [Vicon](windows-vicon).

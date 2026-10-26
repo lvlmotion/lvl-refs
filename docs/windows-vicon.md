@@ -77,25 +77,27 @@ stay **green**, reading "receiving — frame ..." at about the Vicon frame rate.
 
 **Start Stream** starts Nexus and **Stop Stream** stops it. Nexus uses the
 Collector's trial name; `trial01`, `trial02`, ... move on by themselves after
-each take. About a second after the stop, the Collector looks for the trial
-file Nexus saves in its session folder; if it is not there, the Vicon panel
-says "Nexus did not save ..." in red.
+each take. After the stop, the Collector waits up to 10 seconds for the trial
+file Nexus saves in its session folder (it usually appears within a second);
+if none appears, the Vicon panel says "Nexus did not save ..." in red.
 
 Use a new trial name for every take. Nexus silently overwrites a trial with the
 same name, so the Collector does not start a take whose name Nexus already has
 in its session folder, and says so in red.
 
 Between takes the Vicon card stays green ("ready") while Nexus is Live. Grey
-means the Collector is not connected to Nexus yet: press **Connect to Nexus**.
+"not connected" means **Connect to Nexus** has not been pressed yet; yellow
+means the Collector is connected but no frames are coming ("is Nexus Live?").
 
 ## Files generated
 
 | File | What |
 |---|---|
 | `vicon-anchor.json` | trial name and the PC time of the start trigger |
-| `timestamps-vicon.csv` | timestamps only: Vicon frame (1 = the take's first frame), PC time in microseconds, and the live stream's own frame counter |
+| `timestamps-vicon.csv` | timestamps only: Vicon frame (1 = the take's first frame), subframe, PC time in microseconds, and the live stream's own frame counter |
 | `vicon-debug.csv` | extra live-stream details per frame, for troubleshooting |
 | `vicon-xcp.json` | the trial's capture start and end times, copied from the trial file Nexus saves |
+| `<trial>.xcp` | a copy of the trial file Nexus saves |
 | `bridge.log` | log of the live-data reader (send it to us if frames are missing) |
 | `aligned\vicon_frames_pc.csv` | after Align: every Vicon frame with its PC time |
 

@@ -96,9 +96,11 @@ session folder is never changed.
 ## FAQs
 
 **The ECG stopped but heart rate keeps going.** The Collector restarts the ECG
-stream by itself ("ECG stalled — restarting the stream"); nothing to do.
+stream by itself ("ECG stalled — restarting the stream, not ready"); nothing to do.
 
-**The Polar line is red with "No ECG".** No ECG arrived for about 75 seconds.
+**The Polar line is red with "No ECG".** No ECG has arrived after about 75
+seconds of warm-up. (If ECG stops later, the line says "ECG not arriving"
+instead; check the strap's skin contact.)
 Re-wet the electrodes or reseat the strap, then press **Connect and warm up** in
 the Collect tab's Polar panel.
 

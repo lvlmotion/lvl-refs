@@ -26,9 +26,12 @@ the Python setup (plotting, Polar, Sony and Vicon need it) and the sync table.
 - Run the new installer: it replaces the old version and keeps your settings,
   recordings and Python environment.
 - Updating from an older version that kept its settings somewhere else (such as
-  your user folder): nothing is carried over. The Collector starts with its
-  default settings, so set the root folder and Python again (see
-  [Settings](windows-settings)); older recordings stay where they were.
+  your user folder): nothing is carried over except an old LEVEL Python
+  environment, which moves into `C:\lvlmotion\settings`. The Collector starts
+  with its default settings, so set the root folder again, and press **Set up
+  minimum/full environment** (it reuses the moved environment) or **Browse** to
+  your Python (see [Settings](windows-settings)). Older recordings stay where
+  they were.
 - Versions before 0.1.34 were installed for one Windows account only. Uninstall
   such a version first (Settings > Apps), or both stay installed side by side.
 - The **Help** tab shows the version at the top (also in the first lines of the **Logs** tab).
