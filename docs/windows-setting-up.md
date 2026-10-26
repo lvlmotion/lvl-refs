@@ -36,7 +36,7 @@ take:
 |---|---|---|
 | LEVEL Sensors | **Connect** | Every sensor shows **Connected** with **B** or **S** in Sync (a red **✗**: disconnect and connect again). The ⓘ next to Batch is green. |
 | Polar H10 | **Connect and warm up** (Connect on the LEVEL panel does it too) | Wait about 30-40 seconds until the Polar card turns green (ECG live). |
-| Sony | **Init rig…** | Before **Check LTC** runs, make the clock page full screen and point the LTC camera at it; Check LTC reads **OK** and saves K_av. Point the camera back. The **ptp** line reads **grandmaster heard**. Measure K_av again whenever the LTC signal restarts. |
+| Sony | **Init rig…** | Pick the **LTC camera** in the Sony panel's camera list first. Before **Check LTC** runs, make the clock page full screen and point the LTC camera at it; Check LTC reads **OK** and saves K_av. Point the camera back. The **ptp** line reads **grandmaster heard**. Measure K_av again whenever the LTC signal restarts. |
 | Vicon | Put Nexus in **Live** (armed and locked), then **Connect to Nexus** | The Vicon card reads **ready**. A short test take reads **receiving**. |
 
 Each system's **Initialize** section has the details.

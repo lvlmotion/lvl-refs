@@ -155,10 +155,16 @@ clock with two strips of squares above it and two below:
 
 ![The clock page full screen: the PC time with two strips of squares above it and two below](assets/windows-sony-theia/clock-page.png)
 
-Before the first session on a PC, and again after changing the PC, the LTC
-output, the audio adapter or the LTC camera, calibrate in **Settings > Sony**,
-under **Calibrate LTC**. Until then the Collector uses 0 ms and Settings says
-"default 0 ms, not yet set for this output" in red. The value is kept per LTC
+There are two times to point the LTC camera at the clock page:
+
+- **A new audio output** (a new PC, LTC output, audio adapter or LTC camera):
+  the full calibration below, once, in **Settings > Sony**.
+- **Every restart of the LTC signal**: a single 12-second read during
+  **Init rig…** (see [Initialize](#initialize)).
+
+For a new audio output, use **Calibrate LTC** in **Settings > Sony**. Until
+then the Collector uses 0 ms and Settings says "default 0 ms, not yet set for
+this output" in red. The value is kept per LTC
 output and per version of the Collector's LTC player, so a Collector update
 that changes the player asks for a new calibration.
 
@@ -213,24 +219,29 @@ live, so there is nothing to scan; **Scan All** leaves Sony alone.
 **Init rig…** on the Sony panel gets the cameras and the LTC ready at the
 start of a session, and measures K_av for this start of the LTC signal.
 
-1. Press **Init rig…**. A checklist comes up, in
-   the order the steps run, grouped by where each step happens:
-   - This PC: **open the camera page in the browser** (the Sony webapp, for
-     live previews), then **show the clock page**;
-   - Cameras, through the control box: **keep the boxes' timing (PTP) running
-     from this app** (off by default; see the FAQs), get the browser key,
-     power on any camera that is off, one-push autofocus on every camera, and
-     link the cameras' clocks to the PC;
-   - This PC: unmute the LTC output and set it to 50%, start playing the LTC
-     signal, and **Check LTC**;
-   - Cameras: **format every camera's memory card**, last, so the session
-     starts on empty cards.
+1. Press **Init rig…**. A checklist comes up with these steps, in the order
+   they run (all ticked by default except the PTP keepalive):
+
+   | Where | Step | What it does |
+   |---|---|---|
+   | This PC | **Open the camera page in the browser** | Opens the Sony webapp of the master control box, for live previews. An open camera page also keeps the boxes sending their clock (PTP). |
+   | This PC | **Show the clock page** | Opens the clock page in the browser. Make it full screen and point the LTC camera at it; **Check LTC** reads K_av from it. |
+   | Cameras | **Keep the boxes' timing (PTP) running from this app** | Off by default. Does what an open camera page does, so the boxes keep sending their clock, until Sony is turned off or the Collector closes (see the FAQs). |
+   | Cameras | **Get the browser key** | Takes control of the cameras. Ticked and locked while any other camera step is ticked. |
+   | Cameras | **Power all cameras on** | Powers on any camera that is off, first, so the next steps reach every camera. |
+   | Cameras | **One-push autofocus** | Focuses every camera once. |
+   | Cameras | **Link the cameras' clocks to this PC** | Sets every camera's date and time from the PC. |
+   | This PC | **Unmute the LTC output and set it to 50%** | Makes sure the LTC output picked in Settings is not muted or turned down in Windows. |
+   | This PC | **Start playing the LTC signal** | Turns on **Play LTC signal**; it stays on until you untick it. |
+   | This PC | **Check LTC** | Records 12 seconds on the LTC camera, pulls the clip, checks the LTC decodes and reads K_av off the clock page (step 3). |
+   | Cameras | **FORMAT every camera's memory card** | Erases everything on the cards, last, after Check LTC's clip is pulled, so the session starts on empty cards. |
 
    Untick what you do not want and press **Run** (it reads **Run (formats
    cards)** while the format is ticked). The cameras it will touch are listed.
    Pull the clips first if anything on the cards is still needed. While it
    runs, the panel shows one line per step under the buttons: running, done or
-   failed, with what the step reported.
+   failed, with what the step reported. If a camera step fails, Check LTC and
+   the format are skipped.
 2. When the clock page opens, make it full screen and point the LTC camera at
    it, as in [Calibrate LTC on this PC](#calibrate-ltc-on-this-pc). You have
    until **Check LTC** starts, after the camera steps.
