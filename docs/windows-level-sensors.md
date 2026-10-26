@@ -28,31 +28,33 @@ Settings that matter, on the Settings tab:
 
 | Setting | Use |
 |---|---|
-| **Collector Settings > On launch** | **Scan All** and **Connect All** switches: do that for you when the Collector opens |
+| **Collector Settings > On launch** | **Scan All** switch: scans for you when the Collector opens |
 
 ## How to connect
 
 1. In the **Collect** tab's LEVEL Sensors panel, press **Scan** (or **Scan All**
    at the top). Found sensors are listed. The sensors from your last recording
-   are ticked for you. **Scan + connect last** at the top does steps 1 to 4 in
-   one go for the sensors of your last recording.
+   are ticked for you.
 2. Tick or untick sensors as needed.
 3. Set **Rate** if you need something other than 100 Hz (50 to 200 Hz). The
    rates on offer narrow as you tick more sensors. **Batch** next to it is set
    for you; the ⓘ beside it is green when the Hub can carry that many sensors at
    that rate, amber when untested and red when you should expect packet loss
    (hover it for details).
-4. Press **Connect** (or **Connect All**). Each sensor's light goes solid and its
+4. Press **Connect**. Each sensor's light goes solid and its
    row shows **Connected**.
 5. While connected, click a sensor's **LED** or **Location** cell to set its
    colour and where it is worn (or **Custom…** for your own label, up to 12
    characters); both are saved on the sensor and in the session files.
 
-**Refresh Sensor Status** re-reads every connected sensor's battery and time
-sync. The panel also shows whether the LEVEL Hub is connected; hover it for the
-Hub's firmware version.
+**Refresh Sensor Status**, next to Rate, re-reads every connected sensor's
+battery and time sync. The end of that row shows how many sensors the last scan
+found. Whether the LEVEL Hub is plugged in, and its firmware version, is on the
+**Collector** line of the status sidebar.
 
 ![LEVEL Sensors panel with three sensors connected: Scan, Disconnect and Rate buttons above the sensor table](assets/windows-level-sensors/sensors-connected.png)
+
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #11 (on 0.1.42+): LEVEL Sensors panel with Refresh Sensor Status right after Rate (before Batch) and "Discovered sensors: N" at its end (no LEVEL Hub badge, no Discovered Sensors header). Red box: the controls row.</strong></p>
 
 ## Calibration
 

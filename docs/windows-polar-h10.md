@@ -46,10 +46,9 @@ Windows asks to pair; allow it, or the strap does not start.
 2. On the **Collect** tab, press **Scan All** (or **Scan** in the Polar panel).
    The straps in range are listed with their signal strength. Pick yours
    (**Use**). The Collector remembers the strap it last connected to.
-3. Press **Connect All**. The strap connects with the IMU sensors and warms up.
-   **Connect and warm up** in the Polar panel does the same for the strap alone,
-   without touching the IMU sensors (it is available once the Collector has
-   found the LEVEL Hub).
+3. Press **Connect and warm up** in the Polar panel (available once the
+   Collector has found the LEVEL Hub). Connecting the LEVEL sensors also
+   connects and warms up the strap.
 
 ![Polar H10 panel on the Collect tab with the strap picked, connected, battery 100%, status ECG live](assets/windows-polar-h10/polar-panel.png)
 

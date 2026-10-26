@@ -12,6 +12,7 @@ fold it away: **Collector Settings**, **Sync**, then one
 panel for each other system that is on.
 
 ![Settings tab: Collector Settings with the root folder, On launch switches and the Python interpreter](assets/windows-settings/collector-settings.png)
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #10 (on 0.1.42+): top bar without Connect All / Scan + connect last; On launch has only the Scan All switch</strong></p>
 
 ## Collector Settings
 
@@ -44,10 +45,8 @@ the PC shares them and the data.
 
 ### On launch
 
-Two switches, **Scan All** and **Connect All**: the Collector presses Scan All,
-and then Connect All, for you as soon as it opens. Connect uses the sensors and
-strap of your last recording, so it needs the LEVEL Hub plugged in and the
-sensors awake at launch.
+**Scan All**: the Collector presses Scan All for you as soon as it opens. It
+only lists what is in range; connecting is still up to you.
 
 ### Python interpreter
 
@@ -89,7 +88,7 @@ the start to the others.
 | **On** | the system is part of the capture. The Collector is always on. |
 | **Master** | the one system whose start begins the take. Only one can be master. |
 | **Role** | what that setting means for the row, in words. |
-| **Last connected** | what that system connected to last: the sensors of the last recording, the Polar strap, the LTC camera. **Scan + connect last** reconnects the sensors and the strap. |
+| **Last connected** | what that system connected to last: the sensors of the last recording, the Polar strap, the LTC camera. Scan All ticks the last recording's sensors for you. |
 
 | System | Can be master | As master | Otherwise |
 |---|---|---|---|
@@ -102,22 +101,6 @@ Keep the **Collector** as master unless the other system has to lead for its
 own reasons (each system's page says when). The table locks while a take is
 armed or recording; stop or disarm it to change the table.
 
-Turning a system on adds its panel below the table. The per-system pages
-describe each one:
-
-- **Polar H10**: nothing to set here; the strap is picked on the Collect tab,
-  see [Polar H10](windows-polar-h10).
-- **Sony**: the control box address (**CCB base URL**), the Sony video folder
-  (where the clips and Theia trial folders live; blank means the root folder's
-  `collector\sony`, e.g. `C:\lvlmotion\collector\sony`) and the
-  auto-get-key option, then the LTC output device and gain, on the left; LTC
-  calibration (with the history of past calibrations) on the right, see
-  [Sony Cameras and Theia](windows-sony-theia).
-
-  ![Sony panel in Settings: control box address, Sony video folder, auto-get-key option, LTC output and gain on the left; Calibrate LTC on the right](assets/windows-settings/sony-panel.png)
-- **Vicon**: on the left, **Auto-arm by default** (only when Vicon is master),
-  the DataStream SDK path and the Nexus session folder (normally left blank);
-  on the right, the UDP port and, when the Collector is master, the Nexus host
-  IP with **Scan For IP**. See [Vicon](windows-vicon).
-
-  ![Vicon panel in Settings with the Collector as master: DataStream SDK path and Nexus session folder on the left; UDP port, and the Nexus host IP with Scan For IP, on the right](assets/windows-settings/vicon-panel.png)
+Turning a system on adds its panel below the table. Each system's page
+explains its panel: [Polar H10](windows-polar-h10) (nothing to set),
+[Sony Cameras and Theia](windows-sony-theia), [Vicon](windows-vicon).

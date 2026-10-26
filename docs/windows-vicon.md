@@ -60,6 +60,8 @@ are the ones that let the Collector start and read a capture, in Nexus's
    network; Nexus does not hear start and stop sent to `127.0.0.1`) and **Path to
    Vicon DataStream SDK**. Leave **Nexus session folder (override)** blank: the
    Collector finds the session Nexus has selected.
+
+   ![Vicon panel in Settings with the Collector as master: DataStream SDK path and Nexus session folder on the left; UDP port, and the Nexus host IP with Scan For IP, on the right](assets/windows-vicon/settings-vicon-panel.png)
 3. Put Nexus in **Live**. On the **Collect** tab's Vicon panel, press **Connect
    to Nexus**. The **Data** line reads "● ready — DataStream ... Hz" and the
    Vicon card in the sidebar turns green. The **Nexus session** line shows the

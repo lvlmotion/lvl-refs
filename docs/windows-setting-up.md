@@ -22,15 +22,14 @@ page.
 1. Prepare each system as its page describes:
    [LEVEL Sensors](windows-level-sensors.html), [Polar H10](windows-polar-h10.html),
    [Sony Cameras and Theia](windows-sony-theia.html), [Vicon](windows-vicon.html).
-2. On the **Collect** tab, press **Scan All** (top of the window). It finds or
-   readies every system you turned on. Each system has its own panel on the
-   tab; pick what you want in each. Only what a scan has seen is listed; the
-   sensors and strap from your last recording are ticked for you once seen.
-3. Press **Connect All**. Some systems take a moment to get ready after
-   connecting; each system's page says what to expect. **Scan + connect last**
-   does both steps in one for the sensors and strap of your last recording.
-   Vicon is not part of Connect All: press **Connect to Nexus** on its panel
-   once Nexus is live (see [Vicon](windows-vicon.html)).
+2. On the **Collect** tab, press **Scan All** (top of the window). It lists the
+   sensors and straps in range and changes nothing. Each system has its own
+   panel on the tab; pick what you want in each. The sensors and strap from
+   your last recording are ticked for you once seen.
+3. Get each system ready on its own panel: **Connect** for the LEVEL sensors,
+   **Connect and warm up** for the Polar strap, **Init rig…** for Sony, and
+   **Connect to Nexus** for Vicon once Nexus is Live. Some systems take a
+   moment to get ready; each system's page says what to expect.
 
 ## The status sidebar
 

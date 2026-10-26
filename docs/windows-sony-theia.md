@@ -130,10 +130,14 @@ What this page adds to that setup, once per rig:
    **Refresh outputs**, then pick the output cabled to the camera); the **LTC
    gain** (type it and press **Set**). Start at **0.015** (the default from
    0.1.41; on 0.1.39 type it in) with the output's Windows volume at 50%.
-3. Press **Scan All** (top of the window): it gets the browser key (takes
-   control of the cameras), sets the cameras' clocks from the PC and, once an
-   LTC output is picked, unmutes it at 50%. The Sony panel then lists the cameras as the webapp
-   names them (e.g. `001  DSC-RX0M2_3177801`) with each camera's state.
+   Leave **Attempt to auto-get browser key on sensor connect** ticked so the
+   Collector checks the rig as soon as the sensors connect.
+
+   ![Sony panel in Settings: control box address, Sony video folder, auto-get-key option, LTC output and gain on the left; Calibrate LTC on the right](assets/windows-sony-theia/settings-sony-panel.png)
+3. On the **Collect** tab, the Sony panel lists the cameras as the webapp
+   names them (e.g. `001  DSC-RX0M2_3177801`) with each camera's state. The
+   browser key, the cameras' clocks and the LTC output are set by **Init rig…**
+   (step 6).
 4. Pick the **LTC** camera: the one with the audio cable. **Play LTC signal**
    is off at every launch; Init rig turns it on, or tick it here. It stays on
    until you untick it.

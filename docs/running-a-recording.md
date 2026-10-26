@@ -11,11 +11,11 @@ Set up first: [Setting Up for a Recording](windows-setting-up.html).
 
 ## A take, step by step
 
-1. **Scan All** (top of the window). It finds or readies every system you turned
-   on. Pick what you want in each section.
-2. **Connect All.** Some systems take a moment to get ready after connecting;
-   each system's page says what to expect. For Vicon, also press **Connect to
-   Nexus** on its panel.
+1. **Scan All** (top of the window). It lists the sensors and straps in range
+   and changes nothing. Pick what you want in each panel.
+2. Get each system ready on its own panel: **Connect** for the LEVEL sensors,
+   **Connect and warm up** for the Polar strap, **Init rig…** for Sony,
+   **Connect to Nexus** for Vicon. Each system's page says what to expect.
 3. Check the **status sidebar**: start when everything you need is green or
    yellow.
 4. Type a **Trial Name** (it names the session folder) and any **Notes**.
