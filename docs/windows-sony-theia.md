@@ -129,7 +129,7 @@ What this page adds to that setup, once per rig:
 2. **Settings > Sony:** the control box address (**CCB base URL**); the **LTC output** (press
    **Refresh outputs**, then pick the output cabled to the camera); the **LTC
    gain** (type it and press **Set**). Start at **0.015** (the default from
-   0.1.40; on 0.1.39 type it in) with the output's Windows volume at 50%.
+   0.1.41; on 0.1.39 type it in) with the output's Windows volume at 50%.
 3. Press **Scan All** (top of the window): it gets the browser key (takes
    control of the cameras), sets the cameras' clocks from the PC and, once an
    LTC output is picked, unmutes it at 50%. The Sony panel then lists the cameras as the webapp

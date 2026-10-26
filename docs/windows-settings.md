@@ -108,7 +108,7 @@ describe each one:
   [Sony Cameras and Theia](windows-sony-theia).
 
   ![Sony panel in Settings: control box address, Sony video folder and the auto-get-key option on the left; LTC output, gain and Calibrate LTC on the right](assets/windows-settings/sony-panel.png)
-  <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: Sony panel with the LTC gain at the new 0.015 default (0.1.40+)</strong></p>
+  <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT: Sony panel with the LTC gain at the new 0.015 default (0.1.41+)</strong></p>
 - **Vicon**: on the left, **Auto-arm by default** (only when Vicon is master),
   the DataStream SDK path and the Nexus session folder (normally left blank);
   on the right, the UDP port and, when the Collector is master, the Nexus host
