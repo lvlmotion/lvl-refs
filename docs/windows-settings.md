@@ -11,8 +11,7 @@ The **Settings** tab is a stack of panels, each with a title you can click to
 fold it away: **Collector Settings**, **Sync**, then one
 panel for each other system that is on.
 
-![Settings tab: Collector Settings with the root folder, On launch switches and the Python interpreter](assets/windows-settings/collector-settings.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #10 (on 0.1.42+): top bar without Connect All / Scan + connect last; On launch has only the Scan All switch</strong></p>
+![Settings tab: Collector Settings with the root folder, the On launch switch and the Python interpreter](assets/windows-settings/collector-settings.png)
 
 ## Collector Settings
 

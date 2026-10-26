@@ -61,12 +61,6 @@ If a system fails mid-take, its sidebar card turns red and the others keep
 going. Stop when you are ready. If the cameras are still recording when no take
 is running, the main button still reads **Stop Stream** and stops them.
 
-## 4. Postproc
-
-With Sony, press **Pull all clips…** on the Sony panel first. Then, on the
-**Postproc** tab, tick the takes and press **Run on ticked** to put every
-system on the PC clock. See [Post-processing a Recording](windows-postprocessing).
-
 ## Where the files go
 
 Each take is a folder in the root folder's `collector\data` folder (by default

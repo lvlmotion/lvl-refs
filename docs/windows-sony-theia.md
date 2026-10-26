@@ -172,13 +172,13 @@ that changes the player asks for a new calibration.
    reading an older clip. You can also type a measured value into **K_av (ms)**
    and press **Set**.
 
-To see how steady the value is on this PC, run a **batch** (the row under
-Calibrate): **Run length (s)** (60 by default), **Runs per player** (4) and
-**Sets** (100). Each set restarts the LTC signal, a fresh start of the output,
+Then run a **batch** (the row under Calibrate) to see how steady the value is
+on this PC: **Run length (s)** (30 by default), **Runs per player** (4) and
+**Sets** (10). Each set restarts the LTC signal, a fresh start of the output,
 then records that many runs on it. The line beside **Run batch** shows how many
-runs that is and about how long; the defaults take most of a night, so lower
-**Sets** for a quick check. **Stop** ends the batch after the current run. The
-median of the runs that read the clock page is saved.
+runs that is and about how long; the defaults take about 45 minutes, so start it
+and let it run. **Stop** ends the batch after the current run. The median of
+the runs that read the clock page is saved.
 
 Every Calibrate, every batch run, every value you **Set** by hand and every
 Check LTC that decoded is added to a log, `calibration\kav_log.csv` in the
