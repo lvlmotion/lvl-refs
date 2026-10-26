@@ -110,13 +110,14 @@ describe each one:
 - **Sony**: the control box address (**CCB base URL**), the Sony video folder
   (where the clips and Theia trial folders live; blank means the root folder's
   `collector\sony`, e.g. `C:\lvlmotion\collector\sony`) and the
-  auto-get-key option on the left; the LTC output device, gain and calibration
-  (with the history of past calibrations) on the right, see
+  auto-get-key option, then the LTC output device and gain, on the left; LTC
+  calibration (with the history of past calibrations) on the right, see
   [Sony Cameras and Theia](windows-sony-theia).
 
-  ![Sony panel in Settings: control box address, Sony video folder and the auto-get-key option on the left; LTC output, gain and Calibrate LTC on the right](assets/windows-settings/sony-panel.png)
-  <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #4: Sony panel with the LTC gain at the new 0.015 default (0.1.41+)</strong></p>
+  ![Sony panel in Settings: control box address, Sony video folder, auto-get-key option, LTC output and gain on the left; Calibrate LTC on the right](assets/windows-settings/sony-panel.png)
 - **Vicon**: on the left, **Auto-arm by default** (only when Vicon is master),
   the DataStream SDK path and the Nexus session folder (normally left blank);
   on the right, the UDP port and, when the Collector is master, the Nexus host
   IP with **Scan For IP**. See [Vicon](windows-vicon).
+
+  ![Vicon panel in Settings with the Collector as master: DataStream SDK path and Nexus session folder on the left; UDP port, and the Nexus host IP with Scan For IP, on the right](assets/windows-settings/vicon-panel.png)
