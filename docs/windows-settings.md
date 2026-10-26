@@ -78,8 +78,7 @@ Collector.
 
 ## Sync
 
-![Sync table with Polar H10, Sony and Vicon on and the Collector as master](assets/windows-settings/sync-table.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #3: crop out the removed LEVEL Sensors / Time Sync panel above the table</strong></p>
+![Sync table with the Collector as master and Sony on as a follower](assets/windows-settings/sync-table.png)
 
 One take, several systems, one clock: the sync table says which systems are in
 the capture and which one starts a take (the **master**). The Collector relays
