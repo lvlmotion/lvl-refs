@@ -10,6 +10,10 @@ nav_order: 3
 ![Collect tab with the sensors connected, the Polar H10 strap ready, the Sony panel waiting for an LTC camera, and all four systems in the status sidebar](assets/windows-setting-up/collect-tab-all-systems.png)
 <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #1 (on 0.1.41+): Vicon card reads "not connected — press Connect to Nexus" before Connect to Nexus is pressed (0.1.39 shows "idle — Nexus gives no ready signal"); Sony panel has Init rig / Pull all clips instead of Get Browser Key, Link Date/Time, Unmute</strong></p>
 
+**Plug the LEVEL Hub into the PC first.** With LEVEL sensors turned on, the
+Collector cannot start a recording without it: the start button reads
+**Awaiting LEVEL Hub** until the Hub is in.
+
 ## Turn on the systems you are using
 
 **Settings > Sync** lists every system. Tick the ones you use (Polar H10, Sony,
@@ -39,8 +43,7 @@ from it to the Collector, and the systems the Collector starts are listed
 below. Each card reads **name - what you picked** (or what you still need to
 pick), then a coloured status line, then any warnings.
 
-![Status sidebar: LEVEL green, Polar yellow, Sony red with a warning, Vicon grey](assets/windows-setting-up/status-sidebar.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #2 (on 0.1.41+): Vicon card reads "not connected — press Connect to Nexus" (grey)</strong></p>
+![Status sidebar: LEVEL red (no sensors connected), Polar yellow (needs warm-up), Sony red (control box unreachable), Vicon grey (not connected, press Connect to Nexus)](assets/windows-setting-up/status-sidebar.png)
 
 | Colour | Meaning |
 |---|---|
@@ -60,11 +63,12 @@ red after an unexpected disconnect, and grey otherwise.
 | LEVEL | the sensors you picked | connected / time-synced / streaming with elapsed time and loss; after a take, its length and loss |
 | Polar | the strap you picked | searching, warming up, then live ECG / ACC / heart rate |
 | Sony | the camera carrying the LTC timecode audio | cameras ready / recording / problems, and whether LTC is playing |
-| Vicon | Nexus | not connected until you press **Connect to Nexus**; then ready (Vicon's data rate) between takes; frames arriving during a take |
+| Vicon | Nexus | not connected until you press **Connect to Nexus**; then the data Nexus streams in **Live** mode: ready (Vicon's data rate) between takes, frames arriving during a take |
 
-Nothing here stops you recording except a missing LEVEL Hub (the button then
-reads **Awaiting LEVEL Hub**). If a line is red, it is your call whether to record
-anyway.
+**Vicon reads Nexus's Live stream.** Nexus streams the same data in Live mode
+whether it is standing by or recording, so a green Vicon card means Nexus is
+Live, not that Nexus is recording. Nexus does not tell the Collector when it
+records.
 
 ## If something goes wrong
 

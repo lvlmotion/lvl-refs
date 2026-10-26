@@ -11,7 +11,7 @@ The **Postproc** tab works on takes you have already recorded. It has two
 parts: a shortcut to the last take, and **Align to PC clock**, which puts the
 other systems' data on the same clock as the LEVEL sensors.
 
-<p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT #8: Postproc tab with the Last session row and the Align to PC clock table holding a few takes</strong></p>
+<p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT #8: top of the Postproc tab: the Last session row and the buttons above the Align to PC clock table (Enumerate, Run on ticked)</strong></p>
 
 ## Last session
 
@@ -46,10 +46,14 @@ frames or files and the fit error, and red with the reason when it did not. A
 system with nothing shows `—`. Once a run has written its report, a
 **Report** line shows `pc_alignment.json`.
 
+![One take in the Align to PC clock table after a run: IMU and Polar aligned (green, with the method and file count), Sony, Theia and Vicon empty, and the take's notes underneath](assets/windows-postprocessing/align-table-row.png)
+
 Under each take's name, **Raw** and **Aligned** draw a quick plot of the take
 (the systems on their recorded times, or on the PC clock after a run), save it
 under `collector\images\` in the root folder and open it. They need the plotting
 setup from the [Settings](windows-settings) page.
+
+![Aligned plot of a take: the LEVEL sensor's acceleration and rotation and the Polar heart rate on the PC clock, with a green bar per system showing its time span and alignment method](assets/windows-postprocessing/aligned-plot.png)
 
 1. Each take is added to the table by itself when it finishes. To fill the
    table from disk instead, press **Enumerate**. It lists every take under
