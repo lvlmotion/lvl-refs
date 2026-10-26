@@ -31,7 +31,7 @@ PC clock and writes the result beside the raw data, under
 `aligned\<take>\` in the root folder's `collector` folder (by default
 `C:\lvlmotion\collector\aligned\`). The raw session folder is never changed.
 
-Align runs only when you press **Run on ticked**, never by itself after a take.
+Align runs only when you press **Run on ticked**.
 A typical session: record one take, align it to check that everything lines
 up, then record the rest and align them all together at the end (with Sony,
 after pulling the clips off the cameras).

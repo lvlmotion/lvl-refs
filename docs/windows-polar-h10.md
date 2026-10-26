@@ -22,13 +22,9 @@ You need:
 - a PC with Bluetooth, running the Collector with the **full** Python
   environment (see [Settings](windows-settings.html#python-interpreter)).
 
-We assume you already use the strap on its own: fitting it, wetting the
-electrodes and battery changes are in Polar's
-[H10 user manual](https://support.polar.com/e_manuals/h10-heart-rate-sensor/polar-h10-user-manual-english/getting-started.htm)
-and [support pages](https://support.polar.com/en/support/h10_heart_rate_sensor).
-Polar's own [pairing instructions](https://support.polar.com/e_manuals/h10-heart-rate-sensor/polar-h10-user-manual-english/pairing.htm)
-cover phones and watches; pairing with a PC is the one step Polar does not
-document, so it is here.
+For fitting the strap and pairing it with a phone, see Polar's
+[H10 user manual](https://support.polar.com/e_manuals/h10-heart-rate-sensor/polar-h10-user-manual-english/getting-started.htm).
+The following is how to pair the H10 with Windows.
 
 **Pair the strap with Windows once per PC.** The strap only sends ECG and
 accelerometer data over a paired link. If it is not paired when you connect,

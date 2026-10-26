@@ -13,12 +13,13 @@ nav_order: 8
   boxes** (one per camera; the first one is the master, usually
   `http://169.254.200.200`). The Collector starts and stops every camera and reads
   each camera's state.
-- For the tightest timing, the Collector plays a **timecode audio signal (LTC)**
+- For the tightest timing, the Collector plays an **audio linear timecode (LTC) signal**
   from a PC audio output into **one camera's microphone input**. That camera's
   clip then carries PC time in its audio.
 - Every camera also stamps its video with **timecode**, set by the control box
-  from its own clock when recording starts. The Collector listens to that clock
-  (PTP) the whole time and saves it with each take, so every take can be placed
+  from its own clock when recording starts. The box shares that clock over
+  the camera network with the Precision Time Protocol (PTP); the Collector
+  listens to it the whole time and saves it with each take, so every take can be placed
   on the PC clock even without LTC, though less precisely.
 
 How precise each one is, and why, is in [Timing: LTC and PTP](#timing-ltc-and-ptp).
@@ -35,22 +36,16 @@ plate, and line the systems up on it.
 
 - **Within a take, LTC holds.** The LTC is read all the way through the clip,
   so camera clock drift never builds up: under 10 ms over a 20-minute take.
-- **Every LTC word is stamped with the PC time it is played.** Older versions
-  of the Collector counted frames from the moment LTC started; if the PC got
-  busy, the audio could fall behind and every later frame was off by tens of
-  milliseconds with nothing to show it. Now a stall leaves a short gap in the
-  LTC, which the log reports, never a wrong time.
+- **Every LTC word is stamped with the PC time it is played.**
 - **The remaining offset is K_av**, the delay from the PC clock through the
   audio output and the camera's microphone input to the video frame. It
   depends on the output, its driver and the camera, so the Collector measures
-  it (see [Calibration](#calibration)). On the outputs tried so far, USB audio
-  adapters and built-in headphone jacks alike, it can change from one start of
-  the LTC to the next, so calibrate every session.
+  it (see [Calibration](#calibration)).
 - **The calibration itself is limited by the monitor.** It films the clock
   page on the PC's screen. The screen shows the time a little late, and now
   and then one whole screen refresh later (about 17 ms) for minutes at a time,
-  so calibration results can fall into groups about 17 ms apart; that is the
-  monitor, not the LTC. The page also refreshes at 60 Hz while the camera
+  so calibration results can fall into groups about 17 ms apart (one refresh
+  at 60 Hz). The page also refreshes at 60 Hz while the camera
   records at 59.94 frames per second, so within one clip the reading slides
   back and forth by one refresh every few seconds; a calibration clip
   averages over that. Treat K_av as good to about a frame.
@@ -128,8 +123,7 @@ What this page adds to that setup, once per rig:
 1. **Settings > Sync:** tick **Sony**, with the Collector as master.
 2. **Settings > Sony:** the control box address (**CCB base URL**); the **LTC output** (press
    **Refresh outputs**, then pick the output cabled to the camera); the **LTC
-   gain** (type it and press **Set**). Start at **0.015** (the default from
-   0.1.41; on 0.1.39 type it in) with the output's Windows volume at 50%.
+   gain** (type it and press **Set**). Start at **0.015** with the output's Windows volume at 50%.
    Leave **Attempt to auto-get browser key on sensor connect** ticked so the
    Collector checks the rig as soon as the sensors connect.
 
@@ -189,7 +183,7 @@ The Collector adds one timing measurement.
 between the LTC in the audio and the video frames (K_av) for your exact
 hardware. Until you calibrate, the Collector uses 0 ms and Settings says
 "default 0 ms, not yet set for this output" in red. Calibrate at the start of
-every session (see [LTC](#ltc) for why). You can also type a measured value
+every session. You can also type a measured value
 into **K_av (ms)** and press **Set**. To measure it:
 
 1. In **Settings > Sony**, under **Calibrate LTC**, press **Open clock page** and

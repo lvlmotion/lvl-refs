@@ -37,10 +37,11 @@ Settings that matter, on the Settings tab:
    are ticked for you.
 2. Tick or untick sensors as needed.
 3. Set **Rate** if you need something other than 100 Hz (50 to 200 Hz). The
-   rates on offer narrow as you tick more sensors. **Batch** next to it is set
-   for you; the ⓘ beside it is green when the Hub can carry that many sensors at
-   that rate, amber when untested and red when you should expect packet loss
-   (hover it for details).
+   rates on offer narrow as you tick more sensors. **Batch** (after
+   **Refresh Sensor Status**) is not a setting: the Collector picks it from the
+   number of sensors and the rate. The ⓘ beside it is green when the Hub can
+   carry that many sensors at that rate, amber when untested and red when you
+   should expect packet loss (hover it for details).
 4. Press **Connect**. Each sensor's light goes solid and its
    row shows **Connected**.
 5. While connected, click a sensor's **LED** or **Location** cell to set its
@@ -52,9 +53,7 @@ battery and time sync. The end of that row shows how many sensors the last scan
 found. Whether the LEVEL Hub is plugged in, and its firmware version, is on the
 **Collector** line of the status sidebar.
 
-![LEVEL Sensors panel with three sensors connected: Scan, Disconnect and Rate buttons above the sensor table](assets/windows-level-sensors/sensors-connected.png)
-
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #11 (on 0.1.42+): LEVEL Sensors panel with Refresh Sensor Status right after Rate (before Batch) and "Discovered sensors: N" at its end (no LEVEL Hub badge, no Discovered Sensors header). Red box: the controls row.</strong></p>
+![LEVEL Sensors panel with two sensors connected: Scan, Disconnect, Rate and Refresh Sensor Status buttons, Batch, and the discovered-sensor count above the sensor table](assets/windows-level-sensors/sensors-connected.png)
 
 ## Calibration
 
