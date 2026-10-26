@@ -15,7 +15,7 @@ so all sensors share one timeline, to a few milliseconds. The PC's arrival time
 of every packet is saved too, which ties the sensors' clock to the PC clock, the
 timeline every other system is aligned to.
 
-## Before you start
+## Setup
 
 You need:
 
@@ -30,7 +30,7 @@ Settings that matter, on the Settings tab:
 |---|---|
 | **Collector Settings > On launch** | **Scan All** switch: scans for you when the Collector opens |
 
-## How to connect
+## Scan
 
 1. In the **Collect** tab's LEVEL Sensors panel, press **Scan** (or **Scan All**
    at the top). Found sensors are listed. The sensors from your last recording
@@ -42,9 +42,13 @@ Settings that matter, on the Settings tab:
    number of sensors and the rate. The ⓘ beside it is green when the Hub can
    carry that many sensors at that rate, amber when untested and red when you
    should expect packet loss (hover it for details).
-4. Press **Connect**. Each sensor's light goes solid and its
-   row shows **Connected**.
-5. While connected, click a sensor's **LED** or **Location** cell to set its
+
+## Initialize
+
+1. Press **Connect**. Each sensor's light goes solid and its row shows
+   **Connected**, with **B** or **S** in Sync once it is time-synced. If Polar
+   is on, this also connects and warms up the strap.
+2. While connected, click a sensor's **LED** or **Location** cell to set its
    colour and where it is worn (or **Custom…** for your own label, up to 12
    characters); both are saved on the sensor and in the session files.
 
@@ -55,11 +59,7 @@ found. Whether the LEVEL Hub is plugged in, and its firmware version, is on the
 
 ![LEVEL Sensors panel with two sensors connected: Scan, Disconnect, Rate and Refresh Sensor Status buttons, Batch, and the discovered-sensor count above the sensor table](assets/windows-level-sensors/sensors-connected.png)
 
-## Calibration
-
-None.
-
-## How to stream
+## Collect
 
 **Start Stream** starts the take on every connected sensor; **Stop Stream**
 ends it and writes the files. The sensor table shows each sensor while it
@@ -90,7 +90,7 @@ What each light pattern on the sensor means, plus waking and resetting a sensor:
 | `meta-summary.json`, `meta-debug.json`, `meta-telemetry.csv` | session details, time-sync record, data-quality log |
 | `sync.json` | which systems were in the take, which one started it, and for Sony the LTC output, the LTC camera and the LTC calibration (K_av) in use, which Align reads later |
 
-## Post-processing
+## Postproc
 
 Align writes to `aligned\<session>\` beside `data\` in the root folder's
 `collector` folder (by default `C:\lvlmotion\collector\aligned\`); the raw

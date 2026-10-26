@@ -20,7 +20,7 @@ nav_order: 9
 - **Force plates** wired into the Vicon system are recorded by Nexus, on Vicon's
   frames.
 
-## Before you start
+## Setup
 
 You need:
 
@@ -52,7 +52,7 @@ are the ones that let the Collector start and read a capture, in Nexus's
 - A session selected in Nexus's **Data Management**. The Collector reads it to
   check trial names and that each trial was saved.
 
-## How to connect
+In the Collector's **Settings** tab:
 
 1. **Settings > Sync:** tick **Vicon**, with the Collector as master.
 2. **Settings > Vicon:** **UDP Port** (match Nexus; 30 by default), **Nexus
@@ -62,20 +62,27 @@ are the ones that let the Collector start and read a capture, in Nexus's
    Collector finds the session Nexus has selected.
 
    ![Vicon panel in Settings with the Collector as master: DataStream SDK path and Nexus session folder on the left; UDP port, and the Nexus host IP with Scan For IP, on the right](assets/windows-vicon/settings-vicon-panel.png)
-3. Put Nexus in **Live**. On the **Collect** tab's Vicon panel, press **Connect
-   to Nexus**. The **Data** line reads "● ready — DataStream ... Hz" and the
-   Vicon card in the sidebar turns green. The **Nexus session** line shows the
-   Nexus folder the Collector is watching.
 
-## Calibration
+Calibrate Vicon and take a static trial as your lab normally does (see
+[Vicon Help](https://help.vicon.com/)).
 
-None for the link itself. Calibrate Vicon and take a static trial as your lab
-normally does. Then do a short test take: the Vicon card in the sidebar should
+## Scan
+
+Nothing to scan: **Scan All** leaves Vicon alone.
+
+## Initialize
+
+Put Nexus in **Live**. On the **Collect** tab's Vicon panel, press **Connect to
+Nexus**. The **Data** line reads "● ready — DataStream ... Hz" and the Vicon
+card in the sidebar turns green. The **Nexus session** line shows the Nexus
+folder the Collector is watching.
+
+Then do a short test take: the Vicon card in the sidebar should
 stay **green**, reading "receiving — frame ..." at about the Vicon frame rate.
 
 <p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT #9: Vicon panel in the Collect tab, connected (green), before Start Stream</strong></p>
 
-## How to stream
+## Collect
 
 **Start Stream** starts Nexus and **Stop Stream** stops it. Nexus uses the
 Collector's trial name; `trial01`, `trial02`, ... move on by themselves after
@@ -106,7 +113,7 @@ means the Collector is connected but no frames are coming ("is Nexus Live?").
 Marker and force-plate data come from your Nexus export as usual (C3D or CSV);
 keep the trial name so it matches the session folder.
 
-## Post-processing
+## Postproc
 
 Align writes to `aligned\<session>\` beside `data\` in the root folder's
 `collector` folder (by default `C:\lvlmotion\collector\aligned\`); the raw

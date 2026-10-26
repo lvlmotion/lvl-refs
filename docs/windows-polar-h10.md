@@ -14,7 +14,7 @@ connects when you connect the IMU sensors and stays connected across takes. Each
 take gets its own ECG, accelerometer and heart-rate files, and **Align to PC
 clock** puts them on the same clock as the IMU sensors.
 
-## Before you start
+## Setup
 
 You need:
 
@@ -36,26 +36,28 @@ Windows asks to pair; allow it, or the strap does not start.
 3. If pairing fails: remove the strap in Windows, take the pod's battery out for
    10 seconds, and pair again.
 
-## How to connect
+Then, in the Collector: **Settings > Sync**, tick **Polar H10**.
 
-1. **Settings > Sync:** tick **Polar H10**.
-2. On the **Collect** tab, press **Scan All** (or **Scan** in the Polar panel).
-   The straps in range are listed with their signal strength. Pick yours
-   (**Use**). The Collector remembers the strap it last connected to.
-3. Press **Connect and warm up** in the Polar panel (available once the
-   Collector has found the LEVEL Hub). Connecting the LEVEL sensors also
-   connects and warms up the strap.
+## Scan
+
+On the **Collect** tab, press **Scan All** (or **Scan** in the Polar panel).
+The straps in range are listed with their signal strength. Pick yours
+(**Use**). The Collector remembers the strap it last connected to.
+
+## Initialize
+
+Press **Connect and warm up** in the Polar panel (available once the Collector
+has found the LEVEL Hub). Connecting the LEVEL sensors also connects and warms
+up the strap.
 
 ![Polar H10 panel on the Collect tab with the strap picked, connected, battery 100%, status ECG live](assets/windows-polar-h10/polar-panel.png)
 
-## Calibration
-
-None. The strap needs a **warm-up of about 30-40 seconds** after connecting
+The strap needs a **warm-up of about 30-40 seconds** after connecting
 before ECG flows; the sidebar shows it in yellow (searching, connecting,
 warming up) and turns green when ECG is about 130 Hz, accelerometer about 200 Hz
 and heart rate is arriving. Start the take once it is green.
 
-## How to stream
+## Collect
 
 Press **Start Stream**. The strap is already connected, so its streams are
 simply cut at the take's start and stop. Right after the warm-up the ECG rate
@@ -74,7 +76,7 @@ takes the strap stays connected and warm.
 `<mac>` is the strap's Bluetooth address (with `_` in place of `:`), not the ID
 printed on the pod.
 
-## Post-processing
+## Postproc
 
 Align writes to `aligned\<session>\` beside `data\` in the root folder's
 `collector` folder (by default `C:\lvlmotion\collector\aligned\`); the raw

@@ -78,7 +78,7 @@ The tick box above the table, **Sony: use the current K_av calibration
 instead of the one each take recorded**, matters only for Sony and is off each
 time the Collector opens: each take is aligned with the LTC calibration saved
 when it was recorded. See the
-[Sony page](windows-sony-theia#post-processing).
+[Sony page](windows-sony-theia#postproc).
 
 **Clear table** empties the table (nothing on disk changes); **Enumerate**
 fills it again.
@@ -88,10 +88,10 @@ system's page:
 
 | System | What Align writes | Details |
 |---|---|---|
-| LEVEL sensors | nothing for short takes; a drift-corrected copy for takes of 5 minutes or longer | [LEVEL Sensors](windows-level-sensors#post-processing) |
-| Polar H10 | ECG, accelerometer and heart-rate files with a PC-time column | [Polar H10](windows-polar-h10#post-processing) |
-| Sony and Theia | the PC time of every video frame (one file per camera of the take), and of every Theia frame; pulls the LTC camera's clip first if needed | [Sony Cameras and Theia](windows-sony-theia#post-processing) |
-| Vicon | the PC time of every Vicon frame, covering a Nexus C3D's frame range | [Vicon](windows-vicon#post-processing) |
+| LEVEL sensors | nothing for short takes; a drift-corrected copy for takes of 5 minutes or longer | [LEVEL Sensors](windows-level-sensors#postproc) |
+| Polar H10 | ECG, accelerometer and heart-rate files with a PC-time column | [Polar H10](windows-polar-h10#postproc) |
+| Sony and Theia | the PC time of every video frame (one file per camera of the take), and of every Theia frame; pulls the LTC camera's clip first if needed | [Sony Cameras and Theia](windows-sony-theia#postproc) |
+| Vicon | the PC time of every Vicon frame, covering a Nexus C3D's frame range | [Vicon](windows-vicon#postproc) |
 
 Every run also writes `pc_alignment.json` in the take's aligned folder, with
 the result and any warnings for each system.
@@ -113,7 +113,7 @@ the result and any warnings for each system.
 - **An Aligned cell is red:** the reason is under it, and the system's page has
   the fixes. The other systems in the same take are still aligned.
 - **The Sony line shows a different method than you expected:** the
-  [Sony page](windows-sony-theia#post-processing) explains the three methods,
+  [Sony page](windows-sony-theia#postproc) explains the three methods,
   and its [FAQs](windows-sony-theia#faqs) how to get the best one.
 - **You need help from LEVEL:** press **Package for support**. It copies the
   ticked takes (or, with none ticked, the last one), their aligned folders, the

@@ -40,7 +40,7 @@ plate, and line the systems up on it.
 - **The remaining offset is K_av**, the delay from the PC clock through the
   audio output and the camera's microphone input to the video frame. It
   depends on the output, its driver and the camera, so the Collector measures
-  it (see [Calibration](#calibration)).
+  it (see [Calibrate LTC on this PC](#calibrate-ltc-on-this-pc)).
 - **The calibration itself is limited by the monitor.** It films the clock
   page on the PC's screen. The screen shows the time a little late, and now
   and then one whole screen refresh later (about 17 ms) for minutes at a time,
@@ -68,7 +68,7 @@ plate, and line the systems up on it.
 - The Collector needs to hear the box clock: allow UDP ports 319 and 320 (see
   below) and keep the boxes sending it (see the FAQs).
 
-## Before you start
+## Setup
 
 You need:
 
@@ -102,7 +102,7 @@ describe:
 - Theia: [Sony Camera Package system setup](https://docs.theiamarkerless.com/theia3d-documentation/sony-camera-package/system-setup)
   and [data collection](https://docs.theiamarkerless.com/theia3d-documentation/sony-camera-package/data-collection).
 
-What this page adds to that setup, once per rig:
+What the Collector needs on top of that, once per rig:
 
 - On the **LTC camera** (camera menu, Movie settings): **Audio Recording: On**
   (Theia's usual camera setup turns audio off, which removes the LTC);
@@ -118,35 +118,93 @@ What this page adds to that setup, once per rig:
 - Allow **UDP ports 319 and 320** through Windows Firewall on the camera
   network, so the Collector can hear the control box clock (PTP).
 
-## How to connect
+In the Collector's **Settings** tab:
 
 1. **Settings > Sync:** tick **Sony**, with the Collector as master.
-2. **Settings > Sony:** the control box address (**CCB base URL**); the **LTC output** (press
-   **Refresh outputs**, then pick the output cabled to the camera); the **LTC
-   gain** (type it and press **Set**). Start at **0.015** with the output's Windows volume at 50%.
-   Leave **Attempt to auto-get browser key on sensor connect** ticked so the
-   Collector checks the rig as soon as the sensors connect.
+2. **Settings > Sony:** the control box address (**CCB base URL**); the **LTC
+   output** (press **Refresh outputs**, then pick the output cabled to the
+   camera); the **LTC gain** (type it and press **Set**). Start at **0.015**
+   with the output's Windows volume at 50%.
 
-   ![Sony panel in Settings: control box address, Sony video folder, auto-get-key option, LTC output and gain on the left; Calibrate LTC on the right](assets/windows-sony-theia/settings-sony-panel.png)
-3. On the **Collect** tab, the Sony panel lists the cameras as the webapp
-   names them (e.g. `001  DSC-RX0M2_3177801`) with each camera's state. The
-   browser key, the cameras' clocks and the LTC output are set by **Init rig…**
-   (step 6).
-4. Pick the **LTC** camera: the one with the audio cable. **Play LTC signal**
-   is off at every launch; Init rig turns it on, or tick it here. It stays on
-   until you untick it.
-5. The **ptp** line in **Rig details**, under the cameras, should read
+![Sony panel in Settings: control box address, Sony video folder, LTC output and gain on the left; Calibrate LTC on the right](assets/windows-sony-theia/settings-sony-panel.png)
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #12 (on 0.1.42+): Settings > Sony panel without the auto-get browser key checkbox, and with the single-backslash folder hint</strong></p>
+
+### Calibrate LTC on this PC
+
+K_av is the offset between the LTC in the audio and the video frames. The
+Collector measures it by filming the **clock page**, a page that shows the PC
+clock with two strips of squares above it and two below:
+
+![The clock page full screen: the PC time with two strips of squares above it and two below](assets/windows-sony-theia/clock-page.png)
+
+Before the first session on a PC, and again after changing the PC, the LTC
+output, the audio adapter or the LTC camera, calibrate in **Settings > Sony**,
+under **Calibrate LTC**. Until then the Collector uses 0 ms and Settings says
+"default 0 ms, not yet set for this output" in red. The value is kept per LTC
+output and per version of the Collector's LTC player, so a Collector update
+that changes the player asks for a new calibration.
+
+1. Press **Open clock page** and make the page full screen.
+2. Point the LTC camera at the screen, straight on, with all four strips in
+   view.
+3. Press **Calibrate**. The Collector plays LTC, records 12 seconds, copies the
+   clip and reads the clock from the video. After about a minute it shows the
+   result, for example "K_av = -68 ms (spread 5 ms)", and saves it for that LTC
+   output. If the camera missed the recording, the run fails rather than
+   reading an older clip. You can also type a measured value into **K_av (ms)**
+   and press **Set**.
+
+To see how steady the value is on this PC, run a **batch** (the row under
+Calibrate): **Run length (s)** (60 by default), **Runs per player** (4) and
+**Sets** (100). Each set restarts the LTC signal, a fresh start of the output,
+then records that many runs on it. The line beside **Run batch** shows how many
+runs that is and about how long; the defaults take most of a night, so lower
+**Sets** for a quick check. **Stop** ends the batch after the current run. The
+median of the runs that read the clock page is saved.
+
+Every Calibrate, every batch run, every value you **Set** by hand and every
+Check LTC that decoded is added to a log, `calibration\kav_log.csv` in the
+collector folder (**Open log** opens its folder). The **History** line under the
+buttons sums it up for the picked output: how many calibrations, their median,
+spread, range and the last value. If the values fall into separate groups, a
+red note says which kind:
+
+- **whole screen refreshes apart** (about 17 ms): the clock page's display
+  delay changed between runs, not the LTC;
+- **not whole refreshes apart**: this output does not start at the same offset
+  every time.
+
+Camera calibration (intrinsic, extrinsic) is Theia's, as in Theia's
+[calibration pages](https://docs.theiamarkerless.com/theia3d-documentation/data-collection/recording-extrinsic-chessboard-calibrations).
+
+## Scan
+
+On the **Collect** tab, the Sony panel lists the cameras as the webapp names
+them (e.g. `001  DSC-RX0M2_3177801`) with each camera's state. The list is
+live, so there is nothing to scan; **Scan All** leaves Sony alone.
+
+1. Pick the **LTC** camera: the one with the audio cable.
+2. The **ptp** line in **Rig details**, under the cameras, should read
    **grandmaster heard** with the clock offset.
-6. At the start of a session, press **Init rig…**. A checklist comes up, in
+
+![Sony panel on the Collect tab: Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
+<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #5: current Sony panel with Init rig and Pull all clips, PTP line inside Rig details, stamped player (no FREE-RUNNING)</strong></p>
+
+## Initialize
+
+**Init rig…** on the Sony panel gets the cameras and the LTC ready at the
+start of a session, and measures K_av for this start of the LTC signal.
+
+1. Press **Init rig…**. A checklist comes up, in
    the order the steps run, grouped by where each step happens:
    - This PC: **open the camera page in the browser** (the Sony webapp, for
-     live previews);
+     live previews), then **show the clock page**;
    - Cameras, through the control box: **keep the boxes' timing (PTP) running
      from this app** (off by default; see the FAQs), get the browser key,
      power on any camera that is off, one-push autofocus on every camera, and
      link the cameras' clocks to the PC;
    - This PC: unmute the LTC output and set it to 50%, start playing the LTC
-     signal, and **Check LTC** (off by default, see the next step);
+     signal, and **Check LTC**;
    - Cameras: **format every camera's memory card**, last, so the session
      starts on empty cards.
 
@@ -155,15 +213,21 @@ What this page adds to that setup, once per rig:
    Pull the clips first if anything on the cards is still needed. While it
    runs, the panel shows one line per step under the buttons: running, done or
    failed, with what the step reported.
-7. Tick **Check LTC** in the Init rig checklist to prove the timecode audio
-   before recording. The Collector records 12 seconds on the LTC camera, pulls
-   the clip and reads the LTC in it: **OK** with the frame count and audio
-   level, or what went wrong and what to change. If the LTC camera happens to
-   be pointed at the clock page (see [Calibration](#calibration)), the same
-   clip also measures K_av and saves it.
+2. When the clock page opens, make it full screen and point the LTC camera at
+   it, as in [Calibrate LTC on this PC](#calibrate-ltc-on-this-pc). You have
+   until **Check LTC** starts, after the camera steps.
+3. **Check LTC** records 12 seconds on the LTC camera, pulls the clip and reads
+   the LTC in it: **OK** with the frame count and audio level, or what went
+   wrong and what to change. From the same clip it reads K_av off the clock
+   page; its line ends with, for example, "K_av = -68 ms (spread 5 ms) —
+   saved". Point the camera back at the capture area.
 
-![Sony panel on the Collect tab: Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #5: current Sony panel with Init rig and Pull all clips, PTP line inside Rig details, stamped player (no FREE-RUNNING)</strong></p>
+**Measure K_av every time the LTC signal starts.** Init rig starts it, so keep
+**Show the clock page** and **Check LTC** ticked (both are on by default).
+**Play LTC signal** on the Sony panel is off at every launch and stays on until
+you untick it; unticking it asks first, because once it plays again you need
+another Init rig with those two steps. Each take saves the K_av in effect when
+it was recorded, and Align uses that value (see [Postproc](#postproc)).
 
 While LTC plays, the Collector takes the LTC output for itself (WASAPI
 exclusive mode), so no other sound can land on the signal and the timing is
@@ -173,62 +237,7 @@ active playback device, exclusive control is turned off for it in Windows
 Sound > Advanced, or another program is holding it; fix that and tick **Play
 LTC signal** again.
 
-## Calibration
-
-Camera calibration (intrinsic, extrinsic) is Theia's, as in Theia's
-[calibration pages](https://docs.theiamarkerless.com/theia3d-documentation/data-collection/recording-extrinsic-chessboard-calibrations).
-The Collector adds one timing measurement.
-
-**Calibrate LTC (per PC and LTC output, each session).** It measures the small offset
-between the LTC in the audio and the video frames (K_av) for your exact
-hardware. Until you calibrate, the Collector uses 0 ms and Settings says
-"default 0 ms, not yet set for this output" in red. Calibrate at the start of
-every session. You can also type a measured value
-into **K_av (ms)** and press **Set**. To measure it:
-
-1. In **Settings > Sony**, under **Calibrate LTC**, press **Open clock page** and
-   make the page full screen. It shows the PC clock with two strips of squares
-   above it and two below.
-2. Point the LTC camera at the screen, straight on, with all four strips in
-   view.
-
-   ![The clock page full screen: the PC time with two strips of squares above it and two below](assets/windows-sony-theia/clock-page.png)
-   <p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #6: check against the current clock page</strong></p>
-3. Press **Calibrate**. The Collector plays LTC, records 12 seconds, copies the
-   clip and reads the clock from the video. After about a minute it shows the
-   result, for example "K_av = 9 ms (spread 18 ms)", and saves it
-   for that LTC output. If the camera missed the recording, the run fails
-   rather than reading an older clip.
-
-The value is kept per LTC output and per version of the Collector's LTC
-player, so a Collector update that changes the player asks for a new
-calibration. Each take saves the K_av in effect when it was recorded, and
-Align uses that value (see [Post-processing](#post-processing)).
-
-To check whether the value holds, run a **batch** (the row under Calibrate):
-**Run length (s)** (60 by default), **Runs per player** (4) and **Sets** (100).
-Each set restarts the LTC signal, a fresh start of the output, then records
-that many runs on it. The line beside **Run batch** shows how many runs that is
-and about how long; the defaults take most of a night, so lower **Sets** for a
-quick check. **Stop** ends the batch after the current run. The median of the
-runs that read the clock page is saved.
-
-Every Calibrate, every batch run, every value you **Set** by hand and every
-Check LTC that decoded is added to a log, `calibration\kav_log.csv` in the collector
-folder (**Open log** opens its folder). The **History** line under the buttons
-sums it up for the picked output: how many calibrations, their median, spread,
-range and the last value. A steady history means you can calibrate less often;
-a wandering one means calibrate each session. If the values fall into separate
-groups, a red note says which kind:
-
-- **whole screen refreshes apart** (about 17 ms): the clock page's display
-  delay changed between runs, not the LTC; the median of all runs is kept;
-- **not whole refreshes apart**: this output does not start at the same offset
-  every time. Calibrate every session.
-
-Calibrate again after changing the PC, the LTC output or the audio adapter.
-
-## How to stream
+## Collect
 
 **Start Stream** starts every camera through the control box and **Stop
 Stream** stops them; the LTC plays into the LTC camera throughout if it is on.
@@ -271,7 +280,7 @@ be pulled by Align on its own while the rig is still connected. Everything
 Align writes goes to `aligned\<session>\` beside `data\` in the collector
 folder; the session's raw files are never changed.
 
-## Post-processing
+## Postproc
 
 A typical session: record one take, pull its clips and align it to check that
 everything lines up, then record the rest and pull and align them all together
