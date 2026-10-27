@@ -12,7 +12,7 @@ Reference material for LEVEL Motion sensors and apps.
 | App | Latest version | Get it |
 |---|---|---|
 | LEVEL Collector for Android | 0.1.13 | [Google Play](https://play.google.com/store/apps/details?id=com.lvlmotion.appsensor) |
-| LEVEL Collector for Windows | 0.1.41 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
+| LEVEL Collector for Windows | 0.1.43 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
 
 ### [Hardware](hardware)
 
