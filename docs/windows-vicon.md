@@ -94,6 +94,8 @@ Nexus**. The **Data** line reads "● ready — DataStream ... Hz" and the Vicon
 card in the sidebar turns green. The **Nexus session** line shows the Nexus
 folder the Collector is watching.
 
+![Vicon panel on the Collect tab before Connect to Nexus: the Connect to Nexus button, Data reading "not connected — press Connect to Nexus once Nexus is Live" and Nexus session "unknown"; the Vicon card in the sidebar reads "not connected — press Connect to Nexus"](assets/windows-vicon/collect-vicon-panel.png)
+
 Then do a short test take: the Vicon card in the sidebar should
 stay **green**, reading "receiving — frame ..." at about the Vicon frame rate.
 
