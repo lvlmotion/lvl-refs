@@ -145,7 +145,6 @@ In the Collector's **Settings** tab:
    with the output's Windows volume at 50%.
 
 ![Sony panel in Settings: control box address, Sony video folder, LTC output and gain on the left; Calibrate LTC on the right](assets/windows-sony-theia/settings-sony-panel.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #12 (on 0.1.42+): Settings > Sony panel without the auto-get browser key checkbox, and with the single-backslash folder hint</strong></p>
 
 ### Calibrate LTC on this PC
 
@@ -212,7 +211,6 @@ live, so there is nothing to scan; **Scan All** leaves Sony alone.
    **grandmaster heard** with the clock offset.
 
 ![Sony panel on the Collect tab: Play LTC signal on, two cameras listed with camera 001 picked as the LTC camera, and the PTP line reading grandmaster heard](assets/windows-sony-theia/sony-panel-ltc-picked.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #5: current Sony panel with Init rig and Pull all clips, PTP line inside Rig details, stamped player (no FREE-RUNNING)</strong></p>
 
 ## Initialize
 
@@ -277,7 +275,6 @@ something is wrong. If you start a take with Sony on but **Play LTC
 signal** off, the log warns that the take will align without LTC.
 
 ![Sony panel during a take: both cameras Recording, LTC on, and the Sony card in the sidebar reading REC](assets/windows-sony-theia/sony-recording.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #7: current Sony panel during a take (no Get Browser Key / Link Date/Time / Unmute buttons)</strong></p>
 
 ## Files generated
 

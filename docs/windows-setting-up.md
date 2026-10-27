@@ -13,8 +13,7 @@ done (see its page: [LEVEL Sensors](windows-level-sensors.html),
 [Vicon](windows-vicon.html)) and the systems you use are ticked in
 **Settings > Sync** (see [Settings](windows-settings)).
 
-![Collect tab with the sensors connected, the Polar H10 strap ready, the Sony panel waiting for an LTC camera, and all four systems in the status sidebar](assets/windows-setting-up/collect-tab-all-systems.png)
-<p style="color:#FF3B30;font-size:1.3em"><strong>RETAKE SCREENSHOT #1 (on 0.1.41+): Vicon card reads "not connected — press Connect to Nexus" before Connect to Nexus is pressed (0.1.39 shows "idle — Nexus gives no ready signal"); Sony panel has Init rig / Pull all clips instead of Get Browser Key, Link Date/Time, Unmute</strong></p>
+![Collect tab after Scan All: two LEVEL sensors found, the Sony panel with Init rig and Pull all clips, the Vicon panel with Connect to Nexus, and all four systems in the status sidebar; Scan All, the sidebar and Start Stream boxed](assets/windows-setting-up/collect-tab-all-systems.png)
 
 **Plug the LEVEL Hub into the PC first.** With LEVEL sensors turned on, the
 Collector cannot start a recording without it: the start button reads

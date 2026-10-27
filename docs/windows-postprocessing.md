@@ -11,7 +11,7 @@ The **Postproc** tab works on takes you have already recorded. It has two
 parts: a shortcut to the last take, and **Align to PC clock**, which puts the
 other systems' data on the same clock as the LEVEL sensors.
 
-<p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT #8: top of the Postproc tab: the Last session row and the buttons above the Align to PC clock table (Enumerate, Run on ticked)</strong></p>
+![Top of the Postproc tab: the Last session row with Open folder and Plot; under Align to PC clock, the Enumerate and Run on ticked buttons, then Clear table, Package for support, the Sony K_av tick box and the start of the table](assets/windows-postprocessing/postproc-top.png)
 
 ## Last session
 

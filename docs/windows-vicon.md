@@ -67,6 +67,8 @@ are the ones that let the Collector start and read a capture, in Nexus's
 - A session selected in Nexus's **Data Management**. The Collector reads it to
   check trial names and that each trial was saved.
 
+![Nexus Capture Tools, Auto Capture Setup: Start/Stop on remote trigger and Start/Stop over network ticked, set to Receive, address All, port 30, with the Arm button and the Lock icon next to it](assets/windows-vicon/nexus-arm.png)
+
 In the Collector's **Settings** tab:
 
 1. **Settings > Sync:** tick **Vicon**, with the Collector as master.
@@ -94,8 +96,6 @@ folder the Collector is watching.
 
 Then do a short test take: the Vicon card in the sidebar should
 stay **green**, reading "receiving — frame ..." at about the Vicon frame rate.
-
-<p style="color:#FF3B30;font-size:1.3em"><strong>TODO SCREENSHOT #9: Vicon panel in the Collect tab, connected (green), before Start Stream</strong></p>
 
 ## Collect
 
