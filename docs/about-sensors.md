@@ -1,14 +1,14 @@
 ---
 title: About Sensors
 parent: Hardware
-description: sensor basics - charging, waking, resetting, and what the LED means
+description: sensor basics - charging, waking, resetting, what the LED means, and the sensor's axes
 nav_order: 2
 ---
 
 # About Sensors
 
-The basics of handling a sensor: charging it, waking it, resetting it, and
-reading the light on it.
+The basics of handling a sensor: charging it, waking it, resetting it,
+reading the light on it, and which way its axes point.
 
 <figure>
   <img src="assets/about-sensors/sensor-top.jpg" alt="A LEVEL Inez sensor, a small black square unit with a status LED, a button, a USB-C charging port, and a reset button" width="320">
@@ -75,3 +75,27 @@ and error states.
   deployment may use different colours.
 - **No light at all** means the sensor is asleep or the battery is fully
   depleted.
+
+## Sensor axes
+
+The sensor measures movement along and around three axes, X, Y and Z, fixed to
+the sensor itself. Find them using the button and the LED on the face:
+
+- **+Z** points straight out of the face with the button and LED.
+- **+Y** points from the button toward the LED.
+- **+X** points across the face, at a right angle to Y. With the face toward you
+  and the LED to the right of the button, +X points down.
+
+<figure>
+  <img src="assets/about-sensors/sensor-axes.svg" alt="Diagram of the sensor's axes. Top view with the button and LED facing you: +Y points from the button to the LED, +X points down, +Z points out of the face toward you. A 3D view shows the same three axes on the sensor." width="680">
+  <figcaption>The sensor's X, Y and Z axes. They move with the sensor, so they depend on how it is worn.</figcaption>
+</figure>
+
+A rotation around an axis is positive when it turns counter-clockwise as you
+look down that axis toward the sensor (the right-hand rule: point your right
+thumb along the axis and your fingers curl in the positive direction).
+
+When a sensor lies flat with its face up, +Z points up. Turning it flat on a
+table turns it around Z; tipping it toward or away from the LED turns it around
+X; rolling it sideways turns it around Y.
+
