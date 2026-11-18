@@ -13,6 +13,7 @@ Reference material for LEVEL Motion sensors and apps.
 |---|---|---|
 | LEVEL Collector for Android | 0.1.13 | [Google Play](https://play.google.com/store/apps/details?id=com.lvlmotion.appsensor) |
 | LEVEL Collector for Windows | 0.1.43 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
+| LEVEL Collector for Ubuntu | beta | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
 | LEVEL Mobility for Android | beta | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
 | LEVEL ROM for Android | 0.1.0 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
 | LEVEL Sensor SDK for Android | 1.4.4-5bc46e5-1.0 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
@@ -41,7 +42,7 @@ The LEVEL Inez wearable motion sensor and the LEVEL Hub USB receiver.
 
 | Feature | Specification |
 |---|---|
-| Connects to | an Android phone (USB-C) or a Windows PC (USB) |
+| Connects to | an Android phone (USB-C), or a Windows or Ubuntu PC (USB) |
 | Sensors with a Hub | up to 7 sensors at 100 Hz |
 | Sensors with Android's own Bluetooth | up to 3 sensors at 100 Hz |
 | Sensors with Windows' own Bluetooth | not supported |
@@ -53,7 +54,7 @@ The research app for recording LEVEL sensors together with other devices, on a p
 - Everything on one clock
 - The phone app runs on Android 12 or later
 
-| Device or system | What it adds | Android | Windows | Ubuntu (in testing) |
+| Device or system | What it adds | Android | Windows | Ubuntu |
 |---|---|---|---|---|
 | **Android phone sensors** | GPS, barometer, step counter | yes | - | - |
 | **LEVEL Inez sensors** | accelerometer and gyroscope motion data | yes | yes | yes |
