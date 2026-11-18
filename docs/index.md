@@ -46,20 +46,20 @@ The LEVEL Inez wearable motion sensor and the LEVEL Hub USB receiver.
 | Sensors with Android's own Bluetooth | up to 3 sensors at 100 Hz |
 | Sensors with Windows' own Bluetooth | not supported |
 
-### LEVEL Collector for [Android](android) and [Windows](desktop-recorder)
+### LEVEL Collector for [Android](android), [Windows](desktop-recorder) and Ubuntu
 
 The research app for recording LEVEL sensors together with other devices, on a phone in the field or on a PC in the lab.
 
 - Everything on one clock
 - The phone app runs on Android 12 or later
 
-| Device or system | What it adds | Android | Windows |
-|---|---|---|---|
-| **Android phone sensors** | GPS, barometer, step counter | yes | - |
-| **LEVEL Inez sensors** | accelerometer and gyroscope motion data | yes | yes |
-| **Polar H10** chest strap | heart rate, RR intervals, ECG, chest motion | yes | yes |
-| **Sony RX0 II cameras** with **Theia** markerless tracking | timecode so video and sensor data line up | - | yes |
-| **Vicon** motion capture | start/stop trigger and frame count to line the recordings up | - | yes |
+| Device or system | What it adds | Android | Windows | Ubuntu (in testing) |
+|---|---|---|---|---|
+| **Android phone sensors** | GPS, barometer, step counter | yes | - | - |
+| **LEVEL Inez sensors** | accelerometer and gyroscope motion data | yes | yes | yes |
+| **Polar H10** chest strap | heart rate, RR intervals, ECG, chest motion | yes | yes | - |
+| **Sony RX0 II cameras** with **Theia** markerless tracking | timecode so video and sensor data line up | - | yes | - |
+| **Vicon** motion capture | start/stop trigger and frame count to line the recordings up | - | yes | - |
 
 How each one lines up with the sensor data is on its own page in the [LEVEL Collector for Windows](desktop-recorder) guide.
 

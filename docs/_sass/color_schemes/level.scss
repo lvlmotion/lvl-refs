@@ -31,3 +31,7 @@ $border-color:               $level-border;
 // Active / hover nav uses the deep teal so it reads as "Level green"
 $nav-list-link-color:        #e6e6e6;
 $nav-list-item-border-color: $level-border;
+
+// Layout: main column wider than the theme's 50rem so the Home tables
+// (device table with one column per platform) fit without wrapping.
+$content-width: 64rem;
