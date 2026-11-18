@@ -48,23 +48,22 @@ The LEVEL Inez wearable motion sensor and the LEVEL Hub USB receiver.
 | Sensors per Hub | up to 7 sensors at 100 Hz |
 | Without a Hub | a phone's own Bluetooth handles up to 3 sensors at 100 Hz |
 
-### [LEVEL Collector for Android](android)
+### LEVEL Collector for [Android](android) and [Windows](desktop-recorder)
 
-The phone app for recording LEVEL sensors in the lab or in the field.
+The research app for recording LEVEL sensors together with other devices, on a phone in the field or on a PC in the lab.
 
-- Runs on Android 12 or later
-- Records the phone's GPS, barometer and step counter with the sensors
-- Records heart rate, RR intervals and ECG from a Polar H10 chest strap
 - Everything on one clock
+- The phone app runs on Android 12 or later
 
-### [LEVEL Collector for Windows](desktop-recorder)
+| Device or system | What it adds | Android | Windows |
+|---|---|---|---|
+| **Android phone sensors** | GPS, barometer, step counter | yes | - |
+| **LEVEL Inez sensors** | accelerometer and gyroscope motion data | yes | yes |
+| **Polar H10** chest strap | heart rate, RR intervals, ECG, chest motion | yes | yes |
+| **Sony RX0 II cameras** with **Theia** markerless tracking | timecode so video and sensor data line up | - | yes |
+| **Vicon** motion capture | start/stop trigger and frame count to line the recordings up | - | yes |
 
-The Windows app for recording LEVEL sensors together with lab systems.
-
-- Records alongside Vicon motion capture, lined up by start/stop trigger and frame count
-- Records alongside Sony RX0 II cameras with Theia markerless tracking, lined up by timecode
-- Records heart rate, RR intervals and ECG from a Polar H10 chest strap
-- Everything on one clock
+How each one lines up with the sensor data is on its own page in the [LEVEL Collector for Windows](desktop-recorder) guide.
 
 ### [LEVEL Mobility for Android](mobility)
 
@@ -87,16 +86,5 @@ A library for building LEVEL sensors into your own Android app.
 - One library file to add to your app
 - Streams calibrated accelerometer and gyroscope data at 100 Hz per sensor
 - Starter app included
-
-## Works with
-
-| Device or system | What it adds | Phone | Desktop |
-|---|---|---|---|
-| **Polar H10** chest strap | heart rate, RR intervals, ECG, chest motion | yes | yes |
-| **Phone sensors** | GPS, barometer, step counter | yes | - |
-| **Vicon** motion capture | start/stop trigger and frame count to line the recordings up | - | yes |
-| **Sony RX0 II cameras** with **Theia** markerless tracking | timecode so video and sensor data line up | - | yes |
-
-How each one lines up with the sensor data is on its own page in the [LEVEL Collector for Windows](desktop-recorder) guide.
 
 For more information, see [lvlmotion.com](https://lvlmotion.com), or email [info@lvlmotion.com](mailto:info@lvlmotion.com).
