@@ -4,6 +4,7 @@ remote_theme: just-the-docs/just-the-docs
 color_scheme: level
 plugins:
   - jekyll-remote-theme
+  - jekyll-redirect-from
 
 defaults:
   - scope:

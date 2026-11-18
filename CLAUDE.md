@@ -41,7 +41,8 @@ lvl-refs/
   `desktop-recorder.md`) is for existing users and ends with a hand-written
   "Table of contents" (`has_toc: false` turns the theme's own off). **When you
   add a guide, also add a line for it to its section page's list.**
-  Specifications live on their own page, `sensors-and-apps.md`.
+  Specifications (the LEVEL Inez and LEVEL Hub tables, and "Works with") live
+  on the landing page.
 
 ## Adding or editing a guide
 

@@ -1,6 +1,6 @@
 ---
 title: Hardware
-description: LEVEL Inez sensors and the LEVEL Hub - specifications, handling, placement and firmware
+description: LEVEL Inez sensors and the LEVEL Hub - handling, placement and firmware
 nav_order: 2
 has_children: true
 has_toc: false
@@ -8,11 +8,10 @@ has_toc: false
 
 # Hardware
 
-The LEVEL Inez sensors and the LEVEL Hub USB receiver: specifications, handling, where to place the sensors on the body, and firmware updates.
+The LEVEL Inez sensors and the LEVEL Hub USB receiver: handling, where to place the sensors on the body, and firmware updates.
 
 ## Table of contents
 
-- [Sensors and Apps](sensors-and-apps) - specifications and compatibility
 - [About Sensors](about-sensors) - charging, waking, resetting, and what the LED means
 - [Sensor Placement Guide](sensor-placement) - where to place each sensor on the body and why
 - [Updating Firmware](updating-firmware) - update a sensor or LEVEL Hub over Bluetooth
