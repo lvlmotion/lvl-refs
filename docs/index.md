@@ -37,7 +37,6 @@ The phone app for recording LEVEL sensors in the lab or in the field.
 - Records the phone's GPS, barometer and step counter with the sensors
 - Records heart rate, RR intervals and ECG from a Polar H10 chest strap
 - Everything on one clock
-- Share recordings straight from the phone
 
 ### [LEVEL Collector for Windows](desktop-recorder)
 
