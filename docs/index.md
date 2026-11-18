@@ -43,8 +43,9 @@ The LEVEL Inez wearable motion sensor and the LEVEL Hub USB receiver.
 | Feature | Specification |
 |---|---|
 | Connects to | an Android phone (USB-C) or a Windows PC (USB) |
-| Sensors per Hub | up to 7 sensors at 100 Hz |
-| Without a Hub | a phone's own Bluetooth handles up to 3 sensors at 100 Hz |
+| Sensors with a Hub | up to 7 sensors at 100 Hz |
+| Sensors with Android's own Bluetooth | up to 3 sensors at 100 Hz |
+| Sensors with Windows' own Bluetooth | not supported |
 
 ### LEVEL Collector for [Android](android) and [Windows](desktop-recorder)
 
