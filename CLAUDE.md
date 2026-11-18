@@ -35,7 +35,7 @@ lvl-refs/
 - The sidebar is always fully expanded (`docs/_sass/custom/custom.scss`).
 - The landing page (`index.md`) is for potential customers: a "Latest
   versions" table (app, version, where to get it; **update it on every
-  release** of LEVEL Collector, LEVEL ROM or the LEVEL Sensor SDK), then one
+  release** of LEVEL Collector, LEVEL Mobility, LEVEL ROM or the LEVEL Sensor SDK), then one
   block of high-level features per product. It does not list the guides.
 - Each product section page (`hardware.md`, `android.md`,
   `desktop-recorder.md`) is for existing users and ends with a hand-written

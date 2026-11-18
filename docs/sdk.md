@@ -1,7 +1,7 @@
 ---
 title: LEVEL Sensor SDK for Android
 description: stream LEVEL Inez sensors into your own Android app
-nav_order: 6
+nav_order: 7
 ---
 
 # LEVEL Sensor SDK for Android

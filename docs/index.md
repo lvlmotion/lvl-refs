@@ -13,6 +13,7 @@ Reference material for LEVEL Motion sensors and apps.
 |---|---|---|
 | LEVEL Collector for Android | 0.1.13 | [Google Play](https://play.google.com/store/apps/details?id=com.lvlmotion.appsensor) |
 | LEVEL Collector for Windows | 0.1.43 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
+| LEVEL Mobility for Android | 0.1.0 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
 | LEVEL ROM for Android | 0.1.0 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
 | LEVEL Sensor SDK for Android | 1.4.4-5bc46e5-1.0 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
 
@@ -47,6 +48,13 @@ The Windows app for recording LEVEL sensors together with lab systems.
 - Records heart rate, RR intervals and ECG from a Polar H10 chest strap
 - Everything on one clock
 
+### [LEVEL Mobility for Android](mobility)
+
+The clinical phone app that turns sensor recordings into gait and mobility results. In development.
+
+- Three built-in tests: walking, Timed Up and Go, and balance
+- Live feedback during walking and balance
+
 ### [LEVEL ROM for Android](rom)
 
 The phone app for measuring joint range of motion.
@@ -61,9 +69,5 @@ A library for building LEVEL sensors into your own Android app.
 - One library file to add to your app
 - Streams calibrated accelerometer and gyroscope data at 100 Hz per sensor
 - Starter app included
-
-### LEVEL Mobility
-
-A clinical app that turns sensor recordings into gait and mobility results for standard tests such as timed walks and the Timed Up and Go. In development and not yet available.
 
 For more information, see [lvlmotion.com](https://lvlmotion.com), or email [info@lvlmotion.com](mailto:info@lvlmotion.com).
