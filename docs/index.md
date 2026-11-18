@@ -27,7 +27,6 @@ The LEVEL Inez wearable motion sensor and the LEVEL Hub USB receiver.
 |---|---|
 | Motion sensing | 6-axis: 3-axis accelerometer (±16 g) and 3-axis gyroscope (±2000 deg/s) |
 | Size and weight | 37.8 × 40.2 × 10.9 mm, 13 g |
-| Sensors per recording | up to 3 at 100 Hz over a phone's own Bluetooth; up to 7 at 100 Hz through LEVEL Hub |
 | Sampling rate | set per recording; 50, 100 and 200 Hz |
 | Wireless | Bluetooth 5 (Low Energy) |
 | Battery | 36 hours of continuous streaming at 100 Hz |
