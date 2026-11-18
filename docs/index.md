@@ -1,8 +1,6 @@
 ---
 title: Home
 nav_order: 1
-redirect_from:
-  - /sensors-and-apps.html
 ---
 
 # LEVEL References
