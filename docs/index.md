@@ -13,38 +13,57 @@ Reference material for LEVEL Motion sensors and apps.
 |---|---|---|
 | LEVEL Collector for Android | 0.1.13 | [Google Play](https://play.google.com/store/apps/details?id=com.lvlmotion.appsensor) |
 | LEVEL Collector for Windows | 0.1.43 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
+| LEVEL ROM for Android | 0.1.0 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
+| LEVEL Sensor SDK for Android | 1.4.4-5bc46e5-1.0 | Email [info@lvlmotion.com](mailto:info@lvlmotion.com) |
 
 ### [Hardware](hardware)
 
-The LEVEL Inez sensors and the LEVEL Hub USB receiver: specifications, handling, where to place the sensors on the body, and firmware updates.
+The LEVEL Inez wearable motion sensor and the LEVEL Hub USB receiver.
 
-- [Sensors and Apps](sensors-and-apps) - specifications and compatibility
-- [About Sensors](about-sensors) - charging, waking, resetting, and what the LED means
-- [Sensor Placement Guide](sensor-placement) - where to place each sensor on the body and why
-- [Updating Firmware](updating-firmware) - update a sensor or LEVEL Hub over Bluetooth
+- 13 g sensor with a 3-axis accelerometer (±16 g) and a 3-axis gyroscope (±2000 deg/s)
+- Records at 50, 100 or 200 Hz
+- 36 hours of continuous streaming at 100 Hz on one charge, USB-C charging
+- Up to 3 sensors at 100 Hz over a phone's own Bluetooth, or up to 7 through a LEVEL Hub
+- The LEVEL Hub keeps all sensors within 5 ms of each other
+- A button on the sensor marks events in the recording
+- Firmware updates over Bluetooth
+- Data saved as plain CSV files
 
 ### [LEVEL Collector for Android](android)
 
-The phone app (labelled LEVEL Sensor on the phone) for recording LEVEL sensors and sharing the data, available [on Google Play](https://play.google.com/store/apps/details?id=com.lvlmotion.appsensor).
+The phone app for recording LEVEL sensors in the lab or in the field.
 
-- [Collecting Data](collecting-data) - connect sensors, set up a profile, and record a session
-- [Sharing Recorded Data](sharing-data) - send session data off the phone, right after recording or later with My Files
+- Records the phone's GPS, barometer and step counter with the sensors
+- Records heart rate, RR intervals and ECG from a Polar H10 chest strap
+- Everything on one clock
+- Share recordings straight from the phone
 
 ### [LEVEL Collector for Windows](desktop-recorder)
 
-The Windows app for recording LEVEL sensors through the LEVEL Hub alongside Polar H10, Sony cameras and Vicon, all on one clock, available by email from [info@lvlmotion.com](mailto:info@lvlmotion.com).
+The Windows app for recording LEVEL sensors together with lab systems.
 
-- [Installing and Updating](windows-installing) - installing, updates and getting help
-- [Settings](windows-settings) - root folder, the Python setup, the sync table, per-system settings
-- [Quick Start](windows-setting-up) - the order to get every system ready, what to check and calibrate, recording, and the status sidebar
-- [Post-processing a Recording](windows-postprocessing) - opening and plotting the last take, and Align to PC clock
-- [LEVEL Sensors](windows-level-sensors) - connecting, rate, the sensor table, time sync and files
-- [Polar H10](windows-polar-h10) - pairing, picking the strap, warm-up, files
-- [Sony Cameras and Theia](windows-sony-theia) - camera control, LTC timecode audio, pulling and aligning clips
-- [Vicon](windows-vicon) - Nexus triggering, frame timing, force plates
+- Records alongside Vicon motion capture, lined up by start/stop trigger and frame count
+- Records alongside Sony RX0 II cameras with Theia markerless tracking, lined up by timecode
+- Records heart rate, RR intervals and ECG from a Polar H10 chest strap
+- Everything on one clock
+
+### [LEVEL ROM for Android](rom)
+
+The phone app for measuring joint range of motion.
+
+- Live joint range of motion from sensors on the thigh, shank, chest, upper arm or forearm
+- Up to 2 measured segments against an optional reference sensor
 
 ### [LEVEL Sensor SDK for Android](sdk)
 
-A library for streaming LEVEL Inez sensors into your own Android app over the phone's Bluetooth, with a starter app. Available on request.
+A library for building LEVEL sensors into your own Android app.
+
+- One library file to add to your app
+- Streams calibrated accelerometer and gyroscope data at 100 Hz per sensor
+- Starter app included
+
+### LEVEL Mobility
+
+A clinical app that turns sensor recordings into gait and mobility results for standard tests such as timed walks and the Timed Up and Go. In development and not yet available.
 
 For more information, see [lvlmotion.com](https://lvlmotion.com), or email [info@lvlmotion.com](mailto:info@lvlmotion.com).

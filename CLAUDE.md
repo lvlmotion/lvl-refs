@@ -2,7 +2,7 @@
 
 Public reference site for LEVEL Motion sensors and apps (user manuals, FAQs,
 hardware guides). Published via GitHub Pages at
-https://lvlmotion.github.io/lvl-refs/ — pushes to `main` rebuild the live site
+https://lvlmotion.github.io/lvl-refs/ — pushes to `dev` rebuild the live site
 in about a minute, so treat every push as a production deploy.
 
 `README.md` is deliberately minimal: it is the public landing card for the
@@ -17,7 +17,7 @@ lvl-refs/
   CLAUDE.md            this file — contributor conventions
   docs/                published content (Pages serves this folder)
     _config.yml        site config (just-the-docs via remote_theme)
-    index.md           landing page: quick links + guides grouped by product
+    index.md           landing page: latest versions + features per product
     *.md               one guide per file
     assets/            images, grouped per guide
 ```
@@ -32,11 +32,15 @@ lvl-refs/
   overrides the remote theme's, so this works without vendoring the theme.
 - The sidebar nav is generated automatically from every page that has a
   `title` in its front matter, ordered by `nav_order`.
-- The landing page (`index.md`) is a hand-written table of contents: a "Latest
-  versions" table (app, version, where to get it; **update it on every app
-  release**), then the guides grouped by product (Hardware: LEVEL Inez and LEVEL Hub;
-  LEVEL Collector for Android; LEVEL Collector for Windows). **When you add a
-  guide, also add a line for it under the right group in `index.md`.**
+- The sidebar is always fully expanded (`docs/_sass/custom/custom.scss`).
+- The landing page (`index.md`) is for potential customers: a "Latest
+  versions" table (app, version, where to get it; **update it on every
+  release** of LEVEL Collector, LEVEL ROM or the LEVEL Sensor SDK), then one
+  block of high-level features per product. It does not list the guides.
+- Each product section page (`hardware.md`, `android.md`,
+  `desktop-recorder.md`) is for existing users and ends with a hand-written
+  "Table of contents" (`has_toc: false` turns the theme's own off). **When you
+  add a guide, also add a line for it to its section page's list.**
   Specifications live on their own page, `sensors-and-apps.md`.
 
 ## Adding or editing a guide

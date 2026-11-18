@@ -1,0 +1,9 @@
+// Sidebar: every section stays expanded on every page, so the full list of
+// guides is always visible. The expand/collapse arrows are hidden to match.
+.site-nav .nav-list .nav-list-item > .nav-list {
+  display: block;
+}
+
+.site-nav .nav-list .nav-list-item .nav-list-expander {
+  display: none;
+}
