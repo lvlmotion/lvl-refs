@@ -30,7 +30,7 @@ The LEVEL Inez wearable motion sensor and the LEVEL Hub USB receiver.
 | Size and weight | 37.8 × 40.2 × 10.9 mm, 13 g |
 | Sampling rate | set per recording; 50, 100 and 200 Hz |
 | Wireless | Bluetooth 5 (Low Energy) |
-| Battery | 40 hours of continuous streaming at 100 Hz |
+| Battery | 48 hours of continuous streaming at 100 Hz |
 | Charging | USB-C |
 | Other features | one multi-colour LED; programmable button to log events |
 | Time sync | LEVEL Hub beacon clock ensures all sensors maintain under 5 ms drift of each other |
