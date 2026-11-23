@@ -24,9 +24,9 @@ recording on each, while streaming:
 
 | Battery level | Cell voltage | Charge left | Recording time left |
 |---|---|---|---|
-| HIGH | above 3.5 V | 30 to 100% | 24+ hours |
-| MED | 3.3 to 3.5 V | 5 to 30% | about 9 hours |
-| LOW | 3.3 V or below | 0 to 5% | about 30 minutes |
+| HIGH | above 3.5 V | 20 to 100% | 10+ hours (about 50 hours from full) |
+| MED | 3.3 to 3.5 V | 4 to 20% | about 10 hours at the start of MED |
+| LOW | 3.3 V or below | 0 to 4% | under 1 hour |
 | NO BATTERY | 0 V (no reading) | 0% | 0 minutes, recharge now |
 
 The last part of the battery drains fast: a sensor drops from MED to empty much
